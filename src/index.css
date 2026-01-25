@@ -1,13 +1,551 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Existing Whatnot font */
+@font-face {
+  font-family: 'Whatnot';
+  src: url('./fonts/WhatnotW00-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
+.font-whatnot {
+  font-family: 'Whatnot', sans-serif;
+}
+
+/* Add Dudu_Calligraphy */
+@font-face {
+  font-family: 'Dudu_Calligraphy';
+  src: url('./fonts/Dudu_Calligraphy.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-dudu {
+  font-family: 'Dudu_Calligraphy', cursive;
+}
+
+/* Hide default cursor on real mouse devices */
+@media (hover: hover) and (pointer: fine) {
+  body, body * {
+    cursor: none !important;
+  }
+}
+
+/* Slow heartbeat animation */
+@keyframes heartbeat-slow {
+  0%, 100% {
+    transform: scale(1) rotate(-6deg);
+  }
+  25% {
+    transform: scale(1.03) rotate(-6deg);
+  }
+  50% {
+    transform: scale(1) rotate(-6deg);
+  }
+  75% {
+    transform: scale(1.03) rotate(-6deg);
+  }
+}
+
+
+
+
+.animate-heartbeat-slow {
+  animation: heartbeat-slow 3s ease-in-out infinite; /* 3 seconds = very slow */
+}
+
+/* Custom cursor using SVG */
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 999999;
+  will-change: transform;
+   background-image: url('./assets/cursor.svg');/* ← Change this to your SVG path */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: width 0.01s ease, height 0.13s ease;
+  transform: translate(-50%, -50%);
+}
+
+/* SMALL cursor for interactive elements (smaller triangle) */
+#custom-cursor.small-cursor {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* Ensure smooth rotation transitions */
+#custom-cursor {
+  transition: width 0.15s ease, height 0.15s ease, transform 0.15s ease;
+}
+
+/* Ensure smooth rotation transitions */
+#custom-cursor {
+  transition: width 0.15s ease, height 0.15s ease, transform 0.15s ease;
+}
+
+
+/* Interactive elements that should trigger small cursor */
+a:hover ~ #custom-cursor,
+button:hover ~ #custom-cursor,
+[role="button"]:hover ~ #custom-cursor,
+[onclick]:hover ~ #custom-cursor,
+.cursor-pointer:hover ~ #custom-cursor,
+.interactive-element:hover ~ #custom-cursor,
+a:focus ~ #custom-cursor,
+button:focus ~ #custom-cursor {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Specific class for interactive elements */
+.interactive-cursor:hover ~ #custom-cursor {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Hide default cursor on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  body * {
+    cursor: none !important;
+  }
+}
+
+
+/* Fix sticky on iOS */
+@supports (-webkit-touch-callout: none) {
+  .sticky {
+    position: fixed;
+    width: 100%;
+  }
+  
+  body {
+    padding-top: 48px; /* Adjust based on your navbar height */
+  }
+  
+  @media (min-width: 640px) {
+    body {
+      padding-top: 64px; /* For sm:h-16 */
+    }
+  }
+}
+
+@layer utilities {
+  @media (min-width: 320px) and (max-width: 430px) {
+    .text-xxs {
+      font-size: 11px; /* or whatever size you want */
+    }
+  }
+}
+
+@layer utilities {
+  @media (min-width: 320px) and (max-width: 350px) {
+    .br-mobile {
+      display: block !important;
+    }
+  }
+}
+
+
+
+/* Extend footer color beyond viewport */
+html::after {
+  content: '';
+  position: fixed;
+  bottom: -100vh;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: #C33E23;
+  z-index: -1;
+}
+
+/* Or target iOS specifically */
+@supports (-webkit-touch-callout: none) {
+  body {
+    background: linear-gradient(to bottom, #F3E6D4 90%, #C33E23 90%);
+  }
+}
+
+/* Prevent iOS rubber band effect */
+html, body {
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: auto;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #F3E6D4; /* Match your page background */
+}
+
+/* If using a wrapper */
+#root, .main-content {
+  background-color: #F3E6D4;
+  min-height: 100vh;
+}
+
+/* iPad Air specific - lower dropdown close button */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .dropdown-close-btn {
+    top: 20px !important;
+  }
+}
+
+@layer utilities {
+  @media (min-width: 767px) and (max-width: 875px) {
+    .center-polaroids {
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem; /* adjust spacing */
+    }
+  }
+}
+ 
+
+
+
+
+@media (min-width: 570px) and (max-width: 640px) {
+  .cta-button-container {
+    right: 7rem !important;
+    transform: rotate(-6deg) translateX(0) !important;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 420px) {
+  /* Move top row */
+  .center-polaroids {
+    transform: translateY(-30px);
+  }
+
+  /* Move bottom row */
+  .bottom-polaroids {
+    margin-top: -50px; /* adjust as needed */
+  }
+}
+
+
+
+ 
+
+ @media (min-width: 768px) and (max-width: 874px) {
+  .center-polaroids > div:first-child {
+    margin-right: -3rem; /* adjust slightly to remove gap */
+  }
+  .center-polaroids > div:last-child {
+    margin-left: -0.5rem; /* adjust slightly to remove gap */
+  }
+}
+
+
+@media (max-width: 875px) and (min-width: 370px) {
+  .responsive-intro {
+    font-size: clamp(1.2rem, 3vw, 3.5rem); /* smaller in this range */
+  }
+}
+
+/* Loading Screen Styles - Minimal */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #F3E6D4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.loading-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-gif {
+  max-width: 300px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+}
+
+/* Prevent scrolling while loading */
+body.loading {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+/* Main content transitions */
+.main-content {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.main-content.content-hidden {
+  opacity: 0;
+}
+
+.marquee-track {
+  animation: marquee-linear 18s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee-linear {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+/* Loading GIF - default */
+.loading-gif {
+  max-width: 300px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+}
+
+/* Make it smaller on phones/small screens */
+@media (max-width: 640px) {
+  .loading-gif {
+    max-width: 150px;
+    max-height: 150px;
+  }
+}
+
+/* Optional: even smaller for very tiny screens */
+@media (max-width: 400px) {
+  .loading-gif {
+    max-width: 120px;
+    max-height: 120px;
+  }
+}
+
+
+  
+  /* Apply mobile-specific animation */
+  .marquee-mobile {
+    animation: marquee-slow-mobile 40s linear infinite !important;
+  }
+
+/* Cursor scale states */
+#custom-cursor {
+  transform: translate(-50%, -50%) rotate(-20deg) scale(1);
+}
+
+#custom-cursor.small-cursor {
+  transform: translate(-50%, -50%) rotate(-20deg) scale(0.6);
+}
+
+/* Custom cursor should be hidden during loading */
+.loading-screen ~ #custom-cursor {
+  display: none !important;
+}
+
+/* Default custom cursor (global) */
+body {
+  cursor: url("/src/assets/cursor.svg"), auto;
+}
+
+/* When hovering flip card → ONLY interact cursor */
+.flip-card {
+  cursor: none !important;
+}
+
+/* Interact cursor image should not trigger cursor */
+.flip-card * {
+  cursor: none !important;
+}
+
+/* Pulse animation for FlipIcon */
+@keyframes flipPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.animate-flip-pulse {
+  animation: flipPulse 1.5s ease-in-out infinite;
+}
+
+/* Touch bounce animation for flip card */
+@keyframes touchBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-touch-bounce {
+  animation: touchBounce 3s ease-in-out infinite;
+}
+
+
+.arrow-long {
+  display: inline-flex;
+  align-items: center;
+  width: 90px; /* length of arrow */
+  height: 2px;
+  background-color: #F3E6D4;
+  position: relative;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%); /* move left half of total content */
+  }
+}
+
+/* Apply animation to the track container */
+.marquee-track {
+  display: flex;
+  gap: 1rem; /* space between screens */
+  animation: marquee 10s linear infinite; /* change 60s to adjust speed */
+}
+
+@supports (-webkit-touch-callout: none) {
+  .ios-fix {
+    margin-top: -2.7rem;
+  }
+}
+
+
+
+/* Improved marquee animation */
+.rect-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: rect-scroll 70s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@keyframes rect-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+/* Fix for video blinking */
+video {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+}
+
+
+/* Add to your CSS file (index.css or global.css) */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Keyframes for marquee animation */
+@keyframes rect-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%); /* move half the duplicated content */
+  }
+}
+
+
+
+@font-face {
+  font-family: 'maheeb';
+  src: url('./assets/maheeb.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* Add this to your global.css or App.css file */
+@font-face {
+  font-family: 'HalvarBreitschrift';
+  src: url('./assets/Halvar-Breitschrift-Regular-Demo.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HalvarBreitschrift';
+  src: url('./assets/Halvar-Breitschrift-Regular-Slanted-Demo.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HalvarBreitschrift';
+  src: url('./assets/Halvar-Breitschrift-Thin-Demo.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'HalvarBreitschrift';
+  src: url('./assets/Halvar-Breitschrift-Bold-Demo.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+.arrow-long::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #F3E6D4 ;
+  border-top: 2px solid #F3E6D4;
+  transform: rotate(45deg);
+}
+
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+@supports (padding: env(safe-area-inset-top)) {
+  nav {
+    padding-top: env(safe-area-inset-top);
+  }
 }
