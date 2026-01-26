@@ -88,6 +88,11 @@ useEffect(() => {
   pos.current.y = mouse.current.y;
 }, [location.pathname]);
 
+window.addEventListener("load", () => {
+  document.querySelectorAll(".marquee-track").forEach((el) => {
+    el.classList.add("is-ready");
+  });
+});
 
   useEffect(() => {
   // Skip first load (initial loader already handled)

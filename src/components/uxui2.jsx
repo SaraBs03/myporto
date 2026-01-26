@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react"
 import UILOOP_GIF from "../assets/UILOOP_GIF.gif";
 import { motion } from "framer-motion";
@@ -37,8 +36,6 @@ import high12 from "../assets/high12.png"
 import high13 from "../assets/high13.png"
 import high14 from "../assets/high14.png"
 
-
-
 import persona2 from "../assets/persona2.png"
 import persona3 from "../assets/persona3.png"
 import persona4 from "../assets/persona4.png"
@@ -46,9 +43,6 @@ import journeyDM from "../assets/journeyDM.png"
 
 import right from "../assets/right.svg"
 import left from "../assets/left.svg"
-
-
-
 
 export default function UxUi2() {
   const [isFlipCardHovered, setIsFlipCardHovered] = useState(false)
@@ -61,68 +55,62 @@ export default function UxUi2() {
   const imageRef = useRef(null)
   const flipCardRef = useRef(null)
   const [showTapHint, setShowTapHint] = useState(false)
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
+  const goToUxUi = () => {
+    navigate("/TG/uxui");
+  };
 
-const goToUxUi = () => {
-  navigate("/TG/uxui");
-};
+  function RectRow() {
+    const images = []
 
-  
- function RectRow() {
-  const images = []
-
-  return (
-  <div className="flex gap-5">
-    {Array.from({ length: 11 }).map((_, i) => (
-      <div
-        key={i}
-        className="
-          h-[330px] w-[480px]           /* Mobile default - less than half of XL */
-          sm:h-[350px] sm:w-[620px]     /* Small tablets */
-          md:h-[450px] md:w-[800px]     /* Tablets */
-          lg:h-[550px] lg:w-[1000px]    /* Laptops */
-          xl:h-[750px] xl:w-[1150px]    /* Desktop */
-          rounded-3xl bg-white shadow-sm py-4 px-4 flex items-center justify-center overflow-hidden flex-shrink-0
-        "
-      >
-        {i === 0 && (
-              <img
-              src={UILOOP_GIF}
-              alt="UI animation"
-              className="
-                h-[calc(100%-5px)] w-[calc(100%-5px)]
-                sm:h-[calc(100%-30px)] sm:w-[calc(100%-30px)]
-                md:h-[calc(100%-40px)] md:w-[calc(100%-40px)]
-                lg:h-[calc(100%-50px)] lg:w-[calc(100%-50px)]
-                xl:h-[calc(100%-70px)] xl:w-[calc(100%-70px)]
-                rounded-2xl object-cover pointer-events-none
-              "
-            />
-        )}
-        {i > 0 && i <= 10 && (
-          <img
-            src={images[i - 1]}
-            alt={`UI preview ${i}`}
+    return (
+      <div className="flex gap-5">
+        {Array.from({ length: 11 }).map((_, i) => (
+          <div
+            key={i}
             className="
-              h-[calc(100%-5px)] w-[calc(100%-5px)]  /* Mobile */
-              sm:h-[calc(100%-30px)] sm:w-[calc(100%-30px)]
-              md:h-[calc(100%-40px)] md:w-[calc(100%-40px)]
-              lg:h-[calc(100%-50px)] lg:w-[calc(100%-50px)]
-              xl:h-[calc(100%-70px)] xl:w-[calc(100%-70px)]
-              rounded-2xl object-cover
+              h-[330px] w-[480px]
+              sm:h-[350px] sm:w-[620px]
+              md:h-[450px] md:w-[800px]
+              lg:h-[550px] lg:w-[1000px]
+              xl:h-[750px] xl:w-[1150px]
+              rounded-3xl bg-white shadow-sm py-4 px-4 flex items-center justify-center overflow-hidden flex-shrink-0
             "
-          />
-        )}
+          >
+            {i === 0 && (
+              <img
+                src={UILOOP_GIF}
+                alt="UI animation"
+                className="
+                  h-[calc(100%-5px)] w-[calc(100%-5px)]
+                  sm:h-[calc(100%-30px)] sm:w-[calc(100%-30px)]
+                  md:h-[calc(100%-40px)] md:w-[calc(100%-40px)]
+                  lg:h-[calc(100%-50px)] lg:w-[calc(100%-50px)]
+                  xl:h-[calc(100%-70px)] xl:w-[calc(100%-70px)]
+                  rounded-2xl object-cover pointer-events-none
+                "
+              />
+            )}
+            {i > 0 && i <= 10 && (
+              <img
+                src={images[i - 1]}
+                alt={`UI preview ${i}`}
+                className="
+                  h-[calc(100%-5px)] w-[calc(100%-5px)]
+                  sm:h-[calc(100%-30px)] sm:w-[calc(100%-30px)]
+                  md:h-[calc(100%-40px)] md:w-[calc(100%-40px)]
+                  lg:h-[calc(100%-50px)] lg:w-[calc(100%-50px)]
+                  xl:h-[calc(100%-70px)] xl:w-[calc(100%-70px)]
+                  rounded-2xl object-cover
+                "
+              />
+            )}
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-)
-}
-
-
-
-
+    )
+  }
 
   useEffect(() => {
     const isTouchDevice =
@@ -186,8 +174,47 @@ const goToUxUi = () => {
 
   const handleFlipCardClick = () => {
     setIsFlipped(!isFlipped)
-    setShowTapHint(false) 
+    setShowTapHint(false)
   }
+
+  // 🔥 FIX: Inject correct marquee CSS for seamless loop + iPhone
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .animate-marquee, .animate-marquee-delayed {
+        display: flex;
+        will-change: transform;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform: translate3d(0, 0, 0);
+      }
+
+      .animate-marquee {
+        animation: marquee 14s linear infinite;
+        -webkit-animation: marquee 14s linear infinite;
+      }
+
+      .animate-marquee-delayed {
+        animation: marquee 18s linear infinite;
+        -webkit-animation: marquee 18s linear infinite;
+      }
+
+      @keyframes marquee {
+        0% { transform: translate3d(0, 0, 0); }
+        100% { transform: translate3d(-50%, 0, 0); }
+      }
+
+      @-webkit-keyframes marquee {
+        0% { -webkit-transform: translate3d(0, 0, 0); }
+        100% { -webkit-transform: translate3d(-50%, 0, 0); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    }
+  }, []);
 
   return (
    <main
@@ -480,7 +507,6 @@ every day.
   </h3>
 </motion.div>
 
-
 {/* Top two personas */}
   <div className="flex justify-center gap-4 w-full">
     <motion.img
@@ -516,10 +542,6 @@ every day.
     />
   </div>
 
-
-
-
-
 {/* persona Description — aligned with previous paragraphs */}
 <motion.div 
   className="xl:ml-[-80px] lg:ml-[-55px] md:ml-[-32px] xl:-mt-[0.7rem] -mt-[0.7rem] sm:-mt-[0.7rem] lg:-mt-[0.7rem] md:-mt-[0.7rem] max-w-full"
@@ -543,7 +565,6 @@ independent and in control, children who need a simple and reassuring way to und
   manage their health.
   </p>
 </motion.div>
-
 
 {/* journeymap title */}
 <motion.div 
@@ -607,9 +628,8 @@ independent and in control, children who need a simple and reassuring way to und
   <p className="text-[#5E3C2F] font-dudu leading-relaxed 
     text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
 The journey maps above follow users through their experience, from getting started to using it every day,
- highlighting their feelings, struggles, and needs. </p>
+highlighting their feelings, struggles, and needs. </p>
 </motion.div>
-
 
 {/* userflow title */}
 <motion.div 
@@ -624,7 +644,6 @@ The journey maps above follow users through their experience, from getting start
     Userflows
   </h3>
 </motion.div>
-
 
 {/* userflow Image 1 */}
 <motion.div 
@@ -705,34 +724,31 @@ and how they can update it later, step by step.</p>
   </h3>
 </div>
 
- 
-  
-  {/* Low-fidelity Mockups Marquee */}
-          <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
-            {/* Marquee container */}
-            <div className="flex animate-marquee">
-              {/* First set of images */}
-              {[lowDM1, lowDM2, lowDM3, lowDM4, lowDM5, lowDM6, lowDM7, lowDM8, lowDM9, lowDM10].map((img, index) => (
-                <div key={`low-${index}`} className="flex-shrink-0 px-4">
-                  <img
-                    src={img}
-                    alt={`Low fidelity wireframe ${index + 1}`}
-                    className="h-[250px] md:h-[500px] lg:h-[600px] w-auto object-contain"
-                  />
-                </div>
-              ))}
-              {/* Duplicate set for seamless loop */}
-              {[lowDM1, lowDM2, lowDM3, lowDM4, lowDM5, lowDM6, lowDM7, lowDM8, lowDM9, lowDM10].map((img, index) => (
-                <div key={`low-dup-${index}`} className="flex-shrink-0 px-4">
-                  <img
-                    src={img}
-                    alt={`Low fidelity wireframe ${index + 1}`}
-                    className="h-[250px] md:h-[500px] lg:h-[600px] w-auto object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+{/* Low-fidelity Mockups Marquee */}
+<div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
+    <div className="animate-marquee marquee-track">
+    {/* First set */}
+    {[lowDM1, lowDM2, lowDM3, lowDM4, lowDM5, lowDM6, lowDM7, lowDM8, lowDM9, lowDM10].map((img, index) => (
+      <div key={`low-${index}`} className="flex-shrink-0 px-4">
+        <img
+          src={img}
+          alt={`Low fidelity wireframe ${index + 1}`}
+          className="h-[250px] md:h-[500px] lg:h-[600px] w-auto object-contain"
+        />
+      </div>
+    ))}
+    {/* Duplicate set */}
+    {[lowDM1, lowDM2, lowDM3, lowDM4, lowDM5, lowDM6, lowDM7, lowDM8, lowDM9, lowDM10].map((img, index) => (
+      <div key={`low-dup-${index}`} className="flex-shrink-0 px-4">
+        <img
+          src={img}
+          alt={`Low fidelity wireframe ${index + 1}`}
+          className="h-[250px] md:h-[500px] lg:h-[600px] w-auto object-contain"
+        />
+      </div>
+    ))}
+  </div>
+</div>
 
  {/* Main description aligned with first paragraph */}
 <motion.div 
@@ -765,7 +781,7 @@ These are a complete set of low-fidelity wireframes for the diamate app from whi
 {/* High-fidelity Mockups Marquee */}
 <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
   {/* Marquee container */}
-  <div className="flex animate-marquee-delayed">
+    <div className="animate-marquee marquee-track">
     {/* First set of images */}
     {[high1, high2, high3, high4, high5, high6, high7, high8, high9, high10, high11, high12, high13, high14].map(
       (img, index) => (
@@ -780,6 +796,7 @@ These are a complete set of low-fidelity wireframes for the diamate app from whi
     )}
 
     {/* Duplicate set for seamless loop */}
+    
     {[high1, high2, high3, high4, high5, high6, high7, high8, high9, high10, high11, high12, high13, high14].map(
       (img, index) => (
         <div key={`high-dup-${index}`} className="flex-shrink-0 px-4">
@@ -793,8 +810,6 @@ These are a complete set of low-fidelity wireframes for the diamate app from whi
     )}
   </div>
 </div>
-
-
 
 {/* Arrows positioned directly on top of footer */}
 <div className="relative">
@@ -815,8 +830,6 @@ These are a complete set of low-fidelity wireframes for the diamate app from whi
       </button>
     </div>
   </div>
-  
-
 </div>
 
 {/* Footer at the end - GUARANTEED FULL WIDTH */}
@@ -833,7 +846,6 @@ These are a complete set of low-fidelity wireframes for the diamate app from whi
 >
   <Footer />
 </div>
-
 
       </section>
       
