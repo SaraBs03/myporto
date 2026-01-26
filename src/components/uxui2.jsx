@@ -404,7 +404,7 @@ every day.
       transition={{ duration: 0.7, type: "spring" }}
       viewport={{ once: true }}
     >
-      <div className="marquee-track flex w-max">
+      <div className="rect-track flex w-max">
         
         {/* FIRST COPY */}
         <div className="flex items-center font-whatnot text-[#F3E6D4] 

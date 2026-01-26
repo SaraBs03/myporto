@@ -184,7 +184,7 @@ xl:ml-[-70px]
               transition={{ duration: 0.7, type: "spring" }}
               viewport={{ once: true }}
             >
-              <div className="marquee-track flex w-max">
+              <div className="rect-track flex w-max">
                 {/* FIRST COPY */}
                 <div className="flex items-center font-whatnot text-[#F3E6D4] 
                   text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
