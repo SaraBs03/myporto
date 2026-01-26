@@ -110,7 +110,7 @@ export default function MenuSection() {
     onTouchStart={() => handleMarqueeInteraction(true)}
     onTouchEnd={() => setTimeout(() => handleMarqueeInteraction(false), 100)}
   >
-    <div className="flex w-max marquee-track">
+    <div className="flex w-max rect-track">
       
       {/* FIRST COPY */}
       <div className="inline-flex text-[#F3E6D4] font-whatnot text-sm sm:text-lg lg:text-xl">
