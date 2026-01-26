@@ -51,6 +51,8 @@ import left from "../assets/left.svg"
 
 
 export default function UxUi2() {
+  const [isFlipCardHovered, setIsFlipCardHovered] = useState(false)
+
   const [isIOS, setIsIOS] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [isFlipped, setIsFlipped] = useState(false)
@@ -188,21 +190,22 @@ const goToUxUi = () => {
   }
 
   return (
-    <main
-      className="w-full min-h-[200vh] bg-[#F3E6D4] relative ios-fix"
-       onMouseEnter={() => setIsHovering(true)}
+   <main
+  className="w-full min-h-[200vh] bg-[#F3E6D4] relative ios-fix cursor-none"
+  onMouseEnter={() => setIsHovering(true)}
   onMouseLeave={() => setIsHovering(false)}
-    >
+  onMouseMove={handleMouseMove}
+>
       {/* Custom cursor - only shows on hover devices when hovering flip card */}
-      {isHovering && window.innerWidth >= 1024 && (
-        <div
-          className="default-cursor fixed pointer-events-none z-50 transition-transform duration-100"
-          style={{
-            left: `${cursorPosition.x}px`,
-            top: `${cursorPosition.y}px`,
-            transform: 'translate(-50%, -50%)'
-          }}
-        >
+     {isFlipCardHovered && window.innerWidth >= 1024 && (
+  <div
+    className="default-cursor fixed pointer-events-none z-50 transition-transform duration-100"
+    style={{
+      left: `${cursorPosition.x}px`,
+      top: `${cursorPosition.y}px`,
+      transform: 'translate(-50%, -50%)'
+    }}
+  >
           <img
             src={InteractCursor}
             alt="Interact cursor"
@@ -689,7 +692,7 @@ and how they can update it later, step by step.</p>
 </motion.div>
 
 {/* low fidelity title */}
-<motion.div 
+<div 
   className="xl:ml-[-80px] lg:ml-[-55px] md:ml-[-32px] -mt-4"
   initial={{ opacity: 0 }}
   whileInView={{ opacity: 1 }}
@@ -700,55 +703,36 @@ and how they can update it later, step by step.</p>
     text-[11px] md:text-[18px] lg:text-[22px] xl:text-[30px]">
     Low-fidelity wireframes
   </h3>
-</motion.div>
+</div>
 
  
   
-{/* Low-fidelity Mockups Marquee */}
-<motion.div 
-  className="w-screen relative py-8 -mt-4 overflow-visible"
-  style={{
-    position: 'relative',
-    left: '50%',
-    right: '50%',
-    marginLeft: '-50vw',
-    marginRight: '-50vw',
-    width: '100vw'
-  }}
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  transition={{ duration: 0.7 }}
-  viewport={{ once: true }}
->
-  {/* Soft fade edges */}
-  <div className="pointer-events-none absolute inset-0 z-10
-    [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]" />
-  
-  {/* Marquee container */}
-  <div className="flex w-max animate-marquee gap-8">
-    {/* First set of images */}
-    {[lowDM1, lowDM2, lowDM3, lowDM4, lowDM5, lowDM6, lowDM7, lowDM8, lowDM9, lowDM10].map((img, index) => (
-      <div key={`first-${index}`} className="flex-shrink-0">
-        <img
-          src={img}
-          alt={`Low fidelity mockup ${index + 1}`}
-          className="h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] w-auto object-contain"
-        />
-      </div>
-    ))}
-    
-    {/* Duplicate set for seamless loop */}
-    {[lowDM1, lowDM2, lowDM3, lowDM4, lowDM5, lowDM6, lowDM7, lowDM8, lowDM9, lowDM10].map((img, index) => (
-      <div key={`second-${index}`} className="flex-shrink-0">
-        <img
-          src={img}
-          alt={`Low fidelity mockup ${index + 1}`}
-          className="h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] w-auto object-contain"
-        />
-      </div>
-    ))}
-  </div>
-</motion.div>
+  {/* Low-fidelity Mockups Marquee */}
+          <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
+            {/* Marquee container */}
+            <div className="flex animate-marquee">
+              {/* First set of images */}
+              {[lowDM1, lowDM2, lowDM3, lowDM4, lowDM5, lowDM6, lowDM7, lowDM8, lowDM9, lowDM10].map((img, index) => (
+                <div key={`low-${index}`} className="flex-shrink-0 px-4">
+                  <img
+                    src={img}
+                    alt={`Low fidelity wireframe ${index + 1}`}
+                    className="h-[250px] md:h-[500px] lg:h-[600px] w-auto object-contain"
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {[lowDM1, lowDM2, lowDM3, lowDM4, lowDM5, lowDM6, lowDM7, lowDM8, lowDM9, lowDM10].map((img, index) => (
+                <div key={`low-dup-${index}`} className="flex-shrink-0 px-4">
+                  <img
+                    src={img}
+                    alt={`Low fidelity wireframe ${index + 1}`}
+                    className="h-[250px] md:h-[500px] lg:h-[600px] w-auto object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
 
  {/* Main description aligned with first paragraph */}
 <motion.div 
@@ -778,51 +762,38 @@ These are a complete set of low-fidelity wireframes for the diamate app from whi
   </h3>
 </motion.div>
 
-{/* Low-fidelity Mockups Marquee */}
-<motion.div 
-  className="w-screen relative py-8 -mt-4 overflow-visible"
-  style={{
-    position: 'relative',
-    left: '50%',
-    right: '50%',
-    marginLeft: '-50vw',
-    marginRight: '-50vw',
-    width: '100vw'
-  }}
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  transition={{ duration: 0.7 }}
-  viewport={{ once: true }}
->
-  {/* Soft fade edges */}
-  <div className="pointer-events-none absolute inset-0 z-10
-    [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]" />
-  
+{/* High-fidelity Mockups Marquee */}
+<div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
   {/* Marquee container */}
-  <div className="flex w-max animate-marquee gap-8">
+  <div className="flex animate-marquee-delayed">
     {/* First set of images */}
-    {[high1, high2, high3, high4, high5, high6, high7, high8, high9, high10, high11, high12, high13, high14].map((img, index) => (
-      <div key={`first-${index}`} className="flex-shrink-0">
-        <img
-          src={img}
-          alt={`High fidelity mockup ${index + 1}`}
-          className="h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] w-auto object-contain"
-        />
-      </div>
-    ))}
-    
+    {[high1, high2, high3, high4, high5, high6, high7, high8, high9, high10, high11, high12, high13, high14].map(
+      (img, index) => (
+        <div key={`high-${index}`} className="flex-shrink-0 px-4">
+          <img
+            src={img}
+            alt={`High fidelity mockup ${index + 1}`}
+            className="h-[250px] md:h-[500px] lg:h-[600px] w-auto object-contain"
+          />
+        </div>
+      )
+    )}
+
     {/* Duplicate set for seamless loop */}
-    {[high1, high2, high3, high4, high5, high6, high7, high8, high9, high10, high11, high12, high13, high14].map((img, index) => (
-      <div key={`second-${index}`} className="flex-shrink-0">
-        <img
-          src={img}
-          alt={`High fidelity mockup ${index + 1}`}
-          className="h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px] w-auto object-contain"
-        />
-      </div>
-    ))}
+    {[high1, high2, high3, high4, high5, high6, high7, high8, high9, high10, high11, high12, high13, high14].map(
+      (img, index) => (
+        <div key={`high-dup-${index}`} className="flex-shrink-0 px-4">
+          <img
+            src={img}
+            alt={`High fidelity mockup ${index + 1}`}
+            className="h-[250px] md:h-[500px] lg:h-[600px] w-auto object-contain"
+          />
+        </div>
+      )
+    )}
   </div>
-</motion.div>
+</div>
+
 
 
 {/* Arrows positioned directly on top of footer */}

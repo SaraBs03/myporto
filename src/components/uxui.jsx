@@ -10,7 +10,8 @@ import TG_sitemap from "../assets/TG_sitemap.jpg"
 import userflow1 from "../assets/userflow1.png"
 import userflow2 from "../assets/userflow2.png"
 import FlipIcon from "../assets/FlipIcon.svg" 
-import TG1logo from "../assets/TG1logo.jpg"
+import TG1logoFallback from "../assets/TG1logo.jpg"
+import TG1logoWebP from "../assets/TG1logo.webp";
 import TG1 from "../assets/TG1.png"
 import low1 from "../assets/low1.png"
 import low3 from "../assets/low3.png"
@@ -58,7 +59,7 @@ export default function UxUi() {
   
     const navigate = useNavigate();
 
-
+const [isFlipCardHovered, setIsFlipCardHovered] = useState(false)
 const goHome = () => {
   window.scrollTo(0, 0);
   
@@ -192,28 +193,29 @@ const goHome = () => {
   }
 
   return (
-    <main
-      className="w-full min-h-[200vh] bg-[#F3E6D4] relative ios-fix"
-       onMouseEnter={() => setIsHovering(true)}
+ <main
+  className="w-full min-h-[200vh] bg-[#F3E6D4] relative ios-fix cursor-none"
+  onMouseEnter={() => setIsHovering(true)}
   onMouseLeave={() => setIsHovering(false)}
-    >
-      {/* Custom cursor - only shows on hover devices when hovering flip card */}
-      {isHovering && window.innerWidth >= 1024 && (
-        <div
-          className="default-cursor fixed pointer-events-none z-50 transition-transform duration-100"
-          style={{
-            left: `${cursorPosition.x}px`,
-            top: `${cursorPosition.y}px`,
-            transform: 'translate(-50%, -50%)'
-          }}
-        >
-          <img
-            src={InteractCursor}
-            alt="Interact cursor"
-            className="w-8 h-8"
-          />
-        </div>
-      )}
+  onMouseMove={handleMouseMove}
+>
+    {/* Custom cursor - only shows on hover devices when hovering flip card */}
+{isFlipCardHovered && window.innerWidth >= 1024 && (
+  <div
+    className="default-cursor fixed pointer-events-none z-50 transition-transform duration-100"
+    style={{
+      left: `${cursorPosition.x}px`,
+      top: `${cursorPosition.y}px`,
+      transform: 'translate(-50%, -50%)'
+    }}
+  >
+    <img
+      src={InteractCursor}
+      alt="Interact cursor"
+      className="w-8 h-8"
+    />
+  </div>
+)}
 
       {/* PROJECT HEADER */}
       <section className="w-full flex flex-col -mt-[0.3rem] xl:gap-10 gap-8 px-4 sm:px-4 md:px-[3.8rem] lg:px-[6rem] xl:px-28 xl:mt-2 lg:pt-[2.8rem] pt-[2rem]">
@@ -299,18 +301,28 @@ const goHome = () => {
  right-2 w-4 h-4 z-50 " 
       />
     )}
+{/* FRONT - Image */}
 
-    {/* FRONT - Image */}
-    <div
-      className="w-full rounded-2xl sm:rounded-3xl md:rounded-[28px] lg:rounded-[32px] xl:rounded-[40px] overflow-hidden shadow-xl cursor-none"
-      style={{ backfaceVisibility: 'hidden' }}
-    >
-      <img
-        src={TG1logo}
-        alt="Trend Grabber Logo"
-        className="w-full h-full object-cover"
-      />
-    </div>
+<div
+  className="w-full rounded-2xl sm:rounded-3xl md:rounded-[28px] lg:rounded-[32px] xl:rounded-[40px] overflow-hidden shadow-xl cursor-none bg-gray-100 relative"
+  style={{ backfaceVisibility: 'hidden' }}
+>
+  {/* Modern image format with fallback */}
+  <picture>
+    <source srcSet={TG1logoWebP} type="image/webp" />
+    <source srcSet={TG1logoFallback} type="image/jpeg" />
+    <img
+      src={TG1logoFallback}
+      alt="Trend Grabber Logo"
+      className="w-full h-full object-cover"
+      loading="eager"
+      fetchPriority="high"
+      width="1200"
+      height="675"
+      decoding="sync"
+    />
+  </picture>
+</div>
 
     {/* BACK - Challenge/Solution */}
     <div

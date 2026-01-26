@@ -345,11 +345,6 @@ body.loading {
 
 
   
-  /* Apply mobile-specific animation */
-  .marquee-mobile {
-    animation: marquee-slow-mobile 40s linear infinite !important;
-  }
-
 /* Cursor scale states */
 #custom-cursor {
   transform: translate(-50%, -50%) rotate(-20deg) scale(1);
@@ -463,11 +458,9 @@ video {
   -o-transform: translateZ(0);
 }
 
-
-/* Add to your CSS file (index.css or global.css) */
 @keyframes marquee {
   0% {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
   100% {
     transform: translateX(-50%);
@@ -475,19 +468,45 @@ video {
 }
 
 .animate-marquee {
-  animation: marquee 20s linear infinite;
+  animation: marquee 30s linear infinite;
+  width: max-content;
 }
 
-/* Keyframes for marquee animation */
-@keyframes rect-scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%); /* move half the duplicated content */
-  }
+.animate-marquee-delayed {
+  animation: marquee 30s linear infinite;
+  animation-delay: -20s;
+  width: max-content;
 }
 
+
+/* Chrome / Safari / Edge */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C33E23;
+  border-radius: 999px;
+  cursor: url('./assets/cursor.svg'), auto;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  cursor: url('./assets/cursor.svg'), auto;
+}
+
+::-webkit-scrollbar-thumb:active {
+  cursor: url('./assets/cursor.svg'), auto;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #C33E23 transparent;
+}
 
 
 @font-face {
@@ -497,6 +516,8 @@ video {
   font-style: normal;
   font-display: swap;
 }
+
+
 
 
 /* Add this to your global.css or App.css file */

@@ -240,7 +240,7 @@ xl:ml-[-70px]
 
         
 <motion.div 
-  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-16"
+  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] xl:mt-24 mt-16"
   initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.6 }}
