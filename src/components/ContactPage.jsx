@@ -29,7 +29,7 @@ export default function ContactPage() {
         <main 
           className={`
             flex-grow flex flex-col items-center px-4 lg:px-[40px]
-            ${isIOS ? 'pt-[40px]' : 'pt-[120px] sm:pt-[150px] md:pt-[160px]'}
+            ${isIOS ? 'pt-[40px]' : 'pt-[50px] sm:pt-[150px] md:pt-[160px]'}
             lg:pt-[190px]
           `}
         >

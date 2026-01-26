@@ -121,7 +121,7 @@ useEffect(() => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#F3E6D4] to-[#E8D5C1] -mt-[3.2rem] sm:-mt-[4rem] md:-mt-[4.3rem] lg:-mt-[4.3rem] xl:-mt-24">
       {/* Header */}
-      <div className={`${isIOS ? 'pt-[100px]' : 'mt-[15rem]'} md:mt-[15rem] pb-6 px-4 lg:px-[40px] text-center`}>
+      <div className={`${isIOS ? 'pt-[100px]' : 'mt-[7rem]'} md:mt-[15rem] pb-6 px-4 lg:px-[40px] text-center`}>
         <h1 className="font-whatnot font-bold text-[#190A07] text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2">
           Logo Gallery
         </h1>

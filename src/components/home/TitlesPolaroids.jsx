@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#F3E6D4] mb-[-22vh] flex items-center justify-center p-4">
       <div
-        className={`${isIOS ? "pt-[20px]" : "mt-[2rem]"} relative w-full max-w-[600px] xl:max-w-none xl:w-full mb-[37vh] xl:mt-[70px] md:mt-[3rem] xl:px-8 mb-96 md:mb-96`}
+        className={`${isIOS ? "pt-[20px]" : "mt-[0.8rem]"} relative w-full max-w-[600px] xl:max-w-none xl:w-full mb-[37vh] xl:mt-[70px] md:mt-[3rem] xl:px-8 mb-96 md:mb-96`}
       >
         {/* ---------- TOP ROW ---------- */}
         <div className="relative w-fit left-1/2 -translate-x-1/2 flex justify-center items-center mb-8 mt-[-75px] xs:mt-[-30px] sm:mt-[-50px] md:mt-[20px] lg:-mt-[0.8rem]">
