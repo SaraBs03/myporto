@@ -3,6 +3,7 @@ import UILOOP_GIF from "../assets/UILOOP_GIF.gif";
 import { motion } from "framer-motion";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
+import MarqueeMockups from "../components/MarqueeMockups";
 
 import InteractCursor from "../assets/InteractCursor.svg"
 import TG_sitemap from "../assets/TG_sitemap.jpg"
@@ -56,6 +57,10 @@ export default function UxUi2() {
   const flipCardRef = useRef(null)
   const [showTapHint, setShowTapHint] = useState(false)
   const navigate = useNavigate();
+
+
+  const low = [lowDM1, lowDM2, lowDM3, lowDM4, lowDM5, lowDM6, lowDM7, lowDM8, lowDM9, lowDM10];
+const high = [high1, high2, high3, high4, high5, high6, high7, high8, high9, high10, high11, high12, high13, high14];
 
   const goToUxUi = () => {
     navigate("/TG/uxui");
@@ -724,31 +729,9 @@ and how they can update it later, step by step.</p>
   </h3>
 </div>
 
-{/* Low-fidelity Mockups Marquee */}
-<div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
-    <div className="animate-marquee marquee-track">
-    {/* First set */}
-    {[lowDM1, lowDM2, lowDM3, lowDM4, lowDM5, lowDM6, lowDM7, lowDM8, lowDM9, lowDM10].map((img, index) => (
-      <div key={`low-${index}`} className="flex-shrink-0 px-4">
-        <img
-          src={img}
-          alt={`Low fidelity wireframe ${index + 1}`}
-          className="h-[250px] md:h-[500px] lg:h-[600px] w-auto object-contain"
-        />
-      </div>
-    ))}
-    {/* Duplicate set */}
-    {[lowDM1, lowDM2, lowDM3, lowDM4, lowDM5, lowDM6, lowDM7, lowDM8, lowDM9, lowDM10].map((img, index) => (
-      <div key={`low-dup-${index}`} className="flex-shrink-0 px-4">
-        <img
-          src={img}
-          alt={`Low fidelity wireframe ${index + 1}`}
-          className="h-[250px] md:h-[500px] lg:h-[600px] w-auto object-contain"
-        />
-      </div>
-    ))}
-  </div>
-</div>
+     <MarqueeMockups low={low} mode="low" />
+ 
+
 
  {/* Main description aligned with first paragraph */}
 <motion.div 
@@ -778,38 +761,8 @@ These are a complete set of low-fidelity wireframes for the diamate app from whi
   </h3>
 </motion.div>
 
-{/* High-fidelity Mockups Marquee */}
-<div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden">
-  {/* Marquee container */}
-    <div className="animate-marquee marquee-track">
-    {/* First set of images */}
-    {[high1, high2, high3, high4, high5, high6, high7, high8, high9, high10, high11, high12, high13, high14].map(
-      (img, index) => (
-        <div key={`high-${index}`} className="flex-shrink-0 px-4">
-          <img
-            src={img}
-            alt={`High fidelity mockup ${index + 1}`}
-            className="h-[250px] md:h-[500px] lg:h-[600px] w-auto object-contain"
-          />
-        </div>
-      )
-    )}
+     <MarqueeMockups high={high} mode="high" />
 
-    {/* Duplicate set for seamless loop */}
-    
-    {[high1, high2, high3, high4, high5, high6, high7, high8, high9, high10, high11, high12, high13, high14].map(
-      (img, index) => (
-        <div key={`high-dup-${index}`} className="flex-shrink-0 px-4">
-          <img
-            src={img}
-            alt={`High fidelity mockup ${index + 1}`}
-            className="h-[250px] md:h-[500px] lg:h-[600px] w-auto object-contain"
-          />
-        </div>
-      )
-    )}
-  </div>
-</div>
 
 {/* Arrows positioned directly on top of footer */}
 <div className="relative">
