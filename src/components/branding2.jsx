@@ -167,10 +167,10 @@ xl:ml-[-70px]
 
         {/* ABOUT SECTION */}
         <div className="xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] max-w-full">
-          <h3 className="font-whatnot font-bold text-[#190A07] text-[13px] md:text-[15px] lg:text-[30px] xl:text-[30px] mb-2">
+          <h3 className="font-whatnot font-bold text-[#190A07] text-[15px] md:text-[15px] lg:text-[30px] xl:text-[30px] mb-2">
             About:
           </h3>
-          <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px] xl:mt-[1rem] mt-[1rem] sm:mt-[1rem] lg:mt-[1rem] md:mt-[1rem]">
+          <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[13px] lg:text-[17px] xl:text-[25px] xl:mt-[1rem] mt-[1rem] sm:mt-[1rem] lg:mt-[1rem] md:mt-[1rem]">
             This visual identity was designed for Fantazia to represent the 
             festival in a modern, vibrant and visually aesthetic way while
             still keeping the traditional and cultural aspects of the event. 
