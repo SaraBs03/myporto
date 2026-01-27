@@ -125,7 +125,7 @@ useEffect(() => {
         <h1 className="font-whatnot font-bold text-[#190A07] text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2">
           Logo Gallery
         </h1>
-        <p className="font-dudu text-[#5E3C2F] text-sm sm:text-base md:text-lg max-w-2xl mx-auto opacity-80">
+        <p className="font-dudu text-[#5E3C2F] text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px] mt-8 mx-auto opacity-80">
           Click to see the monochrome version of each logo.
         </p>
       </div>

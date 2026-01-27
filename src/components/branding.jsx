@@ -110,7 +110,7 @@ const goHome = () => {
 
         {/* DESCRIPTION */}
         <motion.p
-          className="xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[16px] lg:text-[17px] xl:text-[35px]"
+          className="xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[17px] lg:text-[18px] xl:text-[35px]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -157,10 +157,10 @@ xl:ml-[-70px]
 
         {/* ABOUT SECTION */}
         <div className="xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] max-w-full">
-          <h3 className="font-whatnot font-bold text-[#190A07] text-[13px] md:text-[15px] lg:text-[30px] xl:text-[30px] mb-2">
+  <h3 className="font-whatnot font-bold text-[#190A07] text-[16px] md:text-[18px] lg:text-[20px] xl:text-[28px] mb-2">
             About:
           </h3>
-          <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px] xl:mt-[1rem] mt-[1rem] sm:mt-[1rem] lg:mt-[1rem] md:mt-[1rem]">
+          <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px] xl:mt-[1rem] mt-[1rem] sm:mt-[1rem] lg:mt-[1rem] md:mt-[1rem]">
             This is the visual identity created for Trend Grabber, made sure the design went well with the brand's mission of being modern, 
             easy to the eye and accessible for all users. 
           </p>
@@ -292,7 +292,7 @@ xl:ml-[-70px]
         
           {/* Main description */}
           <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-            text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+            text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
        The final concept of the logo basically combines the two first letters of the brand name "T" and "G" into a paperclip shape (Trombone in french) to represent the idea of linking users to the 
        latest trends. The logo is designed to be simple and memorable so that it can be easily understood and recognized by the users.
           </p>
@@ -301,7 +301,7 @@ xl:ml-[-70px]
 
                 
 <motion.div 
-  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-2"
+  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-8"
   initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.6 }}
@@ -356,7 +356,7 @@ xl:ml-[-70px]
         
           {/* Main description */}
           <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-            text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+            text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
 Above is the primary logo for Trend grabber, a more clear and refined version of the concept logo
  with the brand name included presnted horizontally next to the symbol.
           </p>
@@ -364,7 +364,7 @@ Above is the primary logo for Trend grabber, a more clear and refined version of
 
 
 <motion.div 
-  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-2"
+  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-8"
   initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.6 }}
@@ -419,7 +419,7 @@ Above is the primary logo for Trend grabber, a more clear and refined version of
         
           {/* Main description */}
           <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-            text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+            text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
 Above is the secondary logo for Trend grabber, that is the icon version of the primary logo, 
 designed to be used in smaller spaces where the primary logo may not fit well. 
           </p>
@@ -428,7 +428,7 @@ designed to be used in smaller spaces where the primary logo may not fit well.
 
 
         <motion.div 
-  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-2"
+  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-8"
   initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.6 }}
@@ -483,13 +483,13 @@ designed to be used in smaller spaces where the primary logo may not fit well.
         
           {/* Main description */}
           <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-            text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+            text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
 These are the different sizes and variations of the logo from small to large sizes to make sure it looks good on all screens and devices.
           </p>
         </motion.div>
 
            <motion.div 
-  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-2"
+  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-8"
   initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.6 }}
@@ -552,7 +552,7 @@ These are the different sizes and variations of the logo from small to large siz
         </motion.div>
 
          <motion.div 
-  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-2"
+  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-8"
   initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.6 }}
@@ -717,7 +717,7 @@ xl:ml-[-70px]
 </motion.div>
 
  <motion.div 
-  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-2"
+  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-8"
   initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.6 }}

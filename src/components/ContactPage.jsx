@@ -208,7 +208,7 @@ export default function ContactPage() {
             text-center text-[#5E3C2F] font-whatnot text-[12px] md:text-lg max-w-2xl
           ">
             <p className="mb-4">
-              Reach out through either of the options above. <br />I typically respond within 24-48 hours.
+             <br />I typically respond within 24-48 hours.
             </p>
           </div>
         </main>

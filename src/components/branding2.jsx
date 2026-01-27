@@ -119,7 +119,7 @@ const goBranding = () => {
 
         {/* DESCRIPTION */}
         <motion.p
-          className="xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[16px] lg:text-[17px] xl:text-[35px]"
+          className="xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[17px] lg:text-[18px] xl:text-[35px]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -167,10 +167,10 @@ xl:ml-[-70px]
 
         {/* ABOUT SECTION */}
         <div className="xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] max-w-full">
-          <h3 className="font-whatnot font-bold text-[#190A07] text-[15px] md:text-[15px] lg:text-[30px] xl:text-[30px] mb-2">
+  <h3 className="font-whatnot font-bold text-[#190A07] text-[16px] md:text-[18px] lg:text-[20px] xl:text-[28px] mb-2">
             About:
           </h3>
-          <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[13px] lg:text-[17px] xl:text-[25px] xl:mt-[1rem] mt-[1rem] sm:mt-[1rem] lg:mt-[1rem] md:mt-[1rem]">
+          <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px] xl:mt-[1rem] mt-[1rem] sm:mt-[1rem] lg:mt-[1rem] md:mt-[1rem]">
             This visual identity was designed for Fantazia to represent the 
             festival in a modern, vibrant and visually aesthetic way while
             still keeping the traditional and cultural aspects of the event. 
@@ -240,7 +240,7 @@ xl:ml-[-70px]
 
         
 <motion.div 
-  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] xl:mt-24 mt-16"
+  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] xl:mt-24 mt-[5rem]"
   initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.6 }}
@@ -315,7 +315,7 @@ xl:ml-[-70px]
         
           {/* Main description */}
           <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-            text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+            text-[15px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
 This is the primary logo for the Fantazia Festival in its monochrome version,
  stacked vertically with a bold and modern Arabic typography style for a strong and memorable visual presence.          </p>
         </motion.div>
@@ -323,7 +323,7 @@ This is the primary logo for the Fantazia Festival in its monochrome version,
 
                 
 <motion.div 
-  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-2"
+  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-8"
   initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.6 }}
@@ -491,7 +491,7 @@ This is the primary logo for the Fantazia Festival in its monochrome version,
 
 
 <motion.div 
-  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-2"
+  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-8"
   initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.6 }}
@@ -699,14 +699,14 @@ This is the primary logo for the Fantazia Festival in its monochrome version,
         
           {/* Main description */}
           <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-            text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+            text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
 This is the festival’s slogan. It translates to “Equestrian Festival at Bazina,” a small town in the
  city of Bizerte, Tunisia, known for its strong horse culture and traditional craftsmanship. 
 The slogan is used on posters beneath the logo.    </p>
         </motion.div>
 
 <motion.div 
-  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-2"
+  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-8"
   initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.6 }}
@@ -800,7 +800,7 @@ The slogan is used on posters beneath the logo.    </p>
         
           {/* Main description */}
           <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-            text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+            text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
 These are the logo variations for Fantazia in all it's different colors, keeping it simple and consistent.
           </p>
         </motion.div>
@@ -812,7 +812,7 @@ These are the logo variations for Fantazia in all it's different colors, keeping
 
 
           <motion.div 
-  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-2"
+  className="flex items-baseline sm:gap-3 lg:gap-6 gap-2 xl:ml-[-73px] lg:ml-[-55px] md:ml-[-32px] mt-8"
   initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.6 }}
@@ -881,7 +881,7 @@ These are the logo variations for Fantazia in all it's different colors, keeping
         viewport={{ once: true }}
         className="
           text-[#5E3C2F]/70 font-dudu italic leading-relaxed
-          text-[10px] md:text-[12px] lg:text-[12px] xl:text-[20px]
+              text-[11px] md:text-[13px] lg:text-[15px] xl:text-[20px]
           mt-16 md:ml-[-32px] xl:ml-[-75px]
         "
       >

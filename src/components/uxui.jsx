@@ -264,7 +264,7 @@ const goHome = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[16px] lg:text-[17px] xl:text-[35px] -mt-[25px]">
+          <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[17px] lg:text-[18px] xl:text-[35px] -mt-[25px]">
             Introducing online shoppers with the latest trends, providing a real
             e-commerce experience, and improving how people discover products
             online.
@@ -356,11 +356,11 @@ const goHome = () => {
         <div className="relative">
 
   <div className="xl:ml-[-75px] lg:ml-[-55px] md:ml-[-32px] max-w-full">
-  <h3 className="font-whatnot font-bold text-[#190A07] text-[13px] md:text-[15px] lg:text-[30px] xl:text-[30px] mb-2">
+  <h3 className="font-whatnot font-bold text-[#190A07] text-[16px] md:text-[18px] lg:text-[20px] xl:text-[28px] mb-2">
     About:
   </h3>
 
-  <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px] xl:mt-[1rem] mt-[1rem] sm:mt-[1rem] lg:mt-[1rem] md:mt-[1rem]">
+  <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px] xl:mt-[1rem] mt-[1rem] sm:mt-[1rem] lg:mt-[1rem] md:mt-[1rem]">
     Trend Grabber is an e-commerce platform that combines Amazon affiliate products with its own curated selection, organized into categories and sub-categories 
     ranging from fashion to electronics and beyond, offering users direct access to top-rated products from Amazon in one easy and seamless shopping experience.
   </p>
@@ -492,7 +492,7 @@ const goHome = () => {
   viewport={{ once: true }}
 >
   <h3 className="font-dudu font-bold text-[#5E3C2F] 
-    text-[11px] md:text-[18px] lg:text-[22px] xl:text-[30px]">
+    text-[17px] md:text-[19px] lg:text-[20px] xl:text-[30px]">
     Personas
   </h3>
 </motion.div>
@@ -530,13 +530,13 @@ const goHome = () => {
 >
   {/* NB note */}
   <p className="text-[#5E3C2F]/70 font-dudu italic leading-relaxed
-    text-[10px] md:text-[12px] lg:text-[12px] xl:text-[20px] mb-2">
+    text-[11px] md:text-[13px] lg:text-[15px] xl:text-[20px] mb-2">
     NB: These personas intros were created in French, as the project was originally presented in that language.
   </p>
 
   {/* Main description */}
   <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-    text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+    text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
 These personas represent Trend Grabber's three main user types: the end user, 
 who is an online shopper looking for trending products with a simple and trustworthy
 purchase experience, the potential user who is interested in the product (website) and could become an end user; and the administrator, 
@@ -553,7 +553,7 @@ who manages products, affiliate content, and the overall functionality of the pl
   viewport={{ once: true }}
 >
   <h3 className="font-dudu font-bold text-[#5E3C2F] 
-    text-[11px] md:text-[18px] lg:text-[22px] xl:text-[30px]">
+    text-[17px] md:text-[19px] lg:text-[20px] xl:text-[30px] mt-8">
     Empathy Map
   </h3>
 </motion.div>
@@ -623,13 +623,13 @@ who manages products, affiliate content, and the overall functionality of the pl
 >
   {/* NB note */}
   <p className="text-[#5E3C2F]/70 font-dudu italic leading-relaxed
-    text-[10px] md:text-[12px] lg:text-[12px] xl:text-[20px] mb-2">
+    text-[11px] md:text-[13px] lg:text-[15px] xl:text-[20px] mb-2">
     NB: These empathy maps were created in French, as the project was originally presented in that language.
   </p>
 
   {/* Main description */}
   <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-    text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+    text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
 The empathy maps I made for each persona helped me better understand user needs, motivations, frustrations, 
 and behaviors, allowing me to design more user-centered interfaces.  </p>
 </motion.div>
@@ -643,7 +643,7 @@ and behaviors, allowing me to design more user-centered interfaces.  </p>
   viewport={{ once: true }}
 >
   <h3 className="font-dudu font-bold text-[#5E3C2F] 
-    text-[11px] md:text-[18px] lg:text-[22px] xl:text-[30px]">
+    text-[17px] md:text-[19px] lg:text-[20px] xl:text-[30px] mt-8">
     Journey Map
   </h3>
 </motion.div>
@@ -712,13 +712,13 @@ and behaviors, allowing me to design more user-centered interfaces.  </p>
 >
   {/* NB note */}
   <p className="text-[#5E3C2F]/70 font-dudu italic leading-relaxed
-    text-[10px] md:text-[12px] lg:text-[12px] xl:text-[20px] mb-2">
+    text-[11px] md:text-[13px] lg:text-[15px] xl:text-[20px] mb-2">
     NB: These journey maps were created in French, as the project was originally presented in that language.
   </p>
 
   {/* Main description */}
   <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-    text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+    text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
 The journey maps above show the different stages of the user experience, from discovery to creating the platform to purchase,
 along with the emotions and challenges encountered. </p>
 </motion.div>
@@ -733,7 +733,7 @@ along with the emotions and challenges encountered. </p>
   viewport={{ once: true }}
 >
   <h3 className="font-dudu font-bold text-[#5E3C2F] 
-    text-[11px] md:text-[18px] lg:text-[22px] xl:text-[30px]">
+    text-[17px] md:text-[19px] lg:text-[20px] xl:text-[30px] mt-8">
     Sitemap
   </h3>
 </motion.div>
@@ -769,7 +769,7 @@ along with the emotions and challenges encountered. </p>
   viewport={{ once: true }}
 >
   <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-    text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+    text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
     This is the Trend Grabber simplified sitemap to give an idea of what we can find on the website, 
     showing the main pages, categories, and sub-categories to clarify the overall user navigation 
     and information architecture.
@@ -785,7 +785,7 @@ along with the emotions and challenges encountered. </p>
   viewport={{ once: true }}
 >
   <h3 className="font-dudu font-bold text-[#5E3C2F] 
-    text-[11px] md:text-[18px] lg:text-[22px] xl:text-[30px]">
+    text-[17px] md:text-[19px] lg:text-[20px] xl:text-[30px] mt-8">
     Userflows
   </h3>
 </motion.div>
@@ -852,13 +852,13 @@ along with the emotions and challenges encountered. </p>
 >
   {/* NB note */}
   <p className="text-[#5E3C2F]/70 font-dudu italic leading-relaxed
-    text-[10px] md:text-[12px] lg:text-[12px] xl:text-[20px] mb-2">
+    text-[11px] md:text-[13px] lg:text-[15px] xl:text-[20px] mb-2">
     NB: This user flow was created in French, as the project was originally presented in that language.
   </p>
 
   {/* Main description */}
   <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-    text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+    text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
     The user flows above show the process of buying a product from the website, whether it's a Trend Grabber product or from the Amazon affiliation section, 
 and the addition of the product to a wishlist. <br/>
 </p>
@@ -873,7 +873,7 @@ and the addition of the product to a wishlist. <br/>
   viewport={{ once: true }}
 >
   <h3 className="font-dudu font-bold text-[#5E3C2F] 
-    text-[11px] md:text-[18px] lg:text-[22px] xl:text-[30px]">
+    text-[17px] md:text-[19px] lg:text-[20px] xl:text-[30px] mt-8">
     Low-fidelity wireframes
   </h3>
 </motion.div>
@@ -882,7 +882,7 @@ and the addition of the product to a wishlist. <br/>
   
 {/* Low-Fidelity Wireframes - Side by Side Grid (smaller) */}
 <motion.div 
-  className="flex flex-wrap justify-center sm:gap-4 lg:gap-2 gap-2 xl:-mt-[0.7rem] -mt-[0.7rem] sm:-mt-[0.7rem] lg:-mt-[0.7rem] md:-mt-[0.7rem]"
+  className="flex flex-wrap justify-center sm:gap-4 lg:gap-2 gap-2 mt-4"
   initial="hidden"
   whileInView="visible"
   viewport={{ once: true }}
@@ -936,14 +936,14 @@ and the addition of the product to a wishlist. <br/>
 
  {/* Main description aligned with first paragraph */}
 <motion.div 
-  className="xl:ml-[-75px] lg:ml-[-55px] md:ml-[-32px] sm:-mt-[0.8rem] md:-mt-[0.9rem] -mt-[0.9rem]"
+  className="xl:ml-[-75px] lg:ml-[-55px] md:ml-[-32px] mt-4"
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6 }}
   viewport={{ once: true }}
 >
   <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-    text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+    text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
     These are some of the main pages low-fidelity designs. These user flows guided me in creating
     the wireframes, helping me structure the website layout and user interactions effectively.
   </p>
@@ -958,7 +958,7 @@ and the addition of the product to a wishlist. <br/>
   viewport={{ once: true }}
 >
   <h3 className="font-dudu font-bold text-[#5E3C2F] 
-    text-[11px] md:text-[18px] lg:text-[22px] xl:text-[30px]">
+    text-[17px] md:text-[19px] lg:text-[20px] xl:text-[30px] mt-8">
     UI design
   </h3>
 </motion.div>

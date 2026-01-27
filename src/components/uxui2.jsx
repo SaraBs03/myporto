@@ -294,7 +294,7 @@ const high = [high1, high2, high3, high4, high5, high6, high7, high8, high9, hig
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[16px] lg:text-[17px] xl:text-[35px] -mt-[25px]">
+          <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[17px] lg:text-[18px] xl:text-[35px] -mt-[25px]">
           Helping people with Type 1 diabetes understand their glucose, stay safe during severe lows,
            and learn how to manage their condition every day.
 
@@ -376,11 +376,11 @@ const high = [high1, high2, high3, high4, high5, high6, high7, high8, high9, hig
         <div className="relative">
 
   <div className="xl:ml-[-80px] lg:ml-[-55px] md:ml-[-32px] max-w-full">
-  <h3 className="font-whatnot font-bold text-[#190A07] text-[13px] md:text-[15px] lg:text-[30px] xl:text-[30px] mb-2">
+  <h3 className="font-whatnot font-bold text-[#190A07] text-[16px] md:text-[18px] lg:text-[20px] xl:text-[28px] mb-2">
     About:
   </h3>
 
-  <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px] xl:mt-[1rem] mt-[1rem] sm:mt-[1rem] lg:mt-[1rem] md:mt-[1rem]">
+  <p className="text-[#5E3C2F] font-dudu leading-relaxed text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px] xl:mt-[1rem] mt-[1rem] sm:mt-[1rem] lg:mt-[1rem] md:mt-[1rem]">
    Diamate is an app for people with Type 1 diabetes that helps you track your glucose in real time, 
    stay safe during severe lows with emergency glucagon, and learn how to manage your health more easily
 every day.
@@ -507,7 +507,7 @@ every day.
   viewport={{ once: true }}
 >
   <h3 className="font-dudu font-bold text-[#5E3C2F] 
-    text-[11px] md:text-[18px] lg:text-[22px] xl:text-[30px]">
+    text-[17px] md:text-[19px] lg:text-[20px] xl:text-[30px]">
     Personas
   </h3>
 </motion.div>
@@ -557,13 +557,13 @@ every day.
 >
   {/* NB note */}
   <p className="text-[#5E3C2F]/70 font-dudu italic leading-relaxed
-    text-[10px] md:text-[12px] lg:text-[12px] xl:text-[20px] mb-2">
+   text-[11px] md:text-[13px] lg:text-[15px] xl:text-[20px] mb-2">
     NB: These personas intros were created in French, as the project was originally presented in that language.
   </p>
 
   {/* Main description */}
   <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-    text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+    text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
 These personas represent Diamate’s main users: adults living with Type 1 diabetes who want to stay 
 independent and in control, children who need a simple and reassuring way to understand their condition
  while enjoying daily life, and busy, tech-savvy users looking for an easier and smarter way to
@@ -580,7 +580,7 @@ independent and in control, children who need a simple and reassuring way to und
   viewport={{ once: true }}
 >
   <h3 className="font-dudu font-bold text-[#5E3C2F] 
-    text-[11px] md:text-[18px] lg:text-[22px] xl:text-[30px]">
+    text-[17px] md:text-[19px] lg:text-[20px] xl:text-[30px] mt-8">
     Journey Map
   </h3>
 </motion.div>
@@ -625,13 +625,13 @@ independent and in control, children who need a simple and reassuring way to und
 >
   {/* NB note */}
   <p className="text-[#5E3C2F]/70 font-dudu italic leading-relaxed
-    text-[10px] md:text-[12px] lg:text-[12px] xl:text-[20px] mb-2">
+    text-[11px] md:text-[13px] lg:text-[15px] xl:text-[20px] mb-2">
     NB: These journey maps were created in French, as the project was originally presented in that language.
   </p>
 
   {/* Main description */}
   <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-    text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+    text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
 The journey maps above follow users through their experience, from getting started to using it every day,
 highlighting their feelings, struggles, and needs. </p>
 </motion.div>
@@ -645,7 +645,7 @@ highlighting their feelings, struggles, and needs. </p>
   viewport={{ once: true }}
 >
   <h3 className="font-dudu font-bold text-[#5E3C2F] 
-    text-[11px] md:text-[18px] lg:text-[22px] xl:text-[30px]">
+    text-[17px] md:text-[19px] lg:text-[20px] xl:text-[30px] mt-8">
     Userflows
   </h3>
 </motion.div>
@@ -696,7 +696,7 @@ highlighting their feelings, struggles, and needs. </p>
 
 {/* userflow Description — aligned with previous paragraphs */}
 <motion.div 
-  className="xl:ml-[-80px] lg:ml-[-55px] md:ml-[-32px] xl:-mt-[0.7rem] -mt-[0.7rem] sm:-mt-[0.7rem] lg:-mt-[0.7rem] md:-mt-[0.7rem] max-w-full"
+  className="xl:ml-[-80px] lg:ml-[-55px] md:ml-[-32px] max-w-full"
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6 }}
@@ -704,27 +704,27 @@ highlighting their feelings, struggles, and needs. </p>
 >
   {/* NB note */}
   <p className="text-[#5E3C2F]/70 font-dudu italic leading-relaxed
-    text-[10px] md:text-[12px] lg:text-[12px] xl:text-[20px] mb-2">
+    text-[11px] md:text-[13px] lg:text-[15px] xl:text-[20px] mb-2">
     NB: This user flow was created in French, as the project was originally presented in that language.
   </p>
 
   {/* Main description */}
   <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-    text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+    text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px]">
 The user flows above show how someone starts using Diamate by creating an account, 
 and how they can update it later, step by step.</p>
 </motion.div>
 
 {/* low fidelity title */}
 <div 
-  className="xl:ml-[-80px] lg:ml-[-55px] md:ml-[-32px] -mt-4"
+  className="xl:ml-[-80px] lg:ml-[-55px] md:ml-[-32px] mt-8"
   initial={{ opacity: 0 }}
   whileInView={{ opacity: 1 }}
   transition={{ duration: 0.5 }}
   viewport={{ once: true }}
 >
   <h3 className="font-dudu font-bold text-[#5E3C2F] 
-    text-[11px] md:text-[18px] lg:text-[22px] xl:text-[30px]">
+    text-[17px] md:text-[19px] lg:text-[20px] xl:text-[30px]">
     Low-fidelity wireframes
   </h3>
 </div>
@@ -735,14 +735,14 @@ and how they can update it later, step by step.</p>
 
  {/* Main description aligned with first paragraph */}
 <motion.div 
-  className="xl:ml-[-80px] lg:ml-[-55px] md:ml-[-32px] sm:-mt-[0.8rem] md:-mt-[0.9rem] -mt-[0.9rem]"
+  className="xl:ml-[-80px] lg:ml-[-55px] md:ml-[-32px] "
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6 }}
   viewport={{ once: true }}
 >
   <p className="text-[#5E3C2F] font-dudu leading-relaxed 
-    text-[11px] md:text-[13px] lg:text-[17px] xl:text-[25px]">
+    text-[15px] md:text-[17px] lg:text-[18px] xl:text-[25px] mt-8">
 These are a complete set of low-fidelity wireframes for the diamate app from which I created the high-fidelity designs.
   </p>
 </motion.div>
@@ -756,7 +756,7 @@ These are a complete set of low-fidelity wireframes for the diamate app from whi
   viewport={{ once: true }}
 >
   <h3 className="font-dudu font-bold text-[#5E3C2F] 
-    text-[11px] md:text-[18px] lg:text-[22px] xl:text-[30px]">
+    text-[17px] md:text-[19px] lg:text-[20px] xl:text-[30px] mt-8">
     UI design
   </h3>
 </motion.div>
