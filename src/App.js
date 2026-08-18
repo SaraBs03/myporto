@@ -1,22 +1,24 @@
 import { useEffect, useState, useRef } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";import Navbar from "./components/Navbar";
 import IntroCV from "./components/home/IntroCV";
-import Logos from "./components/logos";
+
 import MenuSection from "./components/home/MenuSection";
-import TitlesPolaroids from "./components/home/TitlesPolaroids";
+import Projects from "./components/home/projects";
 import CTA from "./components/home/CTA";
 import Footer from "./components/Footer";
-import Branding from "./components/branding";
-import Branding2 from "./components/branding2";
+
 import cursorSvg from "./assets/cursor.svg";
 import cursor2Svg from "./assets/cursor2.svg";
 import FloatingCV from "./components/FloatingCV";
 import ContactPage from "./components/ContactPage";
 import { useLocation } from "react-router-dom";
-import UxUi from "./components/uxui";
+import NoweMoneyOnboarding from "./components/nowe_money_onboarding";
+import NoweMoneySeoPages from "./components/nowe_money_seo_pages";
+import NoweMoneyLandings from "./components/nowe_money_landings";
+import EpicTrading from "./components/epic_trading";
 import interactCursorSvg from "./assets/InteractCursor.svg";
-import UxUi2 from "./components/uxui2"; // Add this import
+
+
 
 
 
@@ -71,6 +73,7 @@ function App() {
   const [cursorImage, setCursorImage] = useState(cursorSvg);
   const location = useLocation();
   const cursorImageRef = useRef(cursorSvg);
+  const [projectPanelOpen, setProjectPanelOpen] = useState(false);
 
 useEffect(() => {
   cursorImageRef.current = cursorImage;
@@ -88,11 +91,19 @@ useEffect(() => {
   pos.current.y = mouse.current.y;
 }, [location.pathname]);
 
-window.addEventListener("load", () => {
-  document.querySelectorAll(".marquee-track").forEach((el) => {
-    el.classList.add("is-ready");
-  });
-});
+useEffect(() => {
+  const handleLoad = () => {
+    document.querySelectorAll(".marquee-track").forEach((el) => {
+      el.classList.add("is-ready");
+    });
+  };
+
+  window.addEventListener("load", handleLoad);
+
+  return () => {
+    window.removeEventListener("load", handleLoad);
+  };
+}, []);
 
   useEffect(() => {
   // Skip first load (initial loader already handled)
@@ -417,7 +428,7 @@ window.addEventListener("load", () => {
       <div className="flex-grow">
         <IntroCV />
         <MenuSection />
-        <TitlesPolaroids />
+        <Projects />
         <CTA />
       </div>
       <Footer />
@@ -425,14 +436,44 @@ window.addEventListener("load", () => {
     </>
   }
 />
-  <Route path="/TG/uxui" element={<UxUi />} />
-<Route path="/TG/branding" element={<Branding />} />
+ <Route
+  path="/nowe-money-onboarding"
+  element={
+    process.env.NODE_ENV === "development"
+      ? <NoweMoneyOnboarding />
+      : <Navigate to="/" replace />
+  }
+/>
 
-<Route path="/Diamate" element={<UxUi2 />} />
-<Route path="/Fantazia" element={<Branding2 />} />
-<Route path="/Logos" element={<Logos />} />
-          <Route path="/Contact" element={<ContactPage />} />
-        </Routes>
+<Route
+    path="/epic-trading"
+    element={<EpicTrading />}
+  />
+
+
+  <Route
+  path="/nowe-money-seo-pages"
+  element={
+    process.env.NODE_ENV === "development"
+      ? <NoweMoneySeoPages />
+      : <Navigate to="/" replace />
+  }
+/>
+
+ <Route
+  path="/nowe-money-landings"
+  element={
+    process.env.NODE_ENV === "development"
+      ? <NoweMoneyLandings />
+      : <Navigate to="/" replace />
+  }
+/>
+
+  <Route
+    path="/contact"
+    element={<ContactPage />}
+  />
+</Routes>
       </div>
       
       {/* Floating UI — ALWAYS LAST */}

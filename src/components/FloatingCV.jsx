@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import CvIcon from "../assets/CvIcon.svg";
 
-export default function FloatingCV({ menuOpen }) {
+export default function FloatingCV() {
   const [hide, setHide] = useState(false);
+  const [projectPanelOpen, setProjectPanelOpen] = useState(false);
 
   useEffect(() => {
     const footer = document.getElementById("site-footer");
@@ -22,20 +23,35 @@ export default function FloatingCV({ menuOpen }) {
     return () => observer.disconnect();
   }, []);
 
-  
+  // Listen for the project preview panel opening/closing
+  useEffect(() => {
+    const openPanel = () => setProjectPanelOpen(true);
+    const closePanel = () => setProjectPanelOpen(false);
 
+    window.addEventListener("project-panel-open", openPanel);
+    window.addEventListener("project-panel-close", closePanel);
+
+    return () => {
+      window.removeEventListener("project-panel-open", openPanel);
+      window.removeEventListener("project-panel-close", closePanel);
+    };
+  }, []);
 
   return (
     <div
       className={`
         fixed bottom-4 right-4 z-[9999]
         transition-all duration-300 ease-in-out
-        ${hide ? "opacity-0 translate-y-6 pointer-events-none" : "opacity-100"}
+        ${
+          hide || projectPanelOpen
+            ? "opacity-0 translate-y-6 pointer-events-none"
+            : "opacity-100"
+        }
       `}
     >
       <a
-        href="/CV_Sara_Ben_Salem.pdf"
-        download
+  href="/Resume.pdf"
+  download="Sara-Ben-Salem-CV.pdf"
         className="flex items-center gap-2
                    bg-[#F3E6D4]
                    px-3 py-2
@@ -47,7 +63,8 @@ export default function FloatingCV({ menuOpen }) {
                    transition
                    interactive-hover"
       >
-        <img src={CvIcon} className="w-4 h-4" alt="CV icon" />
+        <img src={CvIcon} className="w-4 h-4" alt="ATS Resume icon" />
+
         <span className="font-dudu font-bold text-sm text-[#190A07]">
           CV
         </span>

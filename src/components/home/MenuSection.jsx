@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function MenuSection() {
   const [activeItem, setActiveItem] = useState(null);
@@ -7,9 +7,30 @@ export default function MenuSection() {
   const pauseTimeout = useRef(null);
 
   const handleTap = (item) => {
-    setActiveItem(item);
-    setTimeout(() => setActiveItem(null), 300);
+  setActiveItem((prev) => prev === item ? null : item);
+};
+
+const menuRef = useRef(null);
+
+useEffect(() => {
+  const closeNote = (e) => {
+    if (menuRef.current && !menuRef.current.contains(e.target)) {
+      setActiveItem(null);
+    }
   };
+
+  document.addEventListener("mousedown", closeNote);
+
+  return () => {
+    document.removeEventListener("mousedown", closeNote);
+  };
+}, []);
+
+  const serviceDescriptions = {
+  "ux/ui": "User research, wireframes, prototypes, and improving digital experiences through thoughtful UX flows.",
+  "branding": "Mobile apps, dashboards, and digital products designed with clear and intuitive experiences.",
+  "logos": "Creating user journeys, interactions, and flows that make products easier to use."
+};
 
   const getItemClass = (item, rotation) => {
     const baseClass =
@@ -42,7 +63,12 @@ export default function MenuSection() {
 
   return (
     <section
-  className="relative pt-3 sm:pt-7 lg:pt-[69px] min-h-[260px] sm:min-h-[400px] lg:min-h-[550px]"
+  className="
+relative 
+pt-3 sm:pt-7 lg:pt-[69px]
+pb-16 sm:pb-20
+min-h-[300px] sm:min-h-[500px] lg:min-h-[570px]
+"
   style={{
     backgroundColor: "#5E3C2F",
     backgroundImage: `
@@ -53,8 +79,9 @@ export default function MenuSection() {
   }}
 >
   <div className="max-w-[1260px] mx-auto px-3 sm:px-6 lg:px-0 text-[#F3E6D4]">
+    <div className="w-full flex flex-col items-center">
     {/* TITLE */}
-    <h2 className="font-whatnot font-bold text-center mt-[15px] sm:mt-[30px] text-base sm:text-2xl lg:text-5xl relative">
+    <h2 className="font-whatnot font-bold text-center mt-[30px] sm:mt-[60px] lg:mt-[20px] text-base sm:text-2xl lg:text-5xl relative">
       <span
         className="
           relative inline-block
@@ -69,36 +96,207 @@ export default function MenuSection() {
           after:transition-transform after:duration-500 after:ease-out
         "
       >
-       What can I do for your brand ?
+       What can I do for you ?
       </span>
     </h2>
 
-    {/* Menu items */}
-    <div className="mt-[20px] sm:mt-[40px] lg:mt-[55px] flex flex-col items-center space-y-3 sm:space-y-6 lg:space-y-10">
-      {/* UX/UI */}
-      <div
-        className={` ${getItemClass("ux/ui", "-rotate-1")}`}
-        onClick={() => handleTap("ux/ui")}
-      >
-        UX/UI
-      </div>
+{/* Menu items */}
+<div
+  ref={menuRef}
+  className="
+    mt-[20px] sm:mt-[40px] lg:mt-[55px]
+    flex flex-col items-center
+    space-y-2 sm:space-y-5 md:space-y-6 lg:space-y-14
+    interactive-hover
+  "
+>
+  
+  {[
+    {
+      name: "ux/ui 1",
+      label: "Websites",
+      rotation: "-rotate-1",
+      noteTitle: "WEBSITES",
+      note:
+        "Designing websites that balance your needs, audience, aesthetics, and functionality."
+    },
+    {
+      name: "ux/ui 2",
+      label: "Apps",
+      rotation: "rotate-2",
+      noteTitle: "DIGITAL PRODUCTS",
+      note:
+        "Designing clear, user-friendly apps and digital products."
+    },
+    {
+      name: "ux/ui 3",
+      label: "Ux & Flow",
+      rotation: "-rotate-3",
+      noteTitle: "UX & FLOW",
+      note:
+        "Creating purposeful, user-centered experiences that guide users toward clear goals."
+    }
+  ].map((item) => {
+ 
+    
+    const isLeft = item.name === "ux/ui 2";
 
-      {/* BRANDING */}
+    return (
       <div
-        className={`${getItemClass("branding", "rotate-2")}`}
-        onClick={() => handleTap("branding")}
+        key={item.name}
+        className="relative flex flex-col items-center"
       >
-        BRANDING
-      </div>
 
-      {/* LOGOS */}
-      <div
-        className={`${getItemClass("logos", "-rotate-3")}`}
-        onClick={() => handleTap("logos")}
-      >
-        LOGOS
+        {/* Main title */}
+        <div
+          className={getItemClass(item.name, item.rotation)}
+          onClick={() => handleTap(item.name)}
+        >
+          {item.label}
+        </div>
+
+        {/* Side note */}
+        <div
+          className={`
+            absolute top-1/2 -translate-y-1/2
+
+            ${
+              isLeft
+                ? "right-full mr-6 sm:mr-10 md:mr-14 lg:mr-20"
+                : "left-full ml-6 sm:ml-10 md:ml-14 lg:ml-20"
+            }
+
+            transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)]
+
+            ${
+              activeItem === item.name
+                ? "opacity-100 translate-x-0 scale-100"
+                : isLeft
+                  ? "opacity-0 translate-x-10 scale-90 pointer-events-none"
+                  : "opacity-0 -translate-x-10 scale-90 pointer-events-none"
+            }
+          `}
+        >
+
+          {/* Paper */}
+          <div
+            className="
+              relative
+              w-[105px]
+xs:w-[115px]
+sm:w-[180px]
+md:w-[220px]
+lg:w-[320px]
+
+              bg-[#F3E6D4]
+              text-[#190A07]
+
+              px-2.5
+              py-2
+              sm:px-3
+              sm:py-2.5
+              md:px-4
+              md:py-3
+              lg:px-5
+              lg:py-4
+
+              shadow-[0_15px_35px_rgba(0,0,0,0.25)]
+              rotate-[-2deg]
+            "
+          >
+
+            {/* Pin */}
+            <div
+              className="
+                absolute
+                -top-1.5
+                left-1/2
+                -translate-x-1/2
+
+                w-2.5
+                h-2.5
+
+                sm:w-3
+                sm:h-3
+
+                lg:w-4
+                lg:h-4
+
+                rounded-full
+                bg-[#C33E23]
+                border
+                sm:border-2
+                border-[#F3E6D4]
+                shadow-md
+                z-20
+              "
+            />
+
+            {/* Tape */}
+            <div
+              className="
+                absolute
+                -top-2
+                left-1/2
+                -translate-x-1/2
+
+                w-8
+                h-3
+
+                sm:w-10
+                sm:h-3.5
+
+                lg:w-14
+                lg:h-5
+
+                bg-[#d6bfa6]/70
+                rotate-3
+                z-10
+              "
+            />
+
+            {/* Note title */}
+            <p
+              className="
+                font-whatnot
+                uppercase
+                tracking-[0.12em]
+                text-[9px]
+                sm:text-[10px]
+                lg:text-xs
+                mb-1
+                sm:mb-1.5
+                lg:mb-2
+              "
+            >
+              {item.noteTitle}
+            </p>
+
+            {/* Note text */}
+            <p
+              className="
+                font-whatnot
+                text-[9px]
+                sm:text-[10px]
+                md:text-[11px]
+                lg:text-base
+                leading-[1.35]
+                sm:leading-[1.4]
+                lg:leading-relaxed
+              "
+            >
+              {item.note}
+            </p>
+
+          </div>
+        </div>
+
       </div>
-    </div>
+      
+    );
+  })}
+</div>
+  </div>
   </div>
 
   <div className="marquee-container absolute bottom-0 left-0 w-full bg-[#C33E23] py-1.5 sm:py-3">

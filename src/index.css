@@ -120,23 +120,7 @@ button:focus ~ #custom-cursor {
 }
 
 
-/* Fix sticky on iOS */
-@supports (-webkit-touch-callout: none) {
-  .sticky {
-    position: fixed;
-    width: 100%;
-  }
-  
-  body {
-    padding-top: 48px; /* Adjust based on your navbar height */
-  }
-  
-  @media (min-width: 640px) {
-    body {
-      padding-top: 64px; /* For sm:h-16 */
-    }
-  }
-}
+
 
 @layer utilities {
   @media (min-width: 320px) and (max-width: 430px) {
@@ -526,46 +510,12 @@ video {
 }
 
 
-@font-face {
-  font-family: 'maheeb';
-  src: url('./assets/maheeb.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 
 
 
 
-/* Add this to your global.css or App.css file */
-@font-face {
-  font-family: 'HalvarBreitschrift';
-  src: url('./assets/Halvar-Breitschrift-Regular-Demo.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'HalvarBreitschrift';
-  src: url('./assets/Halvar-Breitschrift-Regular-Slanted-Demo.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'HalvarBreitschrift';
-  src: url('./assets/Halvar-Breitschrift-Thin-Demo.otf') format('opentype');
-  font-weight: 400;
-  font-style: italic;
-}
 
 
-@font-face {
-  font-family: 'HalvarBreitschrift';
-  src: url('./assets/Halvar-Breitschrift-Bold-Demo.otf') format('opentype');
-  font-weight: 400;
-  font-style: italic;
-}
 
 .arrow-long::after {
   content: "";
@@ -586,4 +536,24 @@ code {
   nav {
     padding-top: env(safe-area-inset-top);
   }
+}
+
+@keyframes note-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) rotate(-5deg);
+  }
+
+  60% {
+    transform: translateY(5px) rotate(2deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(-1.5deg);
+  }
+}
+
+.animate-note-drop {
+  animation: note-drop 0.7s ease-out forwards;
 }
