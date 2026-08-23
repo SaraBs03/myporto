@@ -131,7 +131,7 @@ export default function ContactPage() {
               Leave a message.
             </h1>
             <p className="font-dudu text-[#5E3C2F] text-[14px] sm:text-[17px] lg:text-[20px] mt-3">
-              press play to reach me
+              Pick a track.
             </p>
           </div>
 
@@ -245,10 +245,7 @@ lg:px-7 lg:py-4 rounded-lg
               </div>
             </div>
 
-            {/* small caption under the device */}
-            <p className="text-center font-whatnot text-[#5E3C2F] text-[11px] sm:text-[13px] mt-4 sm:mt-5">
-              {activeButton ? "connecting..." : "tape ready"}
-            </p>
+            
           </div>
 
           {/* Bottom text */}
