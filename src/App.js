@@ -438,12 +438,8 @@ useEffect(() => {
 />
  <Route
   path="/nowe-money-onboarding"
-  element={
-    process.env.NODE_ENV === "development"
-      ? <NoweMoneyOnboarding />
-      : <Navigate to="/" replace />
-  }
-/>
+  element={<NoweMoneyOnboarding /> }
+  />
 
 <Route
     path="/epic-trading"

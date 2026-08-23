@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const MESSAGES = [
-  "hey! thanks for stopping by.",
+  "Hello there",
   "want to see what I've been building?",
   "let's explore together :)",
 ];
@@ -217,7 +217,11 @@ style={{
   className={`
     group flex items-center justify-between gap-2
     border-2 rounded-full
-    px-3 py-2 xs:px-4 xs:py-2.5 sm:px-5 sm:py-3 md:px-6 md:py-3.5 lg:px-8 lg:py-5
+    px-3 py-2
+    xs:px-4 xs:py-2.5
+    sm:px-4 sm:py-2.5
+    md:px-5 md:py-3
+    lg:px-6 lg:py-3
     mt-2 sm:mt-3
     transition-all duration-500 ease-out
     interactive-hover
@@ -233,18 +237,24 @@ style={{
     }
   `}
 >
-  <span className="font-dudu text-[11px] xs:text-[12px] sm:text-[14px] md:text-[16px] lg:text-[20px] text-[#5E3C2F]/50 group-hover:text-[#5E3C2F]/80 transition-colors">
+  <span className="font-dudu text-[11px] xs:text-[12px] sm:text-[13px] md:text-[15px] lg:text-[17px] text-[#5E3C2F]/50 group-hover:text-[#5E3C2F]/80 transition-colors">
     say something...
   </span>
 
   <span
-    className="flex-shrink-0
-      w-7 h-7 xs:w-8 xs:h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-14 lg:h-14
+    className="
+      flex-shrink-0
+      w-7 h-7
+      xs:w-8 xs:h-8
+      sm:w-8 sm:h-8
+      md:w-9 md:h-9
+      lg:w-11 lg:h-11
       rounded-full bg-[#C33E23]
       flex items-center justify-center
-      group-hover:brightness-110 transition-all"
+      group-hover:brightness-110 transition-all
+    "
   >
-    <span className="font-dudu text-[#F3E6D4] text-[11px] xs:text-[12px] sm:text-[14px] md:text-[16px] lg:text-[20px] -rotate-45 group-hover:rotate-0 transition-transform duration-300">
+    <span className="font-dudu text-[#F3E6D4] text-[11px] xs:text-[12px] sm:text-[13px] md:text-[15px] lg:text-[15px] -rotate-45 group-hover:rotate-0 transition-transform duration-300">
       →
     </span>
   </span>

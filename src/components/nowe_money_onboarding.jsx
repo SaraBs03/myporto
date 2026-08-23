@@ -1,5 +1,16 @@
 import Footer from "./Footer";
 import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { useNavigate } from "react-router-dom";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import NoweOnboardingHero from "../assets/nowe_onboarding_hero.png"
+import NoweOnboardingUserFlow from "../assets/nowe_onboarding_user_flow.png"
+import NoweOnboardingLow from "../assets/nowe_onboarding_low.png"
+import NoweOnboardingHigh from "../assets/nowe_onboarding_high.png"
+import NoweOnboardingKeySections from "../assets/nowe_onboarding_key_sections.png"
+import NoweOnboardingDesignSystem from "../assets/nowe_onboarding_design_system.png"
+
+gsap.registerPlugin(ScrollTrigger);
 
 /* ---------- SHARED SCROLL-REVEAL WRAPPER ---------- */
 function Reveal({ children, className = "", delay = 0 }) {
@@ -143,9 +154,48 @@ function NDAStamp() {
 }
 
 export default function NoweOnboardingCaseStudy() {
+  const heroImageRef = useRef(null);
+  const navigate = useNavigate();
+
+ useEffect(() => {
+  const image = heroImageRef.current;
+  if (!image) return;
+
+  const mm = gsap.matchMedia();
+
+  mm.add("(min-width: 1024px)", () => {
+    const animation = gsap.fromTo(
+      image,
+      { scale: 0.78 },
+      {
+        scale: 1.23,
+        ease: "none",
+        scrollTrigger: {
+          trigger: image,
+          start: "top 85%",
+          end: "bottom 15%",
+          scrub: 0.6,
+        },
+      }
+    );
+
+    return () => {
+      animation.kill();
+    };
+  });
+
+  mm.add("(max-width: 1023px)", () => {
+    gsap.set(image, { scale: 1, clearProps: "transform" });
+  });
+
+  return () => {
+    mm.revert();
+  };
+}, []);
+
   return (
     <div className="min-h-screen bg-[#F3E6D4] text-[#190A07] overflow-x-hidden">
-      <main className="px-4 sm:px-8 lg:px-[60px] xl:px-[100px] pt-[100px] sm:pt-[130px] pb-[80px]">
+      <main className="-mt-8 px-4 sm:px-8 lg:px-[60px] xl:px-[100px] pt-[100px] sm:pt-[130px] pb-[80px]">
         {/* ================= HERO ================= */}
         <section className="relative">
           <NDAStamp />
@@ -157,82 +207,94 @@ export default function NoweOnboardingCaseStudy() {
                 pr-[100px] xs:pr-[120px] sm:pr-[150px] md:pr-[180px] lg:pr-0
               "
             >
-              <SceneLabel number="Hero" title="Nowe Money Onboarding" />
+              <SceneLabel number="Hero"/>
               <h1 className="font-whatnot font-bold text-[32px] sm:text-[48px] lg:text-[60px] leading-[1.05] max-w-[820px]">
                 Nowe Money Onboarding
               </h1>
-              <p className="font-whatnot text-[16px] sm:text-[20px] lg:text-[22px] text-[#5E3C2F] mt-4 max-w-[640px]">
-                Designing a full B2B commodities trading website from
-                navigation and product architecture to the request-for-quote
-                experience.
-              </p>
+             <p className="font-whatnot text-[16px] sm:text-[20px] lg:text-[22px] text-[#5E3C2F] mt-4 max-w-[640px]">
+  Designing a complete fintech onboarding experience, from setting up an account
+  to verification and activation.{" "}
+  <span className="font-bold">
+    Due to NDA restrictions, only a limited selection of screens and information
+    can be shown.
+  </span>
+</p>
             </div>
 
-            <MediaPlaceholder label="Hero mockup" className="mb-10 sm:mb-14" />
+           {/* HERO IMAGE FRAME */}
+  <div className="w-full mb-10 sm:mb-14 rounded-[28px]">
+  <div className="w-full py-12 sm:py-16 lg:py-20">
+    <div
+      ref={heroImageRef}
+      className="
+        w-[92%] mx-auto
+        sm:w-[95%]
+        lg:w-full
+        rounded-[28px]
+        overflow-hidden
+      "
+    >
+      <img
+        src={NoweOnboardingHero}
+        alt="Nowe Money Onboarding website mockup"
+        className="w-full h-auto block"
+      />
+    </div>
+  </div>
+</div>
           </div>
         </section>
 
         {/* ================= 01 — ABOUT ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        <section className="max-w-[1200px] mx-auto mt-[10px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
             <SceneLabel number="01" title="About" />
             <div className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
               <p>
-                Nowe Money Onboarding is a B2B commodities trading company
-                operating across sugar, palm oil, refined hydrocarbons, and
-                gold & precious metals. Buyers and partners come to the site
-                to understand what Epic sources, how the company operates,
-                and how to start a request.
+                NOWE Money is a cross-border fintech platform designed for individuals and businesses to manage multiple currencies, 
+                make international payments, and access European financial services. 
+                Users come to NOWE to create an account, complete verification, and set up the financial services they need.
               </p>
               <p>
-                I designed the full website experience there was no
-                existing design system or prior site to build on. My role
-                covered the complete process: structuring the information
-                architecture, designing the UI system, and building the core
-                flows a B2B buyer would need to move from "discovering a
-                product" to "requesting a quote."
+               I designed the full onboarding experience across 45+ screens for both personal and business users. My role covered the complete process: 
+               structuring the onboarding flows, designing the UI system, and building the core journeys
+                a user would need to move from creating an account to completing verification and activating their financial services.
               </p>
             </div>
           </Reveal>
 
-          <Reveal delay={150}>
-            <p className="font-whatnot text-[14px] sm:text-[16px] text-[#5E3C2F] mt-8 mb-4 max-w-[780px]">
-              A few key actions from the site.
-            </p>
-            <ScreenGrid
-              cols="grid-cols-3"
-              screens={[
-                { label: "Explore Products", g: "linear-gradient(160deg,#0F2A43,#1B3D5C)" },
-                { label: "Request a Quote", g: "linear-gradient(160deg,#1B3D5C,#C9A227)" },
-                { label: "Become a Partner", g: "linear-gradient(160deg,#0F2A43,#C9A227)" },
-              ]}
-            />
-          </Reveal>
+          
         </section>
 
         {/* ================= 02 — USER FLOWS ================= */}
         <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
-            <SceneLabel number="02" title="User Flows" />
+            <SceneLabel number="02" title="User Flow & Structure" />
             <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
-              Rather than mapping every possible path, I focused on the two
-              flows that matter most to a B2B buyer.
+              Mapped out the main steps for both personal and business users,
+               keeping the onboarding experience clear and straightforward. Simplified for confidentiality.
             </p>
           </Reveal>
 
           <Reveal delay={100} className="mb-10">
             <h3 className="font-whatnot font-bold text-[17px] sm:text-[19px] mb-3">
-              Explore a product
+              Simplified Onboarding User Flow
             </h3>
-            <MediaPlaceholder label="Explore a product — flow" />
           </Reveal>
+           <div className="w-full max-w-[800px] mx-auto rounded-2xl overflow-hidden">
+              <img
+                src={NoweOnboardingUserFlow}
+                alt="Nowe onboarding user flow"
+                className="w-full h-auto block"
+              />
+               <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[880px] mt-8">
+              This flow has been simplified for confidentiality, so some specific steps and internal details have been left out due to the NDA.
+            </p>
+            </div>
+           
 
-          <Reveal delay={200}>
-            <h3 className="font-whatnot font-bold text-[17px] sm:text-[19px] mb-3">
-              Submit a request
-            </h3>
-            <MediaPlaceholder label="Request a quote — flow" />
-          </Reveal>
+
+          
         </section>
 
         {/* ================= 03 — LOW-FIDELITY WIREFRAMES ================= */}
@@ -246,40 +308,19 @@ export default function NoweOnboardingCaseStudy() {
             </p>
           </Reveal>
 
-          <Reveal delay={100}>
-            <MediaPlaceholder label="Low-fidelity wireframes" />
+           <Reveal delay={100}>
+            <div className="w-full rounded-2xl overflow-hidden p-6 sm:p-10">
+              <img
+                src={NoweOnboardingLow}
+                alt="Nowe onboarding low-fidelity wireframes"
+                className="w-full h-auto block"
+              />
+            </div>
           </Reveal>
         </section>
 
-        {/* ================= 04 — HIGH-FIDELITY WIREFRAMES ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
-          <Reveal>
-            <SceneLabel number="04" title="High-Fidelity Wireframes" />
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
-              Here are a few of the key pages in high-fidelity wireframes.
-            </p>
-          </Reveal>
 
-          <Reveal delay={100}>
-            <MediaPlaceholder label="High-fidelity wireframes" />
-          </Reveal>
-        </section>
-
-        {/* ================= 05 — SITE MAP ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
-          <Reveal>
-            <SceneLabel number="05" title="Site Map" />
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
-              Here is the full sitemap of the Nowe Money Onboarding website,
-              showing how the pages and content are organized across the
-              site.
-            </p>
-          </Reveal>
-
-          <Reveal delay={100}>
-            <MediaPlaceholder label="Site map" />
-          </Reveal>
-        </section>
+       
 
         {/* ================= 06 — KEY SECTIONS / UX DECISIONS ================= */}
         <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
@@ -288,29 +329,14 @@ export default function NoweOnboardingCaseStudy() {
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="grid grid-cols-1 lg:grid-cols-[800px_1fr] gap-8 items-end">
-              {/* Placeholder */}
-              <div className="w-full lg:w-[800px]">
-                <MediaPlaceholder label="Key sections & UX decisions" />
-              </div>
-
-              {/* Right column */}
-              <div className="lg:pb-[250px]">
-                <p className="font-whatnot text-[14px] sm:text-[15px] leading-relaxed text-[#190A07]/80">
-                  I chose these sections in particular because they contain
-                  important B2B corporate information, and the goal was to
-                  simplify it as much as possible while keeping the user
-                  experience clear. I used structured text, icons, and media
-                  to make the information easier to understand while
-                  maintaining visual harmony across the pages. For example,
-                  the How We Work section presents clear steps in a simple
-                  way, while the Services section uses split media and text
-                  sections for better readability and a more comfortable
-                  visual experience.
-                </p>
-              </div>
-            </div>
-          </Reveal>
+<div className="w-full max-w-[1400px] mx-auto rounded-2xl overflow-hidden">  
+    <img
+      src={NoweOnboardingKeySections}
+      alt="NOWE Money onboarding key sections and UX decisions"
+      className="w-full h-auto block"
+    />
+  </div>
+</Reveal>
         </section>
 
         {/* ================= 07 — DESIGN SYSTEM ================= */}
@@ -318,51 +344,60 @@ export default function NoweOnboardingCaseStudy() {
           <Reveal>
             <SceneLabel number="07" title="Design System" />
             <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
-              Since there was no existing system to inherit, I built one from
-              scratch, focusing on reusable components, sections, buttons,
-              colors, and other UI elements to maintain consistency
-              throughout the website.
+              I created a consistent design system for both personal and business onboarding, covering typography, colors, buttons, and key UI elements. 
+              The selection shown here is only part of the full system.
             </p>
           </Reveal>
 
           <Reveal delay={100}>
-            <MediaPlaceholder label="Design system" className="max-w-[1100px]" />
+            <div className="w-[1200px] max-w-full rounded-2xl overflow-hidden">
+              <img
+                src={NoweOnboardingDesignSystem}
+                alt="NOWE Money design system"
+                className="w-full h-auto block"
+              />
+            </div>
           </Reveal>
         </section>
 
         {/* ================= 08 — FINAL PRODUCT / INTERACTIONS ================= */}
+       
+        {/* ================= 04 — HIGH-FIDELITY WIREFRAMES ================= */}
         <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
-            <SceneLabel number="08" title="Final Product & Interactions" />
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
-              Snippets of the finished site in motion.
-            </p>
+            <SceneLabel number="04" title="High-Fidelity Wireframes" />
+            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
+Here are a few high-fidelity wireframes from the project. Due to NDA restrictions, the full set of screens cannot be shown.            </p>
           </Reveal>
 
-          {/* Interaction 01 */}
-          <Reveal delay={100} className="mb-10">
-            <MediaPlaceholder label="Interaction — clip 01" className="aspect-video" />
-          </Reveal>
-
-          {/* Interaction 02 */}
-          <Reveal delay={150}>
-            <MediaPlaceholder label="Interaction — clip 02" className="aspect-video" />
+          <Reveal delay={100}>
+            <div className="w-full rounded-2xl overflow-hidden p-6 sm:p-10">
+              <img
+                src={NoweOnboardingHigh}
+                alt="Nowe onboarding high-fidelity wireframes"
+                className="w-full h-auto block"
+              />
+            </div>
           </Reveal>
         </section>
 
         {/* ================= NEXT PROJECT ================= */}
         <section className="max-w-[1200px] mx-auto mt-[120px] sm:mt-[160px]">
-          <Reveal>
-            <div className="flex items-center justify-between border-t border-[#190A07]/15 pt-6">
-              <button className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover">
-                ← Previous
-              </button>
-              <button className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover">
-                Next →
-              </button>
-            </div>
-          </Reveal>
-        </section>
+  <Reveal>
+    <div className="flex items-center justify-between border-t border-[#190A07]/15 pt-6">
+      <button
+        onClick={() => navigate("/epic-trading")}
+        className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover"
+      >
+        ← Previous
+      </button>
+
+      <button className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors">
+        Next in progress →
+      </button>
+    </div>
+  </Reveal>
+</section>
       </main>
 
       <Footer />

@@ -68,7 +68,7 @@ export default function Projects({ isIOS, onPanelChange }) {
       tools: "Figma",
       year: "2026",
       route: "/nowe-money-onboarding",
-      inProgress: true,
+      inProgress: false,
     },
     {
       num: "03",

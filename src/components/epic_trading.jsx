@@ -2,6 +2,7 @@ import Footer from "./Footer";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom";
 
 import EpicHeroMockup from "../assets/epic_trading_mockup.png";
 import EpicCTA1 from "../assets/epicCTA1.png";
@@ -16,7 +17,6 @@ import KeySectionsEpic from "../assets/Key_sections_epic.png";
 import DesignSystemEpic from "../assets/design_system_epic.png";
 import UiLoopEpic1 from "../assets/ui_loop_epic1.mp4";
 import UiLoopEpic2 from "../assets/ui_loop_epic2.mp4";
-
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -113,32 +113,42 @@ function MediaPlaceholder({ label, className = "" }) {
 }
 
 export default function EpicTradingCaseStudy() {
+  const navigate = useNavigate();
    const heroImageRef = useRef(null);
 
 useEffect(() => {
-    const image = heroImageRef.current;
-
+  const image = heroImageRef.current;
   if (!image) return;
 
-  const animation = gsap.fromTo(
-    image,
-    {
-      scale: 0.78,
-    },
-    {
-      scale: 1.30,
-      ease: "none",
-      scrollTrigger: {
-        trigger: image,
-        start: "top 85%",
-        end: "bottom 15%",
-        scrub: 0.7,
-      },
-    }
-  );
+  const mm = gsap.matchMedia();
+
+  mm.add("(min-width: 1024px)", () => {
+    const animation = gsap.fromTo(
+      image,
+      { scale: 0.78 },
+      {
+        scale: 1.23,
+        ease: "none",
+        scrollTrigger: {
+          trigger: image,
+          start: "top 85%",
+          end: "bottom 15%",
+          scrub: 0.6,
+        },
+      }
+    );
+
+    return () => {
+      animation.kill();
+    };
+  });
+
+  mm.add("(max-width: 1023px)", () => {
+    gsap.set(image, { scale: 1, clearProps: "transform" });
+  });
 
   return () => {
-    animation.kill();
+    mm.revert();
   };
 }, []);
 
@@ -149,7 +159,7 @@ useEffect(() => {
   <div className="w-full max-w-[1200px] mx-auto">
 
     <div className="mb-6 sm:mb-8">
-      <SceneLabel number="Hero" title="Epic Trading" />
+      <SceneLabel number="Hero" />
 
       <h1 className="font-whatnot font-bold text-[32px] sm:text-[48px] lg:text-[60px] leading-[1.05] max-w-[820px]">
         Epic Trading
@@ -187,7 +197,7 @@ useEffect(() => {
   </div>
 </section>
 
-        <section className="max-w-[1200px] mx-auto mt-[20px] sm:mt-[50px] lg:mt-[70px]">
+        <section className="max-w-[1200px] mx-auto mt-[10px] sm:mt-[50px] lg:mt-[70px]">
           <Reveal>
             <SceneLabel number="01" title="About" />
             <div className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
@@ -271,7 +281,7 @@ useEffect(() => {
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="w-full rounded-2xl overflow-hidden bg-[#0F2A43] p-6 sm:p-10">
+            <div className="w-full rounded-2xl overflow-hidden bg-[#343333] p-6 sm:p-10"> 
               <img
                 src={LowFidEpic}
                 alt="EPIC Trading low-fidelity wireframes"
@@ -421,15 +431,18 @@ useEffect(() => {
           </Reveal>
         </section>
 
-        <section className="max-w-[1200px] mx-auto mt-[120px] sm:mt-[160px]">
-          <Reveal>
-            <div className="flex items-center justify-end border-t border-[#190A07]/15 pt-6">
-              <button className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60">
-                Next in Progress →
-              </button>
-            </div>
-          </Reveal>
-        </section>
+       <section className="max-w-[1200px] mx-auto mt-[120px] sm:mt-[160px]">
+  <Reveal>
+    <div className="flex justify-end border-t border-[#190A07]/15 pt-6">
+      <button
+        onClick={() => navigate("/nowe-money-onboarding")}
+        className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover"
+      >
+        Next →
+      </button>
+    </div>
+  </Reveal>
+</section>
       </main>
 
       <Footer />
