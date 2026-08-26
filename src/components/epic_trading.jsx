@@ -170,6 +170,9 @@ useEffect(() => {
         navigation and product architecture to the request-for-quote
         experience.
       </p>
+                <p className="font-whatnot font-bold text-[#5E3C2F] text-[12px] sm:text-[14px] lg:text-[16px] mt-6 sm:mt-8 md:mt-10">
+    This project was made in partnership with Youth Geekers, A digital agency specializing in web, apps, UI/UX, branding, SEO, and gaming across Dubai, Europe, and beyond.
+  </p>
     </div>
 
     {/* HERO IMAGE FRAME */}
@@ -384,7 +387,7 @@ useEffect(() => {
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="w-[1100px] max-w-full rounded-2xl overflow-hidden">
+            <div className="w-[1200px] max-w-full rounded-2xl overflow-hidden">
               <img
                 src={DesignSystemEpic}
                 alt="EPIC Trading design system"

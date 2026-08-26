@@ -1,5 +1,13 @@
 import Footer from "./Footer";
 import { useEffect, useRef, useState } from "react";
+import NoweSeoComponents from "../assets/nowe_seo_components.png";
+import NoweSeoMockup from "../assets/nowe_seo_mockup.png";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom";
+import NoweSeoSections from "../assets/nowe_seo_sections.png";
+import UiLoopNoweSeo from "../assets/ui_loop_nowe_seo.mp4";
+import UiLoopNoweSeo2 from "../assets/ui_loop_nowe_seo2.mp4";
 
 /* ---------- SHARED SCROLL-REVEAL WRAPPER ---------- */
 function Reveal({ children, className = "", delay = 0 }) {
@@ -165,6 +173,45 @@ function NDAStamp() {
 }
 
 export default function NoweSeoPagesCaseStudy() {
+
+   const navigate = useNavigate();
+   const heroImageRef = useRef(null);
+
+useEffect(() => {
+  const image = heroImageRef.current;
+  if (!image) return;
+
+  const mm = gsap.matchMedia();
+
+  mm.add("(min-width: 1024px)", () => {
+    const animation = gsap.fromTo(
+      image,
+      { scale: 0.78 },
+      {
+        scale: 1.23,
+        ease: "none",
+        scrollTrigger: {
+          trigger: image,
+          start: "top 85%",
+          end: "bottom 15%",
+          scrub: 0.6,
+        },
+      }
+    );
+
+    return () => {
+      animation.kill();
+    };
+  });
+
+  mm.add("(max-width: 1023px)", () => {
+    gsap.set(image, { scale: 1, clearProps: "transform" });
+  });
+
+  return () => {
+    mm.revert();
+  };
+}, []);
   return (
     <div className="min-h-screen bg-[#F3E6D4] text-[#190A07] overflow-x-hidden">
       <main className="px-4 sm:px-8 lg:px-[60px] xl:px-[100px] pt-[100px] sm:pt-[130px] pb-[80px]">
@@ -180,23 +227,48 @@ export default function NoweSeoPagesCaseStudy() {
                 pr-[100px] xs:pr-[120px] sm:pr-[150px] md:pr-[180px] lg:pr-0
               "
             >
-              <SceneLabel number="Hero" title="Nowe SEO Pages" />
+
+   
+              <SceneLabel number="Hero" />
 
               <h1 className="font-whatnot font-bold text-[32px] sm:text-[48px] lg:text-[60px] leading-[1.05] max-w-[820px]">
                 Nowe SEO Pages
               </h1>
 
               <p className="font-whatnot text-[16px] sm:text-[20px] lg:text-[22px] text-[#5E3C2F] mt-4 max-w-[640px]">
-                Designing a collection of SEO-focused pages for Nowe, built
-                around structured content, search visibility, and a consistent
-                visual experience.
+                Creating SEO-focused pages for NOWE with clear content, simple navigation, and a consistent look and feel.{" "}
+  <span className="font-bold">
+    Due to NDA restrictions, only a limited selection of screens and information
+    can be shown.
+  </span>
               </p>
+
+               <p className="font-whatnot font-bold text-[#5E3C2F] text-[12px] sm:text-[14px] lg:text-[16px] mt-6 sm:mt-8 md:mt-10">
+    This project was made in partnership with Youth Geekers, A digital agency specializing in web, apps, UI/UX, branding, SEO, and gaming across Dubai, Europe, and beyond.
+  </p>
             </div>
 
-            <MediaPlaceholder
-              label="Hero mockup"
-              className="mb-10 sm:mb-14"
-            />
+             {/* HERO IMAGE FRAME */}
+  <div className="w-full mb-10 sm:mb-14 rounded-[28px]">
+  <div className="w-full py-12 sm:py-16 lg:py-20">
+    <div
+      ref={heroImageRef}
+      className="
+        w-[92%] mx-auto
+        sm:w-[95%]
+        lg:w-full
+        rounded-[28px]
+        overflow-hidden
+      "
+    >
+      <img
+        src={NoweSeoMockup}
+        alt="NOWE SEO Pages website mockup"
+        className="w-full h-auto block"
+      />
+    </div>
+  </div>
+</div>
           </div>
         </section>
 
@@ -207,217 +279,117 @@ export default function NoweSeoPagesCaseStudy() {
 
             <div className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
               <p>
-                Nowe SEO Pages is a collection of dedicated pages created to
-                expand Nowe's online presence and provide users with focused
-                entry points for its different services and offerings.
+               NOWE SEO Pages is a collection of 17 pages created to showcase NOWE’s
+                different services and make it easier for users to find the information they need.
               </p>
 
               <p>
-                I worked on the page experience from content structure and
-                hierarchy to the final UI, focusing on creating layouts that
-                could support SEO requirements while remaining engaging,
-                readable, and consistent with the wider Nowe website.
+                I worked on the pages from start to finish, organizing the content, creating the layouts, and designing the final UI.
+                 I first designed the main components,
+                 then combined and adapted them across the pages to keep everything consistent, clear, and visually engaging.
               </p>
             </div>
           </Reveal>
 
-          <Reveal delay={150}>
-            <p className="font-whatnot text-[14px] sm:text-[16px] text-[#5E3C2F] mt-8 mb-4 max-w-[780px]">
-              A few key sections from the SEO pages.
-            </p>
-
-            <ScreenGrid
-              cols="grid-cols-3"
-              screens={[
-                {
-                  label: "Hero Section",
-                  g: "linear-gradient(160deg,#0F2A43,#1B3D5C)",
-                },
-                {
-                  label: "Content Sections",
-                  g: "linear-gradient(160deg,#1B3D5C,#C9A227)",
-                },
-                {
-                  label: "Call to Action",
-                  g: "linear-gradient(160deg,#0F2A43,#C9A227)",
-                },
-              ]}
-            />
-          </Reveal>
+          
         </section>
 
-        {/* ================= 02 — USER FLOWS ================= */}
+        {/* ================= 02 — Components ================= */}
         <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
-            <SceneLabel number="02" title="User Flows" />
+            <SceneLabel number="02" title="Building the Visual System" />
 
             <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
-              Rather than mapping every possible path, I focused on the main
-              ways users would discover, navigate, and interact with the SEO
-              pages.
+              I first created the main components, then adapted them across the 17 pages to keep the pages clear and 
+              consistent. Below is a selection of the components I worked with.
             </p>
           </Reveal>
 
-          <Reveal delay={100} className="mb-10">
-            <h3 className="font-whatnot font-bold text-[17px] sm:text-[19px] mb-3">
-              Discover a service
-            </h3>
-
-            <MediaPlaceholder label="Discover a service — flow" />
-          </Reveal>
-
-          <Reveal delay={200}>
-            <h3 className="font-whatnot font-bold text-[17px] sm:text-[19px] mb-3">
-              Take action
-            </h3>
-
-            <MediaPlaceholder label="CTA — flow" />
-          </Reveal>
-        </section>
-
-        {/* ================= 03 — LOW-FIDELITY WIREFRAMES ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
-          <Reveal>
-            <SceneLabel number="03" title="Low-Fidelity Wireframes" />
-
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
-              Before starting any visual design, I started with low-fidelity
-              wireframes to organize the content, establish the hierarchy,
-              and put the structure I sketched into place.
-            </p>
-          </Reveal>
+          
 
           <Reveal delay={100}>
-            <MediaPlaceholder label="Low-fidelity wireframes" />
-          </Reveal>
-        </section>
-
-        {/* ================= 04 — HIGH-FIDELITY WIREFRAMES ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
-          <Reveal>
-            <SceneLabel number="04" title="High-Fidelity Wireframes" />
-
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
-              Here are a few of the key SEO pages developed in high-fidelity
-              wireframes.
-            </p>
-          </Reveal>
-
-          <Reveal delay={100}>
-            <MediaPlaceholder label="High-fidelity wireframes" />
-          </Reveal>
-        </section>
-
-        {/* ================= 05 — SITE MAP ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
-          <Reveal>
-            <SceneLabel number="05" title="Site Map" />
-
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
-              Here is the site map of the Nowe SEO Pages project, showing how
-              the pages and their content are organized across the website.
-            </p>
-          </Reveal>
-
-          <Reveal delay={100}>
-            <MediaPlaceholder label="Site map" />
-          </Reveal>
-        </section>
-
-        {/* ================= 06 — KEY SECTIONS / UX DECISIONS ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
-          <Reveal className="mb-10">
-            <SceneLabel number="06" title="Key Sections & UX Decisions" />
-          </Reveal>
-
-          <Reveal delay={100}>
-            <div className="grid grid-cols-1 lg:grid-cols-[800px_1fr] gap-8 items-end">
-
-              {/* Placeholder */}
-              <div className="w-full lg:w-[800px]">
-                <MediaPlaceholder label="Key sections & UX decisions" />
-              </div>
-
-              {/* Right column */}
-              <div className="lg:pb-[250px]">
-                <p className="font-whatnot text-[14px] sm:text-[15px] leading-relaxed text-[#190A07]/80">
-                  I focused on the sections that carried the most important
-                  information for users, simplifying the content while
-                  keeping the experience structured and easy to follow.
-
-                  <br />
-                  <br />
-
-                  I used a combination of structured text, visual hierarchy,
-                  icons, imagery, and clear calls to action to make each page
-                  easier to scan and understand.
-
-                  <br />
-                  <br />
-
-                  The goal was to create a consistent visual language across
-                  the different SEO pages while allowing each one to
-                  communicate its specific purpose.
-                </p>
-              </div>
-
+            <div className="w-[1200px] max-w-full rounded-2xl overflow-hidden">
+              <img
+                src={NoweSeoComponents}
+                alt="NOWE Money design system"
+                className="w-full h-auto block"
+              />
             </div>
           </Reveal>
         </section>
 
-        {/* ================= 07 — DESIGN SYSTEM ================= */}
+        {/* ================= 03 — shaping pages ================= */}
         <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
-            <SceneLabel number="07" title="Design System" />
+            <SceneLabel number="03" title="Shaping the pages" />
 
             <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
-              Since there was no existing system to inherit, I built one from
-              scratch, focusing on reusable components, sections, buttons,
-              colors, and other UI elements to maintain consistency throughout
-              the SEO pages.
+              I selected sections from different pages to show how the same design system was adapted to different types of content, 
+              while keeping each page clear, consistent, and easy to follow.
             </p>
           </Reveal>
 
-          <Reveal delay={100}>
-            <MediaPlaceholder
-              label="Design system"
-              className="max-w-[1100px]"
-            />
+           <Reveal delay={100}>
+            <div className="w-[1200px] max-w-full rounded-2xl overflow-hidden">
+              <img
+                src={NoweSeoSections}
+                alt="Nowe SEO shaping pages"
+                className="w-full h-auto block"
+              />
+            </div>
           </Reveal>
         </section>
+
+       
+        
 
         {/* ================= 08 — FINAL PRODUCT / INTERACTIONS ================= */}
         <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
-          <Reveal>
-            <SceneLabel number="08" title="Final Product & Interactions" />
+                  <Reveal>
+                    <SceneLabel number="08" title="Final Product & Interactions" />
+                    <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
+                      Snippets of the finished site in motion.
+                    </p>
+                  </Reveal>
+        
+                  <Reveal delay={100} className="mb-10">
+                    <div className="w-full max-w-[1200px] rounded-2xl overflow-hidden">
+                      <video
+                        src={UiLoopNoweSeo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-auto block"
+                      />
+                    </div>
+                  </Reveal>
 
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
-              Snippets of the finished SEO pages in motion.
-            </p>
-          </Reveal>
-
-          {/* Interaction 01 */}
-          <Reveal delay={100} className="mb-10">
-            <MediaPlaceholder
-              label="Interaction — clip 01"
-              className="aspect-video"
-            />
-          </Reveal>
-
-          {/* Interaction 02 */}
-          <Reveal delay={150}>
-            <MediaPlaceholder
-              label="Interaction — clip 02"
-              className="aspect-video"
-            />
-          </Reveal>
-        </section>
+                  <Reveal delay={100} className="mb-10">
+                    <div className="w-full max-w-[1200px] rounded-2xl overflow-hidden">
+                      <video
+                        src={UiLoopNoweSeo2}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-auto block"
+                      />
+                    </div>
+                  </Reveal>
+        
+                  
+                </section>
 
         {/* ================= NEXT PROJECT ================= */}
         <section className="max-w-[1200px] mx-auto mt-[120px] sm:mt-[160px]">
           <Reveal>
             <div className="flex items-center justify-between border-t border-[#190A07]/15 pt-6">
-              <button className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover">
+              <button 
+              onClick={() => navigate("/nowe-money-onboarding")}
+              className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover">
                 ← Previous
               </button>
 

@@ -118,14 +118,13 @@ export default function ContactPage() {
 
   return (
     <>
-      <div className="min-h-screen bg-[#F3E6D4] flex flex-col -mt-[40px] sm:-mt-[130px] md:-mt-[150px] lg:-mt-[180px] xl:-mt-[190px]">
-        <main
-          className={`
-            flex-grow flex flex-col items-center px-4 lg:px-[40px]
-            ${isIOS ? "pt-[40px]" : "pt-[50px] sm:pt-[150px] md:pt-[160px]"}
-            lg:pt-[190px]
-          `}
-        >
+<div className="min-h-screen bg-[#F3E6D4] flex flex-col">
+         <main
+  className={`
+    flex-grow flex flex-col items-center px-4 lg:px-[40px]
+    pt-[20px] sm:pt-[24px] md:pt-[28px] lg:pt-[32px]
+  `}
+>
           <div className="text-center mt-[3rem] sm:mt-[4rem] md:mt-[5rem]">
             <h1 className="font-whatnot font-bold text-[#190A07] leading-tight text-[22px] xs:text-[26px] sm:text-[32px] md:text-[40px] lg:text-[50px] xl:text-[55px] 2xl:text-[60px]">
               Leave a message.

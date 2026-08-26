@@ -207,7 +207,7 @@ export default function NoweOnboardingCaseStudy() {
                 pr-[100px] xs:pr-[120px] sm:pr-[150px] md:pr-[180px] lg:pr-0
               "
             >
-              <SceneLabel number="Hero"/>
+              <SceneLabel number="Hero" />
               <h1 className="font-whatnot font-bold text-[32px] sm:text-[48px] lg:text-[60px] leading-[1.05] max-w-[820px]">
                 Nowe Money Onboarding
               </h1>
@@ -219,6 +219,10 @@ export default function NoweOnboardingCaseStudy() {
     can be shown.
   </span>
 </p>
+          <p className="font-whatnot font-bold text-[#5E3C2F] text-[12px] sm:text-[14px] lg:text-[16px] mt-6 sm:mt-8 md:mt-10">
+    This project was made in partnership with Youth Geekers, A digital agency specializing in web, apps, UI/UX, branding, SEO, and gaming across Dubai, Europe, and beyond.
+  </p>
+
             </div>
 
            {/* HERO IMAGE FRAME */}
@@ -309,7 +313,7 @@ export default function NoweOnboardingCaseStudy() {
           </Reveal>
 
            <Reveal delay={100}>
-            <div className="w-full rounded-2xl overflow-hidden p-6 sm:p-10">
+<div className="w-full max-w-[1400px] mx-auto rounded-2xl overflow-hidden">  
               <img
                 src={NoweOnboardingLow}
                 alt="Nowe onboarding low-fidelity wireframes"
@@ -371,7 +375,7 @@ Here are a few high-fidelity wireframes from the project. Due to NDA restriction
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="w-full rounded-2xl overflow-hidden p-6 sm:p-10">
+<div className="w-full max-w-[1400px] mx-auto rounded-2xl overflow-hidden">  
               <img
                 src={NoweOnboardingHigh}
                 alt="Nowe onboarding high-fidelity wireframes"
@@ -392,8 +396,10 @@ Here are a few high-fidelity wireframes from the project. Due to NDA restriction
         ← Previous
       </button>
 
-      <button className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors">
-        Next in progress →
+      <button
+      onClick={() => navigate("/nowe-money-seo-pages")}
+      className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover">
+        Next
       </button>
     </div>
   </Reveal>

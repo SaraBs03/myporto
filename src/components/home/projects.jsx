@@ -79,7 +79,7 @@ export default function Projects({ isIOS, onPanelChange }) {
       tools: "Figma",
       year: "2026",
       route: "/nowe-money-seo-pages",
-      inProgress: true,
+      inProgress: false,
     },
     {
       num: "04",
@@ -89,8 +89,8 @@ export default function Projects({ isIOS, onPanelChange }) {
       role: "UX/UI Designer",
       tools: "Figma",
       year: "2026",
-      route: null,
-      inProgress: true,
+      route: "/nowe-money-landings",
+      inProgress: false,
     },
   ];
 
@@ -273,11 +273,11 @@ export default function Projects({ isIOS, onPanelChange }) {
               )}
 
               <img
-                src={activeProject.image}
-                alt={activeProject.title}
-                className="w-full h-[180px] sm:h-[220px] mb-6 object-cover aspect-square"
-                style={{ filter: "saturate(0.9)" }}
-              />
+  src={activeProject.image}
+  alt={activeProject.title}
+  className="w-full mb-6 object-cover aspect-square"
+  style={{ filter: "saturate(0.9)" }}
+/>
 
               <div className="flex flex-wrap gap-6 border-y border-dashed border-[#190A07]/25 py-4 mb-6">
                 <div className="text-[16px]">
@@ -313,7 +313,7 @@ export default function Projects({ isIOS, onPanelChange }) {
                   {activeProject.body}
                 </p>
 
-                {/* Only Epic Trading gets the See More button */}
+                {/*see more button */}
                 {!activeProject.inProgress && activeProject.route && (
                   <button
                     onClick={() => navigate(activeProject.route)}

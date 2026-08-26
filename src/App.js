@@ -449,20 +449,13 @@ useEffect(() => {
 
   <Route
   path="/nowe-money-seo-pages"
-  element={
-    process.env.NODE_ENV === "development"
-      ? <NoweMoneySeoPages />
-      : <Navigate to="/" replace />
-  }
+  element={<NoweMoneySeoPages />}
 />
 
  <Route
   path="/nowe-money-landings"
   element={
-    process.env.NODE_ENV === "development"
-      ? <NoweMoneyLandings />
-      : <Navigate to="/" replace />
-  }
+      <NoweMoneyLandings />}
 />
 
   <Route
