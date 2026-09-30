@@ -14,10 +14,10 @@ export default function IntroCV() {
           mb-4
         ">
           <span className="block">
-            Hi, I'm Sara - <TypingWord words={["UX Designer", "UI Designer"]} />
+            Hi, I'm Sara - <TypingWord words={["Product Designer", "UX Designer"]} />
           </span>
           <span className="block mt-3 sm:mt-4 md:mt-5 text-base sm:text-xl md:text-2xl lg:text-3xl opacity-90">
-            Turning ideas into usable digital experiences.
+            Actively working on making complex things make sense.
           </span>
         </h1>
       </div>

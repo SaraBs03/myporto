@@ -34,7 +34,7 @@ useEffect(() => {
 
   const getItemClass = (item, rotation) => {
     const baseClass =
-      "font-dudu font-normal text-[#F3E6D4] mt-[15px] lg:mt-[-7px] text-[18px] sm:text-3xl lg:text-5xl cursor-pointer transition-all duration-300 ease-out ";
+      "font-dudu font-normal text-[#F3E6D4] mt-[15px] lg:mt-[6px] text-[18px] sm:text-3xl lg:text-[36px] cursor-pointer transition-all duration-300 ease-out ";
     const hoverClass =
       "hover:scale-110 hover:rotate-0 hover:font-bold hover:text-[#F3E6D4] hover:drop-shadow-[0_0_8px_rgba(243,230,212,0.5)] hover:tracking-wider ";
     const activeClass =
@@ -112,34 +112,34 @@ min-h-[300px] sm:min-h-[500px] lg:min-h-[570px]
 >
   
   {[
-    {
-      name: "ux/ui 1",
-      label: "Websites",
-      rotation: "-rotate-1",
-      noteTitle: "WEBSITES",
-      note:
-        "Designing websites that balance your needs, audience, aesthetics, and functionality."
-    },
-    {
-      name: "ux/ui 2",
-      label: "Apps",
-      rotation: "rotate-2",
-      noteTitle: "DIGITAL PRODUCTS",
-      note:
-        "Designing clear, user-friendly apps and digital products."
-    },
-    {
-      name: "ux/ui 3",
-      label: "Ux & Flow",
-      rotation: "-rotate-3",
-      noteTitle: "UX & FLOW",
-      note:
-        "Creating purposeful, user-centered experiences that guide users toward clear goals."
-    }
-  ].map((item) => {
+  {
+    name: "product 1",
+    label: "Product Design",
+    rotation: "-rotate-1",
+    
+    note:
+      "Deconstructing the complex. Only keeping the good stuff."
+  },
+  {
+    name: "product 2",
+    label: "UX & Flows",
+    rotation: "rotate-2",
+   
+    note:
+      "No room for ambiguity and no lost users"
+  },
+  {
+    name: "product 3",
+    label: "UI & Systems",
+    rotation: "-rotate-3",
+    
+    note:
+      "Making interfaces click literally and otherwise."
+  }
+].map((item) => {
  
     
-    const isLeft = item.name === "ux/ui 2";
+    const isLeft = item.name === "product 2";
 
     return (
       <div
@@ -255,22 +255,7 @@ lg:w-[320px]
               "
             />
 
-            {/* Note title */}
-            <p
-              className="
-                font-whatnot
-                uppercase
-                tracking-[0.12em]
-                text-[9px]
-                sm:text-[10px]
-                lg:text-xs
-                mb-1
-                sm:mb-1.5
-                lg:mb-2
-              "
-            >
-              {item.noteTitle}
-            </p>
+            
 
             {/* Note text */}
             <p

@@ -5,6 +5,7 @@ import noweonboardingmockup from "../../assets/nowe_onboarding_mockup.png";
 import noweseomockup from "../../assets/nowe_seo_mockup.png";
 import epictradingmockup from "../../assets/epic_trading_mockup.png";
 import nowelandingmockup from "../../assets/nowe_landings_mockup.png";
+import diamatemockup from "../../assets/diamate_mockup.png";
 
 export default function Projects({ isIOS, onPanelChange }) {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -48,51 +49,64 @@ export default function Projects({ isIOS, onPanelChange }) {
   const formatTime = (s) => `00:${String(s).padStart(2, "0")}`;
 
   const projects = [
-    {
-      num: "01",
-      title: "Epic Trading",
-      gradient: "linear-gradient(135deg, #f472b6, #e11d48)",
-      image: epictradingmockup,
-      role: "UX/UI & Product Designer",
-      tools: "Figma",
-      year: "2026",
-      route: "/epic-trading",
-      inProgress: false,
-    },
-    {
-      num: "02",
-      title: "Nowe Money Onboarding",
-      gradient: "linear-gradient(135deg, #fb923c, #dc2626)",
-      image: noweonboardingmockup,
-      role: "UX/UI Designer",
-      tools: "Figma",
-      year: "2026",
-      route: "/nowe-money-onboarding",
-      inProgress: false,
-    },
-    {
-      num: "03",
-      title: "Nowe Money SEO Pages",
-      gradient: "linear-gradient(135deg, #60a5fa, #9333ea)",
-      image: noweseomockup,
-      role: "UX/UI Designer",
-      tools: "Figma",
-      year: "2026",
-      route: "/nowe-money-seo-pages",
-      inProgress: false,
-    },
-    {
-      num: "04",
-      title: "Nowe Landing Pages",
-      gradient: "linear-gradient(135deg, #4ade80, #0d9488)",
-      image: nowelandingmockup,
-      role: "UX/UI Designer",
-      tools: "Figma",
-      year: "2026",
-      route: "/nowe-money-landings",
-      inProgress: false,
-    },
-  ];
+  {
+    num: "01",
+    title: "Diamate",
+    gradient: "linear-gradient(135deg, #60a5fa, #14b8a6)",
+    image: diamatemockup,
+    role: "Product & UX Designer",
+   
+    year: "2026",
+    route: null,
+    inProgress: true,
+    body:
+      "A two-sided Type 1 diabetes care platform connecting patients and professionals before, during, and after appointments.",
+  },
+  {
+    num: "02",
+    title: "Nowe Money Onboarding",
+    gradient: "linear-gradient(135deg, #fb923c, #dc2626)",
+    image: noweonboardingmockup,
+    role: "UX/UI Designer",
+    
+    year: "2026",
+    route: "/nowe-money-onboarding",
+    inProgress: false,
+  },
+  {
+    num: "03",
+    title: "Epic Trading",
+    gradient: "linear-gradient(135deg, #f472b6, #e11d48)",
+    image: epictradingmockup,
+    role: "Product & UX Designerr",
+    
+    year: "2026",
+    route: "/epic-trading",
+    inProgress: false,
+  },
+  {
+    num: "04",
+    title: "Nowe Money SEO Pages",
+    gradient: "linear-gradient(135deg, #60a5fa, #9333ea)",
+    image: noweseomockup,
+    role: "UX/UI Designer",
+    
+    year: "2026",
+    route: "/nowe-money-seo-pages",
+    inProgress: false,
+  },
+  {
+    num: "05",
+    title: "Nowe Landing Pages",
+    gradient: "linear-gradient(135deg, #4ade80, #0d9488)",
+    image: nowelandingmockup,
+    role: "UX/UI Designer",
+    
+    year: "2026",
+    route: "/nowe-money-landings",
+    inProgress: false,
+  },
+];
 
   const activeProject = activeIndex !== null ? projects[activeIndex] : null;
 
@@ -275,7 +289,7 @@ export default function Projects({ isIOS, onPanelChange }) {
               <img
   src={activeProject.image}
   alt={activeProject.title}
-  className="w-full mb-6 object-cover aspect-square"
+  className="w-[100%] max-w-[550px] mx-auto"
   style={{ filter: "saturate(0.9)" }}
 />
 
@@ -289,14 +303,7 @@ export default function Projects({ isIOS, onPanelChange }) {
                   </span>
                 </div>
 
-                <div className="text-[16px]">
-                  <span className="block font-whatnot font-bold text-[#C33E23] text-[14px]">
-                    Tools
-                  </span>
-                  <span className="font-whatnot text-[#190A07]">
-                    {activeProject.tools}
-                  </span>
-                </div>
+                
 
                 <div className="text-[16px]">
                   <span className="block font-whatnot font-bold text-[#C33E23] text-[14px]">
@@ -309,7 +316,7 @@ export default function Projects({ isIOS, onPanelChange }) {
               </div>
 
               <>
-                <p className="text-[15px] text-[#190A07]/85 leading-relaxed">
+                <p className="font-dudu text-[15px] text-[#190A07]/85 leading-relaxed">
                   {activeProject.body}
                 </p>
 

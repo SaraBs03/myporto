@@ -299,14 +299,7 @@ font-semibold italic mb-3">
                 >
                   <span>LinkedIn</span>
                 </a>
-                <a
-                  href="https://www.behance.net/saracc2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-whatnot font-bold text-[15px] sm:text-[17px] underline hover:opacity-60 transition-opacity interactive-hover w-fit"
-                >
-                  <span>Behance</span>
-                </a>
+               
               </div>
             </div>
 {/* closing line + email */}

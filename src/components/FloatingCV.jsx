@@ -50,7 +50,7 @@ export default function FloatingCV() {
       `}
     >
       <a
-  href="/Resume.pdf"
+  href="/CV.pdf"
   download="Sara-Ben-Salem-CV.pdf"
         className="flex items-center gap-2
                    bg-[#F3E6D4]

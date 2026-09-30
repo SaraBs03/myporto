@@ -47,12 +47,7 @@ export default function Footer() {
                 px-2 lg:px-[40px]">        
         {/* Left: Behance & LinkedIn */}
         <div className="flex items-center space-x-6">
-          <button
-            onClick={handleBehanceClick}
-            className="hover:opacity-80 transition-opacity duration-200 interactive-hover whitespace-nowrap"
-          >
-            BEHANCE
-          </button>
+          
           <button
             onClick={handleLinkedInClick}
             className="hover:opacity-80 transition-opacity duration-200 interactive-hover whitespace-nowrap"
