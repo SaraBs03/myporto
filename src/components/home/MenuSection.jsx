@@ -81,7 +81,7 @@ min-h-[300px] sm:min-h-[500px] lg:min-h-[570px]
   <div className="max-w-[1260px] mx-auto px-3 sm:px-6 lg:px-0 text-[#F3E6D4]">
     <div className="w-full flex flex-col items-center">
     {/* TITLE */}
-    <h2 className="font-whatnot font-bold text-center mt-[30px] sm:mt-[60px] lg:mt-[20px] text-base sm:text-2xl lg:text-5xl relative">
+    <h2 className="font-alegreya font-bold text-center mt-[30px] sm:mt-[60px] lg:mt-[20px] text-base sm:text-2xl lg:text-5xl relative">
       <span
         className="
           relative inline-block
@@ -118,7 +118,7 @@ min-h-[300px] sm:min-h-[500px] lg:min-h-[570px]
     rotation: "-rotate-1",
     
     note:
-      "Deconstructing the complex. Only keeping the good stuff."
+      "Working through product requirements, user needs, and the structure behind a feature before getting into the interface."
   },
   {
     name: "product 2",
@@ -126,7 +126,7 @@ min-h-[300px] sm:min-h-[500px] lg:min-h-[570px]
     rotation: "rotate-2",
    
     note:
-      "No room for ambiguity and no lost users"
+      "Mapping and organizing information so each step has a purpose and the overall flow makes sense."
   },
   {
     name: "product 3",
@@ -134,7 +134,7 @@ min-h-[300px] sm:min-h-[500px] lg:min-h-[570px]
     rotation: "-rotate-3",
     
     note:
-      "Making interfaces click literally and otherwise."
+      "Turning wireframes and product requirements into interface layouts and reusable components."
   }
 ].map((item) => {
  
@@ -182,9 +182,9 @@ min-h-[300px] sm:min-h-[500px] lg:min-h-[570px]
           <div
             className="
               relative
-              w-[105px]
+              w-[130px]
 xs:w-[115px]
-sm:w-[180px]
+sm:w-[150px]
 md:w-[220px]
 lg:w-[320px]
 
@@ -261,7 +261,7 @@ lg:w-[320px]
             <p
               className="
                 font-whatnot
-                text-[9px]
+                text-[8px]
                 sm:text-[10px]
                 md:text-[11px]
                 lg:text-base
@@ -296,14 +296,14 @@ lg:w-[320px]
     <div className="flex w-max rect-track">
       
       {/* FIRST COPY */}
-      <div className="inline-flex text-[#F3E6D4] font-whatnot text-sm sm:text-lg lg:text-xl">
+      <div className="inline-flex font-bold text-[#F3E6D4] font-dudu text-sm sm:text-lg lg:text-xl">
         <span className="mx-4">Available now for freelance work and collaborations. •</span>
         <span className="mx-4">Comfortable working remotely and delivering on deadlines. •</span>
         <span className="mx-4">Open for collaborations with designers and developers. •</span>
       </div>
 
       {/* SECOND COPY (IDENTICAL) */}
-      <div className="inline-flex text-[#F3E6D4] font-whatnot text-sm sm:text-lg lg:text-xl">
+      <div className="inline-flex font-bold text-[#F3E6D4] font-dudu text-sm sm:text-lg lg:text-xl">
         <span className="mx-4">Available now for freelance work and collaborations. •</span>
         <span className="mx-4">Comfortable working remotely and delivering on deadlines. •</span>
         <span className="mx-4">Open for collaborations with designers and developers. •</span>

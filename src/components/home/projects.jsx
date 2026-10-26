@@ -56,7 +56,7 @@ export default function Projects({ isIOS, onPanelChange }) {
     image: diamatemockup,
     role: "Product & UX Designer",
    
-    year: "2026",
+    
     route: null,
     inProgress: true,
     body:
@@ -158,7 +158,7 @@ export default function Projects({ isIOS, onPanelChange }) {
               <div className="absolute inset-0 bg-gradient-to-r from-[#190A07] via-[#190A07]/70 to-transparent" />
 
               {/* Number */}
-              <span className="relative z-10 font-dudu text-[#C33E23] text-[28px] sm:text-[40px] leading-none min-w-[2ch]">
+              <span className="relative z-10 font-alegreya text-[#C33E23] text-[28px] sm:text-[40px] leading-none min-w-[2ch]">
                 {p.num}
               </span>
 
@@ -268,7 +268,7 @@ export default function Projects({ isIOS, onPanelChange }) {
                 </button>
               </div>
 
-              <h3 className="font-dudu text-[#190A07] uppercase text-[32px] sm:text-[40px] leading-none mb-5">
+              <h3 className="font-alegreya text-[#190A07] uppercase text-[32px] sm:text-[40px] leading-none mb-5">
                 {activeProject.title}
               </h3>
 
@@ -279,7 +279,7 @@ export default function Projects({ isIOS, onPanelChange }) {
                     Case Study In Progress
                   </p>
 
-                  <p className="font-whatnot text-[#190A07]/70 text-[13px] mt-1 leading-relaxed">
+                  <p className="font-alegreya text-[#190A07]/70 text-[13px] mt-1 leading-relaxed">
                     This case study is currently being developed and will be
                     published soon.
                   </p>
@@ -295,28 +295,30 @@ export default function Projects({ isIOS, onPanelChange }) {
 
               <div className="flex flex-wrap gap-6 border-y border-dashed border-[#190A07]/25 py-4 mb-6">
                 <div className="text-[16px]">
-                  <span className="block font-whatnot font-bold text-[#C33E23] text-[14px]">
+                  <span className="block font-dudu font-bold text-[#C33E23] text-[14px]">
                     Role
                   </span>
-                  <span className="font-whatnot text-[#190A07]">
+                  <span className="font-alegreya text-[#190A07]">
                     {activeProject.role}
                   </span>
                 </div>
 
                 
 
-                <div className="text-[16px]">
-                  <span className="block font-whatnot font-bold text-[#C33E23] text-[14px]">
-                    Year
-                  </span>
-                  <span className="font-whatnot text-[#190A07]">
-                    {activeProject.year}
-                  </span>
-                </div>
+                {activeProject.year && (
+  <div className="text-[16px]">
+    <span className="block font-dudu font-bold text-[#C33E23] text-[14px]">
+      Year
+    </span>
+    <span className="font-alegreya text-[#190A07]">
+      {activeProject.year}
+    </span>
+  </div>
+)}
               </div>
 
               <>
-                <p className="font-dudu text-[15px] text-[#190A07]/85 leading-relaxed">
+                <p className="font-alegreya text-[15px] text-[#190A07]/85 leading-relaxed">
                   {activeProject.body}
                 </p>
 

@@ -48,11 +48,14 @@ function Reveal({ children, className = "", delay = 0 }) {
 /* ---------- SCENE LABEL (section eyebrow) ---------- */
 function SceneLabel({ number, title }) {
   return (
-    <p className="font-dudu text-[#C33E23] text-[13px] sm:text-[15px] tracking-[0.1em] uppercase mb-3">
+    <p className="font-dudu font-bold text-[#C33E23] text-[15px] sm:text-[17px] lg:text-[18px] tracking-[0.08em] uppercase mb-4">
       {number} — {title}
     </p>
   );
 }
+
+
+
 
 /* ---------- REUSABLE SCREEN GRID ---------- */
 function ScreenGrid({
@@ -105,7 +108,7 @@ function NDAStamp() {
   return (
     <div
       className="
-        absolute top-0 right-0 sm:top-2 sm:right-2 lg:top-2 lg:right-4
+        absolute top-0 right-0 sm:top-2 sm:right-2 lg:top-2 lg:right-2
         z-20 pointer-events-none select-none
         w-[90px] h-[90px]
         xs:w-[105px] xs:h-[105px]
@@ -195,7 +198,7 @@ export default function NoweOnboardingCaseStudy() {
 
   return (
     <div className="min-h-screen bg-[#F3E6D4] text-[#190A07] overflow-x-hidden">
-      <main className="-mt-8 px-4 sm:px-8 lg:px-[60px] xl:px-[100px] pt-[100px] sm:pt-[130px] pb-[80px]">
+      <main className="-mt-8 px-4 sm:px-4 md:px-8 lg:px-[150px] pt-[100px] sm:pt-[130px] pb-[80px]">
         {/* ================= HERO ================= */}
         <section className="relative">
           <NDAStamp />
@@ -204,14 +207,14 @@ export default function NoweOnboardingCaseStudy() {
             <div
               className="
                 mb-6 sm:mb-8
-                pr-[100px] xs:pr-[120px] sm:pr-[150px] md:pr-[180px] lg:pr-0
+                pr-[100px] xs:pr-[120px] sm:pr-[150px] md:pr-[180px] lg:pr-[200px]
               "
             >
-              <SceneLabel number="Hero" />
-              <h1 className="font-whatnot font-bold text-[32px] sm:text-[48px] lg:text-[60px] leading-[1.05] max-w-[820px]">
+              
+              <h1 className="font-alegreya font-bold text-[32px] sm:text-[48px] lg:text-[60px] leading-[1.05] max-w-[820px]">
                 Nowe Money Onboarding
               </h1>
-             <p className="font-whatnot text-[16px] sm:text-[20px] lg:text-[22px] text-[#5E3C2F] mt-4 max-w-[640px]">
+             <p className="font-alegreya text-[16px] sm:text-[20px] lg:text-[22px] text-[#5E3C2F] mt-4 max-w-[640px]">
   Designing a complete fintech onboarding experience, from setting up an account
   to verification and activation.{" "}
   <span className="font-bold">
@@ -219,7 +222,7 @@ export default function NoweOnboardingCaseStudy() {
     can be shown.
   </span>
 </p>
-          <p className="font-whatnot font-bold text-[#5E3C2F] text-[12px] sm:text-[14px] lg:text-[16px] mt-6 sm:mt-8 md:mt-10">
+          <p className="font-alegreya font-bold text-[#5E3C2F] text-[12px] sm:text-[14px] lg:text-[16px] mt-6 sm:mt-8 md:mt-10">
     This project was made in partnership with Youth Geekers, A digital agency specializing in web, apps, UI/UX, branding, SEO, and gaming across Dubai, Europe, and beyond.
   </p>
 
@@ -231,8 +234,8 @@ export default function NoweOnboardingCaseStudy() {
     <div
       ref={heroImageRef}
       className="
-        w-[92%] mx-auto
-        sm:w-[95%]
+        w-[100%] mx-auto
+        sm:w-[100%]
         lg:w-full
         rounded-[28px]
         overflow-hidden
@@ -250,38 +253,51 @@ export default function NoweOnboardingCaseStudy() {
         </section>
 
         {/* ================= 01 — ABOUT ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[10px] sm:mt-[110px] lg:mt-[120px]">
-          <Reveal>
-            <SceneLabel number="01" title="About" />
-            <div className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
-              <p>
-                NOWE Money is a cross-border fintech platform designed for individuals and businesses to manage multiple currencies, 
-                make international payments, and access European financial services. 
-                Users come to NOWE to create an account, complete verification, and set up the financial services they need.
-              </p>
-              <p>
-               I designed the full onboarding experience across 45+ screens for both personal and business users. My role covered the complete process: 
-               structuring the onboarding flows, designing the UI system, and building the core journeys
-                a user would need to move from creating an account to completing verification and activating their financial services.
-              </p>
-            </div>
-          </Reveal>
+    <section className="max-w-[1400px] mx-auto mt-[40px] sm:mt-[50px] md:mt-[50px] lg:mt-[70px]">
+  <Reveal>
+    <SceneLabel number="01" title="About" />
+<div className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[700px]">
+      <p>
+        NOWE Money is a cross-border fintech platform designed for individuals and businesses to manage multiple currencies,
+        make international payments, and access European financial services.
+      </p>
 
-          
-        </section>
+      <div className="space-y-1">
+        <p className="font-semibold text-[13px] sm:text-[15px]">
+          The challenge
+        </p>
+        <p>
+          The onboarding experience needed to guide both personal and business users through account creation, verification,
+          and setting up the services they needed, with each audience following a different journey.
+        </p>
+      </div>
+
+      <div className="space-y-1">
+        <p className="font-semibold text-[13px] sm:text-[15px]">
+          My role
+        </p>
+        <p>
+          I designed the full onboarding experience across 45+ screens for both personal and business users. My role covered
+          structuring the onboarding flows, designing the UI system, and building the core journeys to help users move from
+          creating an account to completing verification and activating their financial services.
+        </p>
+      </div>
+    </div>
+  </Reveal>
+</section>
 
         {/* ================= 02 — USER FLOWS ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
             <SceneLabel number="02" title="User Flow & Structure" />
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
+            <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
               Mapped out the main steps for both personal and business users,
                keeping the onboarding experience clear and straightforward. Simplified for confidentiality.
             </p>
           </Reveal>
 
           <Reveal delay={100} className="mb-10">
-            <h3 className="font-whatnot font-bold text-[17px] sm:text-[19px] mb-3">
+            <h3 className="font-alegreya font-bold text-[17px] sm:text-[19px] mb-3">
               Simplified Onboarding User Flow
             </h3>
           </Reveal>
@@ -291,7 +307,7 @@ export default function NoweOnboardingCaseStudy() {
                 alt="Nowe onboarding user flow"
                 className="w-full h-auto block"
               />
-               <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[880px] mt-8">
+               <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[880px] mt-8">
               This flow has been simplified for confidentiality, so some specific steps and internal details have been left out due to the NDA.
             </p>
             </div>
@@ -302,13 +318,13 @@ export default function NoweOnboardingCaseStudy() {
         </section>
 
         {/* ================= 03 — LOW-FIDELITY WIREFRAMES ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
             <SceneLabel number="03" title="Low-Fidelity Wireframes" />
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
-              Before starting any visual design, I started with low-fidelity
-              wireframes to organize the content, establish the hierarchy,
-              and put the structure I sketched into place.
+            <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
+              Before getting into the visual design, I turned my initial sketches into
+    low-fidelity wireframes to work out how the information should be organized
+    on each page and how the screens would fit together across the onboarding flow.
             </p>
           </Reveal>
 
@@ -327,9 +343,9 @@ export default function NoweOnboardingCaseStudy() {
        
 
         {/* ================= 06 — KEY SECTIONS / UX DECISIONS ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal className="mb-10">
-            <SceneLabel number="06" title="Key Sections & UX Decisions" />
+            <SceneLabel number="04" title="Key Sections & UX Decisions" />
           </Reveal>
 
           <Reveal delay={100}>
@@ -343,18 +359,19 @@ export default function NoweOnboardingCaseStudy() {
 </Reveal>
         </section>
 
-        {/* ================= 07 — DESIGN SYSTEM ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        {/* ================= 05 — DESIGN SYSTEM ================= */}
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
-            <SceneLabel number="07" title="Design System" />
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
+            <SceneLabel number="05" title="Design System" />
+            <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[1000px] mb-8">
               I created a consistent design system for both personal and business onboarding, covering typography, colors, buttons, and key UI elements. 
-              The selection shown here is only part of the full system.
+              <br>
+              </br><strong>The selection shown here is only part of the full system.</strong>
             </p>
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="w-[1200px] max-w-full rounded-2xl overflow-hidden">
+            <div className="w-[1400px] max-w-full rounded-2xl overflow-hidden">
               <img
                 src={NoweOnboardingDesignSystem}
                 alt="NOWE Money design system"
@@ -364,13 +381,13 @@ export default function NoweOnboardingCaseStudy() {
           </Reveal>
         </section>
 
-        {/* ================= 08 — FINAL PRODUCT / INTERACTIONS ================= */}
+      
        
-        {/* ================= 04 — HIGH-FIDELITY WIREFRAMES ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        {/* ================= 06 — HIGH-FIDELITY WIREFRAMES ================= */}
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
-            <SceneLabel number="04" title="High-Fidelity Wireframes" />
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
+            <SceneLabel number="06" title="High-Fidelity Wireframes" />
+            <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
 Here are a few high-fidelity wireframes from the project. Due to NDA restrictions, the full set of screens cannot be shown.            </p>
           </Reveal>
 
@@ -385,22 +402,38 @@ Here are a few high-fidelity wireframes from the project. Due to NDA restriction
           </Reveal>
         </section>
 
-        {/* ================= NEXT PROJECT ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[120px] sm:mt-[160px]">
+
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
   <Reveal>
-    <div className="flex items-center justify-between border-t border-[#190A07]/15 pt-6">
+    <SceneLabel number="07" title="Outcome & status" />
+    <div className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
+      <p>
+        The onboarding experience was <strong>completed</strong>, <strong>handed off</strong>,
+        and <strong>launched live</strong>.
+        It covered both personal and business users, taking them through account
+        creation, verification, and setting up their financial services.
+      </p>
+
+      <p>
+        Due to the NDA, I can only share a limited selection of screens and
+        can't disclose further project details.
+      </p>
+    </div>
+  </Reveal>
+</section>
+
+        {/* ================= NEXT PROJECT ================= */}
+        <section className="max-w-[1400px] mx-auto mt-[40px] sm:mt-[50px] lg:mt-[70px]">
+  <Reveal>
+    <div className="flex items-center justify-end border-t border-[#190A07]/15 pt-6">
       <button
         onClick={() => navigate("/epic-trading")}
         className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover"
       >
-        ← Previous
+         Next →
       </button>
 
-      <button
-      onClick={() => navigate("/nowe-money-seo-pages")}
-      className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover">
-        Next
-      </button>
+  
     </div>
   </Reveal>
 </section>

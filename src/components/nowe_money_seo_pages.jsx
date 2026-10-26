@@ -44,10 +44,10 @@ function Reveal({ children, className = "", delay = 0 }) {
   );
 }
 
-/* ---------- SCENE LABEL ---------- */
+/* ---------- SCENE LABEL (section eyebrow) ---------- */
 function SceneLabel({ number, title }) {
   return (
-    <p className="font-dudu text-[#C33E23] text-[13px] sm:text-[15px] tracking-[0.1em] uppercase mb-3">
+    <p className="font-dudu font-bold text-[#C33E23] text-[15px] sm:text-[17px] lg:text-[18px] tracking-[0.08em] uppercase mb-4">
       {number} — {title}
     </p>
   );
@@ -104,15 +104,15 @@ function NDAStamp() {
   return (
     <div
       className="
-        absolute top-0 right-0 sm:top-2 sm:right-2 lg:top-2 lg:right-4
-        z-20 pointer-events-none select-none
-        w-[90px] h-[90px]
-        xs:w-[105px] xs:h-[105px]
-        sm:w-[130px] sm:h-[130px]
-        md:w-[155px] md:h-[155px]
-        lg:w-[175px] lg:h-[175px]
-        xl:w-[190px] xl:h-[190px]
-      "
+  absolute top-0 right-0 sm:top-2 sm:right-2 lg:top-2 lg:right-2
+  z-20 pointer-events-none select-none
+  w-[90px] h-[90px]
+  xs:w-[105px] xs:h-[105px]
+  sm:w-[130px] sm:h-[130px]
+  md:w-[155px] md:h-[155px]
+  lg:w-[175px] lg:h-[175px]
+  xl:w-[190px] xl:h-[190px]
+"
       style={{ transform: "rotate(-10deg)" }}
     >
       <svg
@@ -214,36 +214,36 @@ useEffect(() => {
 }, []);
   return (
     <div className="min-h-screen bg-[#F3E6D4] text-[#190A07] overflow-x-hidden">
-      <main className="px-4 sm:px-8 lg:px-[60px] xl:px-[100px] pt-[100px] sm:pt-[130px] pb-[80px]">
+      <main className="-mt-8 px-4 sm:px-4 md:px-8 lg:px-[150px] pt-[100px] sm:pt-[130px] pb-[80px]">
 
         {/* ================= HERO ================= */}
         <section className="relative">
           <NDAStamp />
 
-          <div className="w-full max-w-[1200px] mx-auto">
+          <div className="w-full max-w-[1400px] mx-auto">
             <div
               className="
                 mb-6 sm:mb-8
-                pr-[100px] xs:pr-[120px] sm:pr-[150px] md:pr-[180px] lg:pr-0
+                pr-[100px] xs:pr-[120px] sm:pr-[150px] md:pr-[180px] lg:pr-[200px]
               "
             >
 
    
-              <SceneLabel number="Hero" />
+              
 
-              <h1 className="font-whatnot font-bold text-[32px] sm:text-[48px] lg:text-[60px] leading-[1.05] max-w-[820px]">
+              <h1 className="font-alegreya font-bold text-[32px] sm:text-[48px] lg:text-[60px] leading-[1.05] max-w-[820px]">
                 Nowe SEO Pages
               </h1>
 
-              <p className="font-whatnot text-[16px] sm:text-[20px] lg:text-[22px] text-[#5E3C2F] mt-4 max-w-[640px]">
-                Creating SEO-focused pages for NOWE with clear content, simple navigation, and a consistent look and feel.{" "}
+              <p className="font-alegreya text-[16px] sm:text-[20px] lg:text-[22px] text-[#5E3C2F] mt-4 max-w-[640px]">
+                Designing 17 SEO-focused pages for NOWE, from content structure and layouts to reusable components.{" "}
   <span className="font-bold">
     Due to NDA restrictions, only a limited selection of screens and information
     can be shown.
   </span>
               </p>
 
-               <p className="font-whatnot font-bold text-[#5E3C2F] text-[12px] sm:text-[14px] lg:text-[16px] mt-6 sm:mt-8 md:mt-10">
+               <p className="font-alegreya font-bold text-[#5E3C2F] text-[12px] sm:text-[14px] lg:text-[16px] mt-6 sm:mt-8 md:mt-10">
     This project was made in partnership with Youth Geekers, A digital agency specializing in web, apps, UI/UX, branding, SEO, and gaming across Dubai, Europe, and beyond.
   </p>
             </div>
@@ -254,8 +254,8 @@ useEffect(() => {
     <div
       ref={heroImageRef}
       className="
-        w-[92%] mx-auto
-        sm:w-[95%]
+        w-[100%] mx-auto
+        sm:w-[100%]
         lg:w-full
         rounded-[28px]
         overflow-hidden
@@ -273,35 +273,51 @@ useEffect(() => {
         </section>
 
         {/* ================= 01 — ABOUT ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        <section className="max-w-[1400px] mx-auto mt-[40px] sm:mt-[50px] lg:mt-[70px]">
           <Reveal>
             <SceneLabel number="01" title="About" />
 
-            <div className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
-              <p>
-               NOWE SEO Pages is a collection of 17 pages created to showcase NOWE’s
-                different services and make it easier for users to find the information they need.
-              </p>
+            <div className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
+      <p>
+        NOWE SEO Pages is a collection of 17 pages designed to present NOWE’s services and help visitors understand what each service offers.
+      </p>
 
-              <p>
-                I worked on the pages from start to finish, organizing the content, creating the layouts, and designing the final UI.
-                 I first designed the main components,
-                 then combined and adapted them across the pages to keep everything consistent, clear, and visually engaging.
-              </p>
-            </div>
+      <div className="space-y-1">
+        <p className="font-bold text-[14px] sm:text-[16px]">
+          The challenge
+        </p>
+        <p>
+         The challenge was to present different services through a consistent
+          page structure while adapting the content and layout to each one.
+        </p>
+      </div>
+
+      <div className="space-y-1">
+        <p className="font-bold text-[14px] sm:text-[16px]">
+          My role
+        </p>
+        <p>
+          I designed all 17 pages from scratch, working across content structure, design concepts, visual hierarchy, and layouts.
+           I used existing content where available, created additional content when needed,
+           and confirmed it with the team. I also developed reusable components to maintain consistency across the pages.
+        </p>
+      </div>
+    </div>
           </Reveal>
 
           
         </section>
 
         {/* ================= 02 — Components ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
             <SceneLabel number="02" title="Building the Visual System" />
 
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
-              I first created the main components, then adapted them across the 17 pages to keep the pages clear and 
-              consistent. Below is a selection of the components I worked with.
+            <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
+              I built a reusable component library to support the 17 pages,
+  covering elements from navigation and forms to service cards
+  and pricing tables. Below is <strong>a selection</strong> of the components I worked with.
+
             </p>
           </Reveal>
 
@@ -319,18 +335,19 @@ useEffect(() => {
         </section>
 
         {/* ================= 03 — shaping pages ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
-            <SceneLabel number="03" title="Shaping the pages" />
+            <SceneLabel number="03" title="Adapting the system to each service." />
 
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
-              I selected sections from different pages to show how the same design system was adapted to different types of content, 
-              while keeping each page clear, consistent, and easy to follow.
+            <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
+              I used the same components across different types of content, from service benefits and regulatory information to pricing comparisons 
+              and step-by-step processes, 
+              making small layout changes where needed while keeping the pages consistent.
             </p>
           </Reveal>
 
            <Reveal delay={100}>
-            <div className="w-[1200px] max-w-full rounded-2xl overflow-hidden">
+            <div className="w-[1400px] max-w-full rounded-2xl overflow-hidden">
               <img
                 src={NoweSeoSections}
                 alt="Nowe SEO shaping pages"
@@ -343,17 +360,17 @@ useEffect(() => {
        
         
 
-        {/* ================= 08 — FINAL PRODUCT / INTERACTIONS ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+       
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
                   <Reveal>
-                    <SceneLabel number="08" title="Final Product & Interactions" />
-                    <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
+                    <SceneLabel number="04" title="Final Product & Interactions" />
+                    <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
                       Snippets of the finished site in motion.
                     </p>
                   </Reveal>
         
                   <Reveal delay={100} className="mb-10">
-                    <div className="w-full max-w-[1200px] rounded-2xl overflow-hidden">
+                    <div className="w-full max-w-[1400px] rounded-2xl overflow-hidden">
                       <video
                         src={UiLoopNoweSeo}
                         autoPlay
@@ -367,7 +384,7 @@ useEffect(() => {
                   </Reveal>
 
                   <Reveal delay={100} className="mb-10">
-                    <div className="w-full max-w-[1200px] rounded-2xl overflow-hidden">
+                    <div className="w-full max-w-[1400px] rounded-2xl overflow-hidden">
                       <video
                         src={UiLoopNoweSeo2}
                         autoPlay
@@ -383,22 +400,46 @@ useEffect(() => {
                   
                 </section>
 
-        {/* ================= NEXT PROJECT ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[120px] sm:mt-[160px]">
-          <Reveal>
-            <div className="flex items-center justify-between border-t border-[#190A07]/15 pt-6">
-              <button 
-              onClick={() => navigate("/nowe-money-onboarding")}
-              className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover">
-                ← Previous
-              </button>
+<section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+  <Reveal>
+    <SceneLabel number="05" title="Outcome & Status" />
 
-              <button className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover">
-                Next →
-              </button>
-            </div>
-          </Reveal>
-        </section>
+    <div className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
+      <p>
+        All 17 SEO pages were <strong>completed</strong>, <strong>handed off</strong>, and <strong>launched</strong>,
+        with a consistent visual system and reusable components
+        adapted across the pages.
+      </p>
+
+      <p>
+        Due to NDA restrictions, only a limited selection of screens
+        and project details can be shared.
+      </p>
+    </div>
+  </Reveal>
+</section>
+                
+
+        {/* ================= NEXT PROJECT ================= */}
+       <section className="max-w-[1400px] mx-auto mt-[40px] sm:mt-[50px] lg:mt-[70px]">
+  <Reveal>
+    <div className="flex items-center justify-between border-t border-[#190A07]/15 pt-6">
+      <button
+        onClick={() => navigate("/epic-trading")}
+        className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover"
+      >
+        ← Previous
+      </button>
+
+      <button
+        onClick={() => navigate("/nowe-money-landings")}
+        className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover"
+      >
+        Next →
+      </button>
+    </div>
+  </Reveal>
+</section>
 
       </main>
 

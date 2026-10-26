@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useNavigate } from "react-router-dom";
-
+import ExploreProductFlow from "./ExploreProductFlow";
 import EpicHeroMockup from "../assets/epic_trading_mockup.png";
 import EpicCTA1 from "../assets/epicCTA1.png";
 import EpicCTA2 from "../assets/epicCTA2.png";
@@ -11,12 +11,17 @@ import EpicCTA3 from "../assets/epicCTA3.png";
 import ExploreProducts from "../assets/explore_product_UF.png";
 import RequestQuote from "../assets/Rfq_UF.png";
 import LowFidEpic from "../assets/low_fid_epic.png";
-import HighFidEpic from "../assets/high_fid_epic.png";
-import IAEpic from "../assets/IA_epic.png";
 import KeySectionsEpic from "../assets/Key_sections_epic.png";
 import DesignSystemEpic from "../assets/design_system_epic.png";
 import UiLoopEpic1 from "../assets/ui_loop_epic1.mp4";
 import UiLoopEpic2 from "../assets/ui_loop_epic2.mp4";
+import SubmitRequestFlow from "./SubmitRequestFlow";
+import HighFidEpic1 from "../assets/highfidepic1.png";
+import HighFidEpic2 from "../assets/highfidepic2.png";
+import HighFidEpic3 from "../assets/highfidepic3.png";
+import EpicTradingSiteMap from "../assets/epictradingsitemap.png"
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,9 +57,10 @@ function Reveal({ children, className = "", delay = 0 }) {
   );
 }
 
+/* ---------- SCENE LABEL (section eyebrow) ---------- */
 function SceneLabel({ number, title }) {
   return (
-    <p className="font-dudu text-[#C33E23] text-[13px] sm:text-[15px] tracking-[0.1em] uppercase mb-3">
+    <p className="font-dudu font-bold text-[#C33E23] text-[15px] sm:text-[17px] lg:text-[18px] tracking-[0.08em] uppercase mb-4">
       {number} — {title}
     </p>
   );
@@ -154,23 +160,23 @@ useEffect(() => {
 
   return (
     <div className="min-h-screen bg-[#F3E6D4] text-[#190A07] overflow-x-hidden">
-      <main className="-mt-8 px-4 sm:px-8 lg:px-[60px] xl:px-[100px] pt-[100px] sm:pt-[130px] pb-[80px]">
+      <main className="-mt-8 px-4 sm:px-4 md:px-8 lg:px-[150px] pt-[100px] sm:pt-[130px] pb-[80px]">
 <section className="relative">
-  <div className="w-full max-w-[1200px] mx-auto">
+  <div className="w-full max-w-[1400px]">
 
     <div className="mb-6 sm:mb-8">
-      <SceneLabel number="Hero" />
+      
 
-      <h1 className="font-whatnot font-bold text-[32px] sm:text-[48px] lg:text-[60px] leading-[1.05] max-w-[820px]">
+      <h1 className="font-alegreya  font-bold text-[32px] sm:text-[48px] lg:text-[60px] leading-[1.05] max-w-[820px]">
         Epic Trading
       </h1>
 
-      <p className="font-whatnot text-[16px] sm:text-[20px] lg:text-[22px] text-[#5E3C2F] mt-4 max-w-[640px]">
+      <p className="font-alegreya  text-[16px] sm:text-[20px] lg:text-[22px] text-[#5E3C2F] mt-4 max-w-[640px]">
         Designing a full B2B commodities trading website from
         navigation and product architecture to the request-for-quote
         experience.
       </p>
-                <p className="font-whatnot font-bold text-[#5E3C2F] text-[12px] sm:text-[14px] lg:text-[16px] mt-6 sm:mt-8 md:mt-10">
+                <p className="font-alegreya font-bold text-[#5E3C2F] text-[12px] sm:text-[14px] lg:text-[16px] mt-6 sm:mt-8 md:mt-10">
     This project was made in partnership with Youth Geekers, A digital agency specializing in web, apps, UI/UX, branding, SEO, and gaming across Dubai, Europe, and beyond.
   </p>
     </div>
@@ -181,8 +187,8 @@ useEffect(() => {
     <div
       ref={heroImageRef}
       className="
-        w-[92%] mx-auto
-        sm:w-[95%]
+        w-[100%] mx-auto
+        sm:w-[100%]
         lg:w-full
         rounded-[28px]
         overflow-hidden
@@ -200,83 +206,81 @@ useEffect(() => {
   </div>
 </section>
 
-        <section className="max-w-[1200px] mx-auto mt-[10px] sm:mt-[50px] lg:mt-[70px]">
-          <Reveal>
-            <SceneLabel number="01" title="About" />
-            <div className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
-              <p>
-                Epic Trading is a B2B commodities trading company operating
-                across sugar, palm oil, refined hydrocarbons, and gold &
-                precious metals. Buyers and partners come to the site to
-                understand what Epic sources, how the company operates, and how
-                to start a request.
-              </p>
-              <p>
-                I designed the full website experience there was no existing
-                design system or prior site to build on. My role covered the
-                complete process: structuring the information architecture,
-                designing the UI system, and building the core flows a B2B
-                buyer would need to move from "discovering a product" to
-                "requesting a quote."
-              </p>
-            </div>
-          </Reveal>
+        <section className="max-w-[1400px] mx-auto mt-[40px] sm:mt-[50px] md:mt-[50px] lg:mt-[70px]">
+  <Reveal>
+    <SceneLabel number="01" title="About" />
+    <div className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
+      <p>
+        Epic Trading is a B2B commodities trading company operating
+        across sugar, palm oil, refined hydrocarbons, and gold &
+        precious metals. Buyers and partners come to the site to
+        understand what Epic offers, how the company operates, and
+        how to get in touch.
+      </p>
 
-          <Reveal delay={150}>
-            <p className="font-whatnot text-[14px] sm:text-[16px] text-[#5E3C2F] mt-8 mb-4 max-w-[780px]">
-              A few key actions from the site.
-            </p>
-            <ScreenGrid
-              cols="grid-cols-3"
-              screens={[
-                { label: "Explore Products", src: EpicCTA1 },
-                { label: "Request a Quote", src: EpicCTA2 },
-                { label: "Become a Partner", src: EpicCTA3 },
-              ]}
-            />
-          </Reveal>
-        </section>
+      <div className="space-y-1">
+        <p className="font-bold text-[14px] sm:text-[16px]">
+          The challenge
+        </p>
+        <p>
+          There was no existing website or design system to build on,
+          so the goal was to bring everything together from scratch
+          and make it easier for buyers and partners to find what
+          they need, whether that's exploring products, requesting
+          a quote, or becoming a partner.
+        </p>
+      </div>
 
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
-          <Reveal>
-            <SceneLabel number="02" title="User Flows" />
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
-              Rather than mapping every possible path, I focused on the two
-              flows that matter most to a B2B buyer.
-            </p>
-          </Reveal>
+      <div className="space-y-1">
+        <p className="font-bold text-[14px] sm:text-[16px]">
+          My role
+        </p>
+        <p>
+          I designed the website from scratch, from structuring the
+          information and mapping out the main flows to designing
+          the UI system. I focused on the main things buyers and
+          partners would come to the site for, making sure they had
+          clear paths to explore products, request a quote, or get
+          in touch about becoming a partner.
+        </p>
+      </div>
+    </div>
+  </Reveal>
 
-          <Reveal delay={100} className="mb-10">
-            <h3 className="font-whatnot font-bold text-[17px] sm:text-[19px] mb-3">
-              Explore a product
-            </h3>
-            <div className="w-full rounded-2xl overflow-hidden">
-              <img
-                src={ExploreProducts}
-                alt="Explore a product user flow"
-                className="w-full h-auto block"
-              />
-            </div>
-          </Reveal>
+  <Reveal delay={150}>
+    <p className="font-alegreya text-[14px] sm:text-[16px] text-[#5E3C2F] mt-8 mb-4 max-w-[780px]">
+      A few key actions from the site.
+    </p>
+    <ScreenGrid
+      cols="grid-cols-3"
+      screens={[
+        { label: "Explore Products", src: EpicCTA1 },
+        { label: "Request a Quote", src: EpicCTA2 },
+        { label: "Become a Partner", src: EpicCTA3 },
+      ]}
+    />
+  </Reveal>
+</section>
+
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+         <Reveal>
+    <SceneLabel number="02" title="User Flows" />
+  <h3 className="font-alegreya font-bold text-[17px] sm:text-[19px] mb-3">
+    Explore a product & Submit a request
+  </h3>
+
+  <ExploreProductFlow />
+</Reveal>
 
           <Reveal delay={200}>
-            <h3 className="font-whatnot font-bold text-[17px] sm:text-[19px] mb-3">
-              Submit a request
-            </h3>
-            <div className="w-full rounded-2xl overflow-hidden">
-              <img
-                src={RequestQuote}
-                alt="Request a quote user flow"
-                className="w-full h-auto block"
-              />
-            </div>
-          </Reveal>
+  <SubmitRequestFlow />
+</Reveal>
         </section>
 
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
             <SceneLabel number="03" title="Low-Fidelity Wireframes" />
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
+            <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
               Before starting any visual design, I started with low-fidelity
               wireframes to organize the content, establish the hierarchy, and
               put the structure I sketched into place.
@@ -294,91 +298,110 @@ useEffect(() => {
           </Reveal>
         </section>
 
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
-          <Reveal>
-            <SceneLabel number="04" title="High-Fidelity Wireframes" />
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
-              Here are a few of the key pages in high-fidelity wireframes.
-            </p>
-          </Reveal>
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+  <Reveal>
+    <SceneLabel number="04" title="High-Fidelity Wireframes" />
+    <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
+      Here are a few of the key pages in high-fidelity wireframes.
+    </p>
+  </Reveal>
 
-          <Reveal delay={100}>
-            <div className="w-full rounded-2xl overflow-hidden bg-[#0F2A43] p-6 sm:p-10">
-              <img
-                src={HighFidEpic}
-                alt="EPIC Trading high-fidelity wireframes"
-                className="w-full h-auto block"
-              />
-            </div>
-          </Reveal>
-        </section>
+  <Reveal delay={100}>
+    <div className="w-full rounded-2xl overflow-hidden bg-[#0F2A43] p-4 sm:p-8">
+<div className="grid grid-cols-1 sm:grid-cols-3 gap-0 items-start">
+  <img
+    src={HighFidEpic1}
+    alt="EPIC Trading high-fidelity wireframe 1"
+    className="block w-full h-auto m-0 p-0"
+    loading="lazy"
+    decoding="async"
+  />
+  <img
+    src={HighFidEpic2}
+    alt="EPIC Trading high-fidelity wireframe 2"
+    className="block w-full h-auto m-0 p-0"
+    loading="lazy"
+    decoding="async"
+  />
+  <img
+    src={HighFidEpic3}
+    alt="EPIC Trading high-fidelity wireframe 3"
+    className="block w-full h-auto m-0 p-0"
+    loading="lazy"
+    decoding="async"
+  />
+</div>
+    </div>
+  </Reveal>
+</section>
 
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
-          <Reveal>
-            <SceneLabel number="05" title="Site Map" />
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
-              Here is the full sitemap of the EPIC website, showing how the
-              pages and content are organized across the site.
-            </p>
-          </Reveal>
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+  <Reveal>
+    <SceneLabel number="05" title="Site Map" />
+    <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
+      Here is the full sitemap of the EPIC website, showing how the
+      pages and content are organized across the site.
+    </p>
+  </Reveal>
 
-          <Reveal delay={100}>
-            <div className="w-full rounded-2xl overflow-hidden">
-              <img
-                src={IAEpic}
-                alt="EPIC Trading information architecture"
-                className="w-full h-auto block"
-              />
-            </div>
-          </Reveal>
-        </section>
+  <Reveal delay={100}>
+  <img
+    src={EpicTradingSiteMap}
+    alt="EPIC Trading Co. website sitemap"
+    className="w-full h-auto rounded-xl mx-auto block"
+  />
+</Reveal>
+</section>
 
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
-          <Reveal className="mb-8 sm:mb-10">
-            <SceneLabel number="06" title="Key Sections & UX Decisions" />
-          </Reveal>
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+  <Reveal className="mb-8 sm:mb-10">
+    <SceneLabel number="06" title="Key Sections & UX Decisions" />
+  </Reveal>
 
-          <Reveal delay={100}>
-            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,800px)_minmax(260px,1fr)] gap-8 lg:gap-10">
-              <div className="w-full min-w-0">
-                <img
-                  src={KeySectionsEpic}
-                  alt="EPIC Trading key sections and UX decisions"
-                  className="w-full max-w-full h-auto block rounded-2xl"
-                />
-              </div>
+  <Reveal delay={100}>
+    
+<div className="flex flex-col gap-6 lg:gap-8">
+  <div className="w-full min-w-0">
+    <img
+      src={KeySectionsEpic}
+      alt="EPIC Trading key sections and UX decisions"
+      className="w-full max-w-full h-auto block rounded-2xl"
+    />
+  </div>
 
-              <div className="w-full min-w-0 mb-10 lg:mb-0 flex items-center">
-                <p className="font-whatnot text-[13px] sm:text-[15px] leading-relaxed text-[#190A07]/80 w-full lg:max-w-[350px]">
-                  <span className="block">
-                    I chose these sections in particular because they contain
-                    important B2B corporate information, and the goal was to
-                    simplify it as much as possible while keeping the user
-                    experience clear.
-                  </span>
+  <div className="w-full min-w-0 mb-10 lg:mb-0">
+    <div className="font-alegreya text-[15px] sm:text-[17px] leading-relaxed text-[#190A07]/80 w-full max-w-[980px] space-y-5">
+      <p>
+        I focused on these sections because they cover the main things
+        buyers and partners would want to understand before reaching out:
+        the services Epic offers, how the company works, and its compliance
+        and governance information.
+      </p>
 
-                  <span className="block mt-5">
-                    I used structured text, icons, and media to make the
-                    information easier to understand while maintaining visual
-                    harmony across the pages.
-                  </span>
+      <p>
+        I used structured text, icons, and supporting visuals to break down
+        the information across the pages, while keeping the layouts
+        consistent throughout the website.
+      </p>
 
-                  <span className="block mt-5">
-                    For example, the How We Work section presents clear steps
-                    in a simple way, while the Services section uses split media
-                    and text sections for better readability and a more
-                    comfortable visual experience.
-                  </span>
-                </p>
-              </div>
-            </div>
-          </Reveal>
-        </section>
+      <p>
+        For example, the How We Work section breaks the process into five
+        steps, from Qualify to Execute & Close, so visitors can get a sense
+        of how working with Epic progresses. In the Services section, I
+        paired text with visuals to give each service its own space and
+        make the information easier to scan.
+      </p>
+    </div>
+  </div>
+</div>
 
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+  </Reveal>
+</section>
+
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
             <SceneLabel number="07" title="Design System" />
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
+            <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
               Since there was no existing system to inherit, I built one from
               scratch, focusing on reusable components, sections, buttons,
               colors, and other UI elements to maintain consistency throughout
@@ -387,7 +410,7 @@ useEffect(() => {
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="w-[1200px] max-w-full rounded-2xl overflow-hidden">
+            <div className="w-[1400px] max-w-full rounded-2xl overflow-hidden">
               <img
                 src={DesignSystemEpic}
                 alt="EPIC Trading design system"
@@ -397,16 +420,16 @@ useEffect(() => {
           </Reveal>
         </section>
 
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
           <Reveal>
             <SceneLabel number="08" title="Final Product & Interactions" />
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
+            <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
               Snippets of the finished site in motion.
             </p>
           </Reveal>
 
           <Reveal delay={100} className="mb-10">
-            <div className="w-full max-w-[1200px] rounded-2xl overflow-hidden">
+            <div className="w-full max-w-[1400px] mx-auto rounded-2xl overflow-hidden">
               <video
                 src={UiLoopEpic1}
                 autoPlay
@@ -420,7 +443,7 @@ useEffect(() => {
           </Reveal>
 
           <Reveal delay={150}>
-            <div className="w-full max-w-[1200px] rounded-2xl overflow-hidden">
+            <div className="w-full max-w-[1400px] mx-auto rounded-2xl overflow-hidden">
               <video
                 src={UiLoopEpic2}
                 autoPlay
@@ -434,11 +457,34 @@ useEffect(() => {
           </Reveal>
         </section>
 
-       <section className="max-w-[1200px] mx-auto mt-[120px] sm:mt-[160px]">
+
+<section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
   <Reveal>
-    <div className="flex justify-end border-t border-[#190A07]/15 pt-6">
+    <SceneLabel number="09" title="Outcome & status" />
+    <div className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
+      <p>
+        The website was <strong>completed</strong> and <strong>handed off</strong> for implementation.
+        It covered the full website experience, from product exploration and service discovery to requesting a quote and becoming a partner, 
+        supported by a consistent design system.
+        
+      </p>
+    </div>
+  </Reveal>
+</section>
+
+
+<section className="max-w-[1400px] mx-auto mt-[40px] sm:mt-[50px] lg:mt-[70px]">
+  <Reveal>
+    <div className="flex items-center justify-between border-t border-[#190A07]/15 pt-6">
       <button
         onClick={() => navigate("/nowe-money-onboarding")}
+        className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover"
+      >
+        ← Previous
+      </button>
+
+      <button
+        onClick={() => navigate("/nowe-money-seo-pages")}
         className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover"
       >
         Next →

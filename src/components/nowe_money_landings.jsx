@@ -52,7 +52,7 @@ function Reveal({ children, className = "", delay = 0 }) {
 /* ---------- SCENE LABEL (section eyebrow) ---------- */
 function SceneLabel({ number, title }) {
   return (
-    <p className="font-dudu text-[#C33E23] text-[13px] sm:text-[15px] tracking-[0.1em] uppercase mb-3">
+    <p className="font-dudu font-bold text-[#C33E23] text-[15px] sm:text-[17px] lg:text-[18px] tracking-[0.08em] uppercase mb-4">
       {number} — {title}
     </p>
   );
@@ -109,7 +109,7 @@ function NDAStamp() {
   return (
     <div
       className="
-        absolute top-0 right-0 sm:top-2 sm:right-2 lg:top-2 lg:right-4
+        absolute top-0 right-0 sm:top-2 sm:right-2 lg:top-2 lg:right-2
         z-20 pointer-events-none select-none
         w-[90px] h-[90px]
         xs:w-[105px] xs:h-[105px]
@@ -219,7 +219,7 @@ export default function NoweLandingsCaseStudy() {
 }, []);
   return (
     <div className="min-h-screen bg-[#F3E6D4] text-[#190A07] overflow-x-hidden">
-      <main className="px-4 sm:px-8 lg:px-[60px] xl:px-[100px] pt-[100px] sm:pt-[130px] pb-[80px]">
+      <main className="-mt-8 px-4 sm:px-4 md:px-8 lg:px-[150px] pt-[100px] sm:pt-[130px] pb-[80px]">
 
         {/* ================= HERO ================= */}
         <section className="relative">
@@ -229,24 +229,23 @@ export default function NoweLandingsCaseStudy() {
             <div
               className="
                 mb-6 sm:mb-8
-                pr-[100px] xs:pr-[120px] sm:pr-[150px] md:pr-[180px] lg:pr-0
+                pr-[100px] xs:pr-[120px] sm:pr-[150px] md:pr-[180px] lg:pr-[200px]
               "
             >
-              <SceneLabel number="Hero" />
+              
 
-              <h1 className="font-whatnot font-bold text-[32px] sm:text-[48px] lg:text-[60px] leading-[1.05] max-w-[820px]">
+              <h1 className="font-alegreya font-bold text-[32px] sm:text-[48px] lg:text-[60px] leading-[1.05] max-w-[820px]">
                 Nowe Landings
               </h1>
 
-              <p className="font-whatnot text-[16px] sm:text-[20px] lg:text-[22px] text-[#5E3C2F] mt-4 max-w-[640px]">
-                Redesigning NOWE’s Personal and Business landing pages to make them clearer, 
-                easier to explore, and more appealing for users.{" "}
+              <p className="font-alegreya text-[16px] sm:text-[20px] lg:text-[22px] text-[#5E3C2F] mt-4 max-w-[640px]">
+                I redesigned NOWE’s Personal and Business landing pages, from research and content structure to wireframes and final UI.{" "}
   <span className="font-bold">
     Due to NDA restrictions, only a limited selection of screens and information
     can be shown.
   </span>
               </p>
-                        <p className="font-whatnot font-bold text-[#5E3C2F] text-[12px] sm:text-[14px] lg:text-[16px] mt-6 sm:mt-8 md:mt-10">
+                        <p className="font-alegreya font-bold text-[#5E3C2F] text-[12px] sm:text-[14px] lg:text-[16px] mt-6 sm:mt-8 md:mt-10">
     This project was made in partnership with Youth Geekers, A digital agency specializing in web, apps, UI/UX, branding, SEO, and gaming across Dubai, Europe, and beyond.
   </p>
             </div>
@@ -257,8 +256,8 @@ export default function NoweLandingsCaseStudy() {
     <div
       ref={heroImageRef}
       className="
-        w-[92%] mx-auto
-        sm:w-[95%]
+        w-[100%] mx-auto
+        sm:w-[100%]
         lg:w-full
         rounded-[28px]
         overflow-hidden
@@ -276,33 +275,50 @@ export default function NoweLandingsCaseStudy() {
         </section>
 
         {/* ================= 01 — ABOUT ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
-          <Reveal>
-            <SceneLabel number="01" title="About" />
+       <section className="max-w-[1400px] mx-auto mt-[40px] sm:mt-[50px] md:mt-[50px] lg:mt-[70px]">
+  <Reveal>
+    <SceneLabel number="01" title="About" />
 
-            <div className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
-              <p>
-               NOWE’s Personal and Business landing pages were redesigned to give the
-    experience a more modern digital-banking feel while staying consistent
-    with the existing NOWE visual style.
-              </p>
+    <div className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
+      <p>
+        NOWE’s Personal and Business landing pages present its
+    digital banking services to individual and business
+    customers.
+      </p>
 
-              <p>
-           I worked on the pages from research and content structure to the final UI, 
-           using the client’s requirements and current fintech design patterns to achieve the intended direction.
-              </p>
-            </div>
-          </Reveal>
+      <div className="space-y-1">
+        <p className="font-bold text-[14px] sm:text-[16px]">
+          The challenge
+        </p>
+        <p>
+          The client felt NOWE’s existing landing pages were not as modern and visually appealing as those of its competitors.
+           The goal was to redesign both pages while keeping NOWE’s 
+          existing visual style and meeting the needs of Personal and Business customers.
+        </p>
+      </div>
 
-         
-        </section>
+      <div className="space-y-1">
+        <p className="font-bold text-[14px] sm:text-[16px]">
+          My role
+        </p>
+        <p>
+          I worked on the project from research and content
+      structure to wireframes and final UI. I reviewed other
+      fintech and digital banking websites, then used those
+      references and the client’s requirements to shape the
+      layouts and design decisions for both pages.
+        </p>
+      </div>
+    </div>
+  </Reveal>
+</section>
 
         {/* ================= 02 — Research and Direction ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        <section className="max-w-[1400px] mx-auto mt-[40px] sm:mt-[50px] md:mt-[50px] lg:mt-[70px]">
           <Reveal>
             <SceneLabel number="02" title="Research and Direction" />
 
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
+            <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
              I researched current fintech and digital banking websites to see how they present services and organize information. 
              I used what I learned, together with the client’s requirements and goals, to prepare the new direction for NOWE.
             </p>
@@ -321,7 +337,7 @@ export default function NoweLandingsCaseStudy() {
         </section>
 
         {/* ================= 03 — Ux Decisions ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        <section className="max-w-[1400px] mx-auto mt-[40px] sm:mt-[50px] md:mt-[50px] lg:mt-[70px]">
           <Reveal>
             <SceneLabel number="03" title="UX Decisions" />
           </Reveal>
@@ -348,12 +364,12 @@ export default function NoweLandingsCaseStudy() {
         </section>
 
         {/* ================= 04 — From Structure to UI ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        <section className="max-w-[1400px] mx-auto mt-[40px] sm:mt-[50px] md:mt-[50px] lg:mt-[70px]">
           <Reveal>
             <SceneLabel number="04" title="From Structure to UI" />
 
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
-              Here’s how the sections I presented in low-fidelity wireframes to explain the UX decisions evolved into the final UI.
+            <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-8">
+              The same four sections, from low-fidelity wireframes to final UI.
             </p>
           </Reveal>
 
@@ -383,12 +399,12 @@ export default function NoweLandingsCaseStudy() {
 
 
         {/* ================= 08 — FINAL PRODUCT / INTERACTIONS ================= */}
-        <section className="max-w-[1200px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+        <section className="max-w-[1400px] mx-auto mt-[40px] sm:mt-[50px] md:mt-[50px] lg:mt-[70px]">
           <Reveal>
-            <SceneLabel number="08" title="Final Product & Interactions" />
+            <SceneLabel number="05" title="Final Product & Interactions" />
 
-            <p className="font-whatnot text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
-              Snippets of the finished landing pages in motion.
+            <p className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 max-w-[780px] mb-10">
+              Snippets of the finished Business landing page in motion.
             </p>
           </Reveal>
 
@@ -407,11 +423,31 @@ export default function NoweLandingsCaseStudy() {
                     </Reveal>
         </section>
 
+        <section className="max-w-[1400px] mx-auto mt-[80px] sm:mt-[110px] lg:mt-[120px]">
+  <Reveal>
+    <SceneLabel number="06" title="Outcome & Status" />
+
+    <div className="font-alegreya text-[15px] sm:text-[18px] leading-relaxed text-[#190A07]/85 space-y-4 max-w-[780px]">
+      <p>
+        Both the Personal and Business landing pages were <strong>completed</strong>, 
+        <strong>handed off</strong>, and <strong>launched</strong>, with redesigned layouts and UI based on the client’s requirements and NOWE’s existing visual style.
+      </p>
+
+      <p>
+        Due to NDA restrictions, only a limited selection of screens
+        and project details can be shared.
+      </p>
+    </div>
+  </Reveal>
+</section>
+
         {/* ================= NEXT PROJECT ================= */}
-       <section className="max-w-[1200px] mx-auto mt-[120px] sm:mt-[160px]">
+       <section className="max-w-[1400px] mx-auto mt-[40px] sm:mt-[50px] lg:mt-[70px]">
   <Reveal>
     <div className="flex items-center border-t border-[#190A07]/15 pt-6">
-      <button className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover">
+      <button 
+      onClick={() => navigate("/nowe-money-seo-pages")}
+      className="font-dudu text-[14px] sm:text-[16px] text-[#190A07]/60 hover:text-[#190A07] transition-colors interactive-hover">
         ← Previous
       </button>
     </div>
