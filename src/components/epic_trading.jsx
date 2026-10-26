@@ -181,7 +181,7 @@ useEffect(() => {
   </p>
     </div>
 
-    {/* HERO IMAGE FRAME */}
+     {/* HERO IMAGE FRAME */}
   <div className="w-full mb-10 sm:mb-14 rounded-[28px]">
   <div className="w-full py-12 sm:py-16 lg:py-20">
     <div

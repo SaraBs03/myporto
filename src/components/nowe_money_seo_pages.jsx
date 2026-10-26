@@ -248,7 +248,7 @@ useEffect(() => {
   </p>
             </div>
 
-             {/* HERO IMAGE FRAME */}
+     {/* HERO IMAGE FRAME */}
   <div className="w-full mb-10 sm:mb-14 rounded-[28px]">
   <div className="w-full py-12 sm:py-16 lg:py-20">
     <div
@@ -324,7 +324,7 @@ useEffect(() => {
           
 
           <Reveal delay={100}>
-            <div className="w-[1200px] max-w-full rounded-2xl overflow-hidden">
+            <div className="w-[1400px] max-w-full rounded-2xl overflow-hidden">
               <img
                 src={NoweSeoComponents}
                 alt="NOWE Money design system"
