@@ -55,6 +55,7 @@ export default function Projects({ isIOS, onPanelChange }) {
     gradient: "linear-gradient(135deg, #60a5fa, #14b8a6)",
     image: diamatemockup,
     role: "Product & UX Designer",
+    tags: ["Product Design", "UX Research", "UX Design", "UI Design"],
    
     
     route: null,
@@ -68,7 +69,7 @@ export default function Projects({ isIOS, onPanelChange }) {
     gradient: "linear-gradient(135deg, #fb923c, #dc2626)",
     image: noweonboardingmockup,
     role: "UX/UI Designer",
-    
+     tags: ["Product Design", "UX Design", "Interaction Design", "UI Design", "Design System"],
     year: "2026",
     route: "/nowe-money-onboarding",
     inProgress: false,
@@ -79,7 +80,7 @@ export default function Projects({ isIOS, onPanelChange }) {
     gradient: "linear-gradient(135deg, #f472b6, #e11d48)",
     image: epictradingmockup,
     role: "Product & UX Designerr",
-    
+    tags: ["UX Design", "UI Design", "Design Systems"],
     year: "2026",
     route: "/epic-trading",
     inProgress: false,
@@ -90,7 +91,7 @@ export default function Projects({ isIOS, onPanelChange }) {
     gradient: "linear-gradient(135deg, #60a5fa, #9333ea)",
     image: noweseomockup,
     role: "UX/UI Designer",
-    
+    tags: ["UX Design", "UI Design", "Design Systems"],
     year: "2026",
     route: "/nowe-money-seo-pages",
     inProgress: false,
@@ -101,7 +102,7 @@ export default function Projects({ isIOS, onPanelChange }) {
     gradient: "linear-gradient(135deg, #4ade80, #0d9488)",
     image: nowelandingmockup,
     role: "UX/UI Designer",
-    
+    tags: ["UI Design", "UX Design", "Web Design"],
     year: "2026",
     route: "/nowe-money-landings",
     inProgress: false,
@@ -163,17 +164,27 @@ export default function Projects({ isIOS, onPanelChange }) {
               </span>
 
               {/* Title */}
-              <span className="relative z-10 flex-1 min-w-0">
+              <span className="relative z-10 flex-1 basis-0 min-w-0">
                 <span className="block font-dudu text-[10px] sm:text-[12px] text-[#C33E23] uppercase tracking-[0.06em]">
                   Episode {i + 1}
                 </span>
 
-                <span className="block font-dudu text-[16px] sm:text-[24px] text-[#F3E6D4] uppercase leading-tight">
+                <span className="block font-alegreya font-bold text-[16px] sm:text-[24px] text-[#F3E6D4] uppercase leading-tight">
                   {p.title}
                 </span>
 
-                <span className="hidden sm:block text-[12px] text-[#F3E6D4]/50 mt-0.5 max-w-[38ch]">
-                  
+                {/* Tags - under title (below lg) */}
+                <span className="flex lg:hidden flex-wrap gap-1.5 mt-2">
+                  {p.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="font-dudu text-[8px] sm:text-[9px] uppercase tracking-[0.06em]
+                        text-[#F3E6D4] border border-[#F3E6D4]/50 border-[0.2px] 
+                        px-1 sm:px-1.5 md:px-2 py-0.5 rounded-full whitespace-nowrap"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </span>
               </span>
 
@@ -188,6 +199,21 @@ export default function Projects({ isIOS, onPanelChange }) {
                   min-w-[4ch] text-right"
               >
                 {hoveredIndex === i ? formatTime(rewindSeconds) : ""}
+              </span>
+
+              {/* Tags - right side next to arrow (lg and up) */}
+              <span className="relative z-10 hidden lg:flex flex-wrap justify-end content-center gap-1.5 xl:gap-2
+                shrink min-w-0 basis-[38%] max-w-[460px]">
+                {p.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="font-dudu text-[9px] xl:text-[11px] uppercase tracking-[0.06em]
+                      text-[#F3E6D4] border border-[#F3E6D4]/50 border-[0.2px] 
+                      px-2.5 xl:px-3 py-0.5 rounded-full whitespace-nowrap"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </span>
 
               {/* Arrow */}

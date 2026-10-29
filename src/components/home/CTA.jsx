@@ -163,12 +163,12 @@ style={{
       </span>
     </div>
 
-    <span className="font-dudu text-[#5E3C2F]/70 text-[14px] sm:text-[18px] md:text-[22px] tracking-[0.04em]">
+    <span className="font-dudu font-bold text-[14px] sm:text-[18px] md:text-[22px] tracking-[0.04em]">
       Sara
     </span>
   </div>
 
-  <span className="font-dudu font-bold text-[10px] sm:text-[12px] md:text-[15px] text-[#5E3C2F]/60 italic">
+  <span className="font-alegreya font-bold text-[10px] sm:text-[12px] md:text-[15px] text-[#5E3C2F]/60 italic">
     online
   </span>
 </div>
