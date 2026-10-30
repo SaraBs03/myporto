@@ -54,7 +54,7 @@ export default function Projects({ isIOS, onPanelChange }) {
     title: "Diamate",
     gradient: "linear-gradient(135deg, #60a5fa, #14b8a6)",
     image: diamatemockup,
-    role: "Product & UX Designer",
+    
     tags: ["Product Design", "UX Research", "UX Design", "UI Design"],
    
     
@@ -68,9 +68,8 @@ export default function Projects({ isIOS, onPanelChange }) {
     title: "Nowe Money Onboarding",
     gradient: "linear-gradient(135deg, #fb923c, #dc2626)",
     image: noweonboardingmockup,
-    role: "UX/UI Designer",
+    
      tags: ["Product Design", "UX Design", "Interaction Design", "UI Design", "Design System"],
-    year: "2026",
     route: "/nowe-money-onboarding",
     inProgress: false,
   },
@@ -79,9 +78,8 @@ export default function Projects({ isIOS, onPanelChange }) {
     title: "Epic Trading",
     gradient: "linear-gradient(135deg, #f472b6, #e11d48)",
     image: epictradingmockup,
-    role: "Product & UX Designerr",
+    
     tags: ["UX Design", "UI Design", "Design Systems"],
-    year: "2026",
     route: "/epic-trading",
     inProgress: false,
   },
@@ -90,9 +88,8 @@ export default function Projects({ isIOS, onPanelChange }) {
     title: "Nowe Money SEO Pages",
     gradient: "linear-gradient(135deg, #60a5fa, #9333ea)",
     image: noweseomockup,
-    role: "UX/UI Designer",
+    
     tags: ["UX Design", "UI Design", "Design Systems"],
-    year: "2026",
     route: "/nowe-money-seo-pages",
     inProgress: false,
   },
@@ -101,9 +98,9 @@ export default function Projects({ isIOS, onPanelChange }) {
     title: "Nowe Landing Pages",
     gradient: "linear-gradient(135deg, #4ade80, #0d9488)",
     image: nowelandingmockup,
-    role: "UX/UI Designer",
-    tags: ["UI Design", "UX Design", "Web Design"],
-    year: "2026",
+    
+    tags: ["UI Design", "UX Design", "UX Research"],
+    
     route: "/nowe-money-landings",
     inProgress: false,
   },
@@ -137,7 +134,7 @@ export default function Projects({ isIOS, onPanelChange }) {
               onMouseMove={(e) => setCursorPos({ x: e.clientX, y: e.clientY })}
               onFocus={() => setHoveredIndex(i)}
               onBlur={() => setHoveredIndex(null)}
-              className={`group relative flex-1 min-h-[90px] sm:min-h-[120px] lg:min-h-[160px]w-full flex items-center gap-3 sm:gap-6
+              className={`group relative flex-1 min-h-[110px] sm:min-h-[120px] lg:min-h-[160px]w-full flex items-center gap-3 sm:gap-6
                 px-4 sm:px-8 md:px-12 lg:px-16
                 py-3 sm:py-5 md:py-6 lg:py-8
                 border-b border-[#C33E23]/20 last:border-b-0
@@ -320,14 +317,7 @@ export default function Projects({ isIOS, onPanelChange }) {
 />
 
               <div className="flex flex-wrap gap-6 border-y border-dashed border-[#190A07]/25 py-4 mb-6">
-                <div className="text-[16px]">
-                  <span className="block font-dudu font-bold text-[#C33E23] text-[14px]">
-                    Role
-                  </span>
-                  <span className="font-alegreya text-[#190A07]">
-                    {activeProject.role}
-                  </span>
-                </div>
+                
 
                 
 
