@@ -134,14 +134,14 @@ export default function Projects({ isIOS, onPanelChange }) {
               onMouseMove={(e) => setCursorPos({ x: e.clientX, y: e.clientY })}
               onFocus={() => setHoveredIndex(i)}
               onBlur={() => setHoveredIndex(null)}
-              className={`group relative flex-1 min-h-[110px] sm:min-h-[120px] lg:min-h-[160px]w-full flex items-center gap-3 sm:gap-6
-                px-4 sm:px-8 md:px-12 lg:px-16
-                py-3 sm:py-5 md:py-6 lg:py-8
-                border-b border-[#C33E23]/20 last:border-b-0
-                text-left cursor-pointer touch-manipulation
-                transition-colors duration-300 border-none interactive-hover pointer-events-auto
-                ${activeIndex === i ? "bg-[#241109]" : ""}
-              `}
+              className={`group relative flex-none min-h-[110px] sm:min-h-[120px] lg:min-h-[160px] w-full flex items-center gap-3 sm:gap-6
+  px-4 sm:px-8 md:px-12 lg:px-16
+  py-4 sm:py-5 md:py-6 lg:py-8
+  border-b border-[#C33E23]/20 last:border-b-0
+  text-left cursor-pointer touch-manipulation
+  transition-colors duration-300 border-none interactive-hover pointer-events-auto
+  ${activeIndex === i ? "bg-[#241109]" : ""}
+`}
               style={{ touchAction: "manipulation" }}
             >
               {/* background wash */}
@@ -171,18 +171,24 @@ export default function Projects({ isIOS, onPanelChange }) {
                 </span>
 
                 {/* Tags - under title (below lg) */}
-                <span className="flex lg:hidden flex-wrap gap-1.5 mt-2">
-                  {p.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="font-dudu text-[8px] sm:text-[9px] uppercase tracking-[0.06em]
-                        text-[#F3E6D4] border border-[#F3E6D4]/50 border-[0.2px] 
-                        px-1 sm:px-1.5 md:px-2 py-0.5 rounded-full whitespace-nowrap"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </span>
+               
+<div className="flex lg:hidden flex-wrap items-center gap-1.5 mt-2 w-full min-w-0 overflow-visible">
+  {p.tags.map((tag) => (
+    <span
+      key={tag}
+      className="inline-flex shrink-0 items-center
+        font-dudu text-[8px] sm:text-[9px]
+        uppercase tracking-[0.06em]
+        leading-normal
+        text-[#F3E6D4]
+        border border-[#F3E6D4]/30
+        px-1.5 sm:px-1.5 md:px-2
+        py-0.5 rounded-full whitespace-nowrap"
+    >
+      {tag}
+    </span>
+  ))}
+</div>
               </span>
 
               {/* Timer */}

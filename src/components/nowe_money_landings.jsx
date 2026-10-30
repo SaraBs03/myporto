@@ -267,6 +267,8 @@ export default function NoweLandingsCaseStudy() {
         src={NoweLandingsMockup}
         alt="Nowe Money Onboarding website mockup"
         className="w-full h-auto block"
+        fetchPriority="high"
+  decoding="async"
       />
     </div>
   </div>
@@ -331,6 +333,8 @@ export default function NoweLandingsCaseStudy() {
       src={NoweLandingsResearch}
       alt="NOWE Landings Research"
       className="w-[95%] sm:w-[75%] lg:w-[65%] h-auto block"
+      loading="lazy"
+  decoding="async"
     />
   </div>
 </Reveal>
@@ -348,6 +352,8 @@ export default function NoweLandingsCaseStudy() {
       src={NoweLandingsKey1}
       alt="NOWE Landings Key UX Decisions"
       className="w-full h-auto block"
+      loading="lazy"
+  decoding="async"
     />
   </div>
 </Reveal>
@@ -358,6 +364,8 @@ export default function NoweLandingsCaseStudy() {
       src={NoweLandingsKey2}
       alt="NOWE Landings Key UX Decisions 2"
       className="w-full h-auto block"
+      loading="lazy"
+  decoding="async"
     />
   </div>
 </Reveal>
@@ -379,6 +387,8 @@ export default function NoweLandingsCaseStudy() {
       src={NoweLandingsHighFidelity1}
       alt="NOWE Landings High-Fidelity Wireframe 1"
       className="w-full h-auto block"
+      loading="lazy"
+  decoding="async"
     />
   </div>
 </Reveal>
@@ -388,6 +398,8 @@ export default function NoweLandingsCaseStudy() {
       src={NoweLandingsHighFidelity2}
       alt="NOWE Landings High-Fidelity Wireframe 2"
       className="w-full h-auto block"
+      loading="lazy"
+  decoding="async"
     />
   </div>
 </Reveal>

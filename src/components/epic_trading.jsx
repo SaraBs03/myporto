@@ -197,6 +197,8 @@ useEffect(() => {
       <img
         src={EpicHeroMockup}
         alt="Epic Trading website mockup"
+        fetchPriority="high"
+        decoding="async"
         className="w-full h-auto block"
       />
     </div>
@@ -414,6 +416,8 @@ useEffect(() => {
               <img
                 src={DesignSystemEpic}
                 alt="EPIC Trading design system"
+                 loading="lazy"
+                 decoding="async"
                 className="w-full h-auto block"
               />
             </div>

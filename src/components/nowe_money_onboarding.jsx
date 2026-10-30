@@ -244,6 +244,8 @@ export default function NoweOnboardingCaseStudy() {
       <img
         src={NoweOnboardingHero}
         alt="Nowe Money Onboarding website mockup"
+        fetchPriority="high"
+        decoding="async"
         className="w-full h-auto block"
       />
     </div>
@@ -375,6 +377,8 @@ export default function NoweOnboardingCaseStudy() {
               <img
                 src={NoweOnboardingDesignSystem}
                 alt="NOWE Money design system"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto block"
               />
             </div>
@@ -395,6 +399,8 @@ Here are a few high-fidelity wireframes from the project. Due to NDA restriction
 <div className="w-full max-w-[1400px] mx-auto rounded-2xl overflow-hidden">  
               <img
                 src={NoweOnboardingHigh}
+                loading="lazy"
+                decoding="async"
                 alt="Nowe onboarding high-fidelity wireframes"
                 className="w-full h-auto block"
               />

@@ -265,6 +265,8 @@ useEffect(() => {
         src={NoweSeoMockup}
         alt="NOWE SEO Pages website mockup"
         className="w-full h-auto block"
+        fetchPriority="high"
+  decoding="async"
       />
     </div>
   </div>
@@ -329,6 +331,8 @@ useEffect(() => {
                 src={NoweSeoComponents}
                 alt="NOWE Money design system"
                 className="w-full h-auto block"
+                fetchPriority="high"
+  decoding="async"
               />
             </div>
           </Reveal>
@@ -352,6 +356,8 @@ useEffect(() => {
                 src={NoweSeoSections}
                 alt="Nowe SEO shaping pages"
                 className="w-full h-auto block"
+                loading="lazy"
+  decoding="async"
               />
             </div>
           </Reveal>
