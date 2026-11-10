@@ -24,7 +24,7 @@ export default function IntroCV() {
       </span>
 
 <span className="block font-alegreya font-light text-[#514A46] mt-3 sm:mt-4 md:mt-5 text-[15px] sm:text-[17px] md:text-[19px] lg:text-[22px] opacity-90">
-  Making complex things make sense, with projects for clients across the GCC and beyond.
+  Making complex things make sense, with projects for clients across the MENA region and beyond.
 </span>
     </h1>
   </div>

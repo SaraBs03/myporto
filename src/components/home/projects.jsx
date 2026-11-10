@@ -15,12 +15,7 @@ export default function Projects({ isIOS, onPanelChange }) {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const navigate = useNavigate();
 
-  const handleTap = (index) => {
-  setActiveIndex(index);
-  setPanelOpen(true);
-
-  window.dispatchEvent(new Event("project-panel-open"));
-};
+  
 
  const closePanel = () => {
   setPanelOpen(false);
@@ -105,6 +100,14 @@ export default function Projects({ isIOS, onPanelChange }) {
     inProgress: false,
   },
 ];
+
+const handleTap = (index) => {
+  const project = projects[index];
+
+  if (project.route) {
+    navigate(project.route);
+  }
+};
 
   const activeProject = activeIndex !== null ? projects[activeIndex] : null;
 
@@ -258,115 +261,7 @@ export default function Projects({ isIOS, onPanelChange }) {
         )}
       </div>
 
-      {/* ---------- CASE STUDY PANEL ---------- */}
-      <div
-        className={`fixed inset-0 z-[60] bg-black/55 flex justify-end transition-opacity duration-300 ${
-          panelOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
-        onClick={(e) => {
-          if (e.target === e.currentTarget) closePanel();
-        }}
-      >
-        <div
-          className={`relative w-full sm:w-[480px] h-full bg-[#F3E6D4] px-6 sm:px-10 py-8 sm:py-10 overflow-y-auto
-            transition-transform duration-400 ease-out
-            ${panelOpen ? "translate-x-0" : "translate-x-full"}
-          `}
-        >
-
-          {activeProject && (
-            <>
-              
-              
-
-              {/* tape accent */}
-              <div className="absolute top-[-8px] right-10 w-16 h-5 bg-[#C33E23]/50 rotate-[-3deg]" />
-
-              <div className="flex items-start justify-between mb-6">
-                <span className="font-dudu text-[#C33E23] text-[16px] uppercase tracking-[0.06em]">
-                  Episode {activeProject.num}
-                </span>
-
-                <button
-                  onClick={closePanel}
-                  className="font-dudu text-[11px] interactive-hover tracking-[0.06em] border border-[#190A07] text-[#190A07] px-3 py-1 hover:bg-[#190A07] hover:text-[#F3E6D4] transition-colors duration-200"
-                >
-                  CLOSE ✕
-                </button>
-              </div>
-
-              <h3 className="font-alegreya text-[#190A07] uppercase text-[32px] sm:text-[40px] leading-none mb-5">
-                {activeProject.title}
-              </h3>
-
-              {/* IN PROGRESS INFO */}
-              {activeProject.inProgress && (
-                <div className="mb-6 border border-[#C33E23]/40 bg-[#C33E23]/5 px-4 py-3">
-                  <p className="font-dudu text-[#C33E23] text-[13px] uppercase tracking-[0.08em]">
-                    Case Study In Progress
-                  </p>
-
-                  <p className="font-alegreya text-[#190A07]/70 text-[13px] mt-1 leading-relaxed">
-                    This case study is currently being developed and will be
-                    published soon.
-                  </p>
-                </div>
-              )}
-
-              <img
-  src={activeProject.image}
-  alt={activeProject.title}
-  className="w-[100%] max-w-[550px] mx-auto"
-  style={{ filter: "saturate(0.9)" }}
-/>
-
-              <div className="flex flex-wrap gap-6 border-y border-dashed border-[#190A07]/25 py-4 mb-6">
-                
-
-                
-
-                {activeProject.year && (
-  <div className="text-[16px]">
-    <span className="block font-dudu font-bold text-[#C33E23] text-[14px]">
-      Year
-    </span>
-    <span className="font-alegreya text-[#190A07]">
-      {activeProject.year}
-    </span>
-  </div>
-)}
-              </div>
-
-              <>
-                <p className="font-alegreya text-[15px] text-[#190A07]/85 leading-relaxed">
-                  {activeProject.body}
-                </p>
-
-                {/*see more button */}
-                {!activeProject.inProgress && activeProject.route && (
-                  <button
-                    onClick={() => navigate(activeProject.route)}
-                    className="mt-8 inline-flex items-center gap-2
-                      font-dudu uppercase tracking-[0.08em]
-                      text-[#190A07]
-                      border border-[#190A07]
-                      px-5 py-2
-                      hover:bg-[#190A07]
-                      hover:text-[#F3E6D4]
-                      transition-all duration-300
-                      cursor-pointer interactive-hover pointer-events-auto"
-                  >
-                    See More
-                    <span>→</span>
-                  </button>
-                )}
-              </>
-            </>
-          )}
-        </div>
-      </div>
+     
     </main>
   );
 }

@@ -8,6 +8,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuMounted, setMenuMounted] = useState(false);
   const [showCopied, setShowCopied] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -16,6 +17,52 @@ export default function Navbar() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+
+
+// Track active navigation section
+useEffect(() => {
+  const updateActiveSection = () => {
+    // Contact page
+    if (location.pathname.toLowerCase() === "/contact") {
+      setActiveSection("contact");
+      return;
+    }
+
+    // Other pages
+    if (location.pathname !== "/") {
+      setActiveSection("");
+      return;
+    }
+
+    const projectsSection = document.getElementById("projects");
+
+    if (!projectsSection) {
+      setActiveSection("home");
+      return;
+    }
+
+    const rect = projectsSection.getBoundingClientRect();
+
+    if (rect.top <= 100 && rect.bottom > 100) {
+      setActiveSection("work");
+    } else {
+      setActiveSection("home");
+    }
+  };
+
+  updateActiveSection();
+
+  window.addEventListener("scroll", updateActiveSection);
+  window.addEventListener("resize", updateActiveSection);
+
+  return () => {
+    window.removeEventListener("scroll", updateActiveSection);
+    window.removeEventListener("resize", updateActiveSection);
+  };
+}, [location.pathname]);
+
+  
 
   const openMenu = () => {
     setMenuMounted(true);
@@ -180,7 +227,7 @@ export default function Navbar() {
           {/* Left: Name */}
           <button
             onClick={goHome}
-            className="text-[#190A07] font-bold text-[12px] sm:text-[14px] lg:text-lg whitespace-nowrap bg-transparent border-none cursor-pointer hover:opacity-50 transition-opacity interactive-hover pointer-events-auto"
+            className="text-[#190A07] font-alegreya font-bold text-[12px] sm:text-[14px] lg:text-lg whitespace-nowrap bg-transparent border-none cursor-pointer hover:opacity-50 transition-opacity interactive-hover pointer-events-auto"
           >
             SARA BEN SALEM
           </button>
@@ -190,27 +237,38 @@ export default function Navbar() {
           <div className="flex items-center space-x-0 lg:space-x-[20px]">
             {/* Desktop links - SHOW on xl screens */}
             <div className="hidden xl:flex items-center space-x-[20px]">
-              <span
-                onClick={goHome}
-                className="text-[#190A07] font-bold text-lg uppercase cursor-pointer hover:opacity-50 transition-opacity interactive-hover"
-              >
-                Home
-              </span>
 
-              <span
-                onClick={goToProjects}
-                className="text-[#190A07] font-bold text-lg uppercase cursor-pointer hover:opacity-50 transition-opacity interactive-hover"
-              >
-                Work
-              </span>
+  {/* Home */}
+  <span
+    onClick={goHome}
+    className={`text-[#190A07] font-alegreya text-lg uppercase cursor-pointer hover:opacity-50 transition-all interactive-hover ${
+      activeSection === "home" ? "font-bold" : "font-normal"
+    }`}
+  >
+    Home
+  </span>
 
-              <span
-                onClick={goToContact}
-                className="text-[#190A07] font-bold text-lg uppercase cursor-pointer hover:opacity-50 transition-opacity interactive-hover"
-              >
-                Contact
-              </span>
-            </div>
+  {/* Work */}
+  <span
+    onClick={goToProjects}
+    className={`text-[#190A07] font-alegreya text-lg uppercase cursor-pointer hover:opacity-50 transition-all interactive-hover ${
+      activeSection === "work" ? "font-bold" : "font-normal"
+    }`}
+  >
+    Work
+  </span>
+
+  {/* Contact */}
+  <span
+    onClick={goToContact}
+    className={`text-[#190A07] font-alegreya text-lg uppercase cursor-pointer hover:opacity-50 transition-all interactive-hover ${
+      activeSection === "contact" ? "font-bold" : "font-normal"
+    }`}
+  >
+    Contact
+  </span>
+
+</div>
 
             {/* Mobile menu icon */}
             <button
@@ -226,111 +284,69 @@ export default function Navbar() {
       {/* ---------- MOBILE JOURNAL PAGE ---------- */}
       {menuMounted && (
         <div
-          className={`fixed inset-0 w-screen h-screen xl:hidden z-50
+          className={`fixed top-0 left-0 w-full h-[40vh] sm:h-[40vh] md:h-[43vh] lg:h-[45vh] xl:hidden z-50
             transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
             ${menuOpen ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"}
           `}
           style={{
             backgroundColor: "#F3E6D4",
-            backgroundImage:
-              "repeating-linear-gradient(to bottom, transparent, transparent 39px, rgba(25,10,7,0.08) 40px)",
           }}
         >
           <div
-            className={`relative flex flex-col h-full px-6 sm:px-10 pt-10 pb-6 text-[#190A07] font-whatnot pointer-events-auto
+            className={`relative flex flex-col h-full px-6 sm:px-10 pt-8 pb-4 text-[#190A07] font-whatnot pointer-events-auto
               transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] delay-75
               ${menuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"}
             `}
           >
             {/* close, styled as a journal dismissal rather than an icon button */}
             <button
-              onClick={closeMenu}
-              className="absolute top-6 right-6 sm:top-8 sm:right-8 font-dudu text-[13px] sm:text-[15px] text-[#190A07]/50 hover:text-[#190A07] transition-colors interactive-hover pointer-events-auto"
-            >
-              close ✕
-            </button>
+  onClick={closeMenu}
+  className="absolute top-6 right-6 sm:top-8 sm:right-8 hover:opacity-60 transition-opacity interactive-hover pointer-events-auto"
+>
+  <img src={MenuIcon} alt="Close menu" className="w-4 h-4 sm:w-5 sm:h-5" />
+</button>
 
             
 
-            {/* "Today..." entry */}
-            <div className="mt-8 sm:mt-10">
-              <p className="font-dudu text-[15px] sm:text-[17px] text-[#C33E23] italic mb-4">
-                Today's menu...
-              </p>
+            {/* Today's menu */}
+<div className="mt-8 sm:mt-10">
 
-              <div className="flex flex-col gap-3 sm:gap-4">
-                <span
-                  onClick={() => { goHome(); closeMenu(); }}
-                  className="font-dudu text-2xl sm:text-3xl cursor-pointer hover:translate-x-1 transition-transform duration-200 interactive-hover"
-                >
-                  <span className="text-[#C33E23] mr-2">→</span>Home
-                </span>
+  <p className="font-alegreya font-bold text-2xl sm:text-3xl text-[#C33E23] mb-5">
+    Today's menu:
+  </p>
 
-                <span
-                  onClick={() => { goToProjects(); closeMenu(); }}
-                  className="font-dudu text-2xl sm:text-3xl cursor-pointer hover:translate-x-1 transition-transform duration-200 interactive-hover"
-                >
-                  <span className="text-[#C33E23] mr-2">→</span>Case Studies
-                </span>
+  <div className="flex flex-col gap-3 sm:gap-4">
 
-                <span
-                  onClick={() => { goToContact(); closeMenu(); }}
-                  className="font-dudu text-2xl sm:text-3xl cursor-pointer hover:translate-x-1 transition-transform duration-200 interactive-hover"
-                >
-                  <span className="text-[#C33E23] mr-2">→</span>Contact
-                </span>
-              </div>
-            </div>
+    <span
+      onClick={() => { goHome(); closeMenu(); }}
+      className="font-alegreya text-2xl sm:text-3xl cursor-pointer hover:translate-x-1 transition-transform duration-200 interactive-hover"
+    >
+      <span className="text-[#C33E23] mr-2">→</span>Home
+    </span>
+
+    <span
+      onClick={() => { goToProjects(); closeMenu(); }}
+      className="font-alegreya text-2xl sm:text-3xl cursor-pointer hover:translate-x-1 transition-transform duration-200 interactive-hover"
+    >
+      <span className="text-[#C33E23] mr-2">→</span>Case Studies
+    </span>
+
+    <span
+      onClick={() => { goToContact(); closeMenu(); }}
+      className="font-alegreya text-2xl sm:text-3xl cursor-pointer hover:translate-x-1 transition-transform duration-200 interactive-hover"
+    >
+      <span className="text-[#C33E23] mr-2">→</span>Contact
+    </span>
+
+  </div>
+</div>
 
             
 
-            {/* found elsewhere */}
-            <div className="mt-10 sm:mt-12">
-              <p className="font-dudu text-[13px] sm:text-[15px] text-[#C33E23]
-font-semibold italic mb-3">
-                Found elsewhere
-              </p>
-              <div className="flex flex-col gap-2 sm:gap-3">
-                <a
-                  href="https://www.linkedin.com/in/sara-ben-salem03/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-whatnot font-bold text-[15px] sm:text-[17px] underline hover:opacity-60 transition-opacity interactive-hover w-fit"
-                >
-                  <span>LinkedIn</span>
-                </a>
-               
-              </div>
-            </div>
-{/* closing line + email */}
-<div className="mt-10 sm:mt-12">
-  <Typewriter
-    text="Let's build something together."
-    speed={32}
-    className="font-dudu text-[13px] sm:text-[15px] text-[#C33E23]
-font-semibold italic mb-3"
-  />
+          
 
-  <button
-    onClick={(e) => {
-      if ("ontouchstart" in window) {
-        e.preventDefault();
-        window.location.href =
-          "mailto:sara.bs.contact@gmail.com?subject=Project Inquiry&body=Hi Sara, I'd like to discuss a project with you.";
-      } else {
-        handleCopyEmail();
-      }
-    }}
-    className="font-whatnot font-bold text-[14px] sm:text-[16px] underline hover:opacity-60 transition-opacity text-left interactive-hover pointer-events-auto"
-  >
-    Get in Touch
-  </button>
-</div>
 
-{/* Website credit — pinned to bottom center */}
-<div className="absolute bottom-4 left-0 right-0 text-center text-[#190A07]/35 text-[11px] sm:text-[12px] font-whatnot">
-  © Website created by Sara Ben Salem
-</div>
+
           </div>
         </div>
       )}

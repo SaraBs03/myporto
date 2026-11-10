@@ -52,14 +52,11 @@ export default function Footer() {
             onClick={handleLinkedInClick}
             className="hover:opacity-80 transition-opacity duration-200 interactive-hover whitespace-nowrap"
           >
-            LINKEDIN
+            LINKEDIN ↗
           </button>
         </div>
 
-        {/* Middle: Copyright */}
-        <div className="text-center whitespace-nowrap mx-auto">
-          © Website created by Sara Ben Salem
-        </div>
+        
 
         {/* Right: Tunis, Tunisia | 1:32pm (with blinking colon) */}
         <div className="flex items-center space-x-2 whitespace-nowrap">
@@ -78,24 +75,14 @@ export default function Footer() {
   {/* Top row: Behance & LinkedIn */}
   <div className="flex items-center space-x-3"> {/* reduced horizontal spacing */}
           <button
-            onClick={handleBehanceClick}
-            className="font-whatnot text-[#F3E6D4] text-sm hover:opacity-80 transition-opacity duration-200 interactive-hover"
-          >
-            BEHANCE 
-            
-                      </button>
-          <button
             onClick={handleLinkedInClick}
             className="font-whatnot text-[#F3E6D4] text-sm hover:opacity-80 transition-opacity duration-200 interactive-hover"
           >
-            LINKEDIN
+            LINKEDIN ↗
           </button>
         </div>
 
-        {/* Middle: Copyright */}
-        <div className="font-whatnot text-[#F3E6D4] text-sm text-center">
-          © Website created by Sara Ben Salem
-        </div>
+        
 
         {/* Bottom: Tunis, Tunisia | Time */}
         <div className="flex items-center space-x-2 font-whatnot text-[#F3E6D4] text-sm">
